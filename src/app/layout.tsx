@@ -1,15 +1,35 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Work_Sans } from "next/font/google";
+import localFont from "next/font/local";
+
+import { cn } from "@/shared/lib/utils"
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const workSans = Work_Sans({
+  variable: "--font-work-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const aeonik = localFont({
+  src: [
+    {
+      path: "/fonts/aeonik/light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "/fonts/aeonik/regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "/fonts/aeonik/bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -24,9 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={cn(workSans.variable, aeonik.className, "antialiased")}>
         {children}
       </body>
     </html>
