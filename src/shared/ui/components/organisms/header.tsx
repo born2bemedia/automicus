@@ -1,0 +1,92 @@
+'use client';
+
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  Text,
+} from '@/shared/ui/components/atoms';
+import { LangSwitcher, NavButton } from '@/shared/ui/components/molecules';
+import { BurgerMenu } from '@/shared/ui/components/organisms';
+import { ThreeLinesIcon } from '@/shared/ui/icons/fill';
+import {
+  FacebookIcon,
+  InstagramIcon,
+  TikTokIcon,
+  XIcon,
+  YouTubeIcon,
+} from '@/shared/ui/icons/socials';
+
+export const Header = () => {
+  return (
+    <header className="sticky top-0 z-50 flex flex-col">
+      <HeaderTop />
+      <HeaderBottom />
+    </header>
+  );
+};
+
+const HeaderTop = () => (
+  <section className="flex items-center gap-[63px] bg-[#E5E5E5] px-[80px] py-1.5 max-lg:hidden">
+    <section className="ml-auto flex items-center gap-3.5 bg-white/10">
+      {[XIcon, FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon].map(
+        (Icon, index) => (
+          <div
+            key={`icon-${index}`}
+            className="flex h-4 w-max items-center justify-center"
+          >
+            <Icon />
+          </div>
+        ),
+      )}
+    </section>
+    <LangSwitcher />
+  </section>
+);
+
+const HeaderBottom = () => (
+  <section className="flex items-center justify-between px-[80px] py-3 max-md:px-4">
+    <section className="flex items-center gap-[80px]">
+      <Text color="light">Logo</Text>
+      <div className="flex items-center gap-2 max-lg:hidden">
+        <NavButton url="/">Catalog</NavButton>
+        <NavButton url="/">Bot Bundles</NavButton>
+        <NavButton url="/">Bot Reviews</NavButton>
+        <NavButton url="/">Deals</NavButton>
+        <NavButton url="/">Compare Bots</NavButton>
+        <NavButton url="/">About Us</NavButton>
+        <Dropdown label={<ThreeLinesIcon />}>
+          <DropdownItem>
+            <NavButton url="/about-us" variant="flat">
+              About Us
+            </NavButton>
+          </DropdownItem>
+          <DropdownItem>
+            <NavButton url="/faq" variant="flat">
+              FAQ
+            </NavButton>
+          </DropdownItem>
+          <DropdownItem>
+            <NavButton url="/contact" variant="flat">
+              Contact
+            </NavButton>
+          </DropdownItem>
+          <DropdownItem>
+            <NavButton url="/help-center" variant="flat">
+              Help Center
+            </NavButton>
+          </DropdownItem>
+        </Dropdown>
+      </div>
+    </section>
+    <section className="flex items-center gap-[30px] max-lg:hidden">
+      <Button variant="ghost" size="sm">
+        Cart
+      </Button>
+      <Button variant="secondary" size="sm">
+        Log In
+      </Button>
+    </section>
+    <BurgerMenu />
+  </section>
+);
