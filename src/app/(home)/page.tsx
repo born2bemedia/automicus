@@ -1,3 +1,5 @@
+import { getBotBundles, getBots } from '@/features/bots/api';
+
 import {
   BotBundles,
   ContactUs,
@@ -12,18 +14,21 @@ import {
   YouCanAchieve,
 } from './components';
 
-export default function Home() {
+export default async function Home() {
+  const { data: bots } = await getBots({ params: { limit: 3 } });
+  const { data: bundles } = await getBotBundles({ params: { limit: 3 } });
+
   return (
     <main>
       <Hero />
       <WhatWeOffer />
-      <TopBots />
+      <TopBots bots={bots.docs} />
       <WhyChoose />
       <YouCanAchieve />
       <Stats />
       <HowItWorks />
       <Deals />
-      <BotBundles />
+      <BotBundles bundles={bundles.docs} />
       <NeedHelp />
       <ContactUs />
     </main>
