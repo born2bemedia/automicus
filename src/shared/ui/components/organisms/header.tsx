@@ -1,5 +1,7 @@
 'use client';
 
+import { routes } from '@/shared/config/routes';
+import { useWindowSize } from '@/shared/lib/hooks';
 import {
   Button,
   Dropdown,
@@ -44,49 +46,39 @@ const HeaderTop = () => (
   </section>
 );
 
-const HeaderBottom = () => (
-  <section className="flex items-center justify-between px-[80px] py-3 max-md:px-4">
-    <section className="flex items-center gap-[80px]">
-      <Text color="light">Logo</Text>
-      <div className="flex items-center gap-2 max-lg:hidden">
-        <NavButton url="/">Catalog</NavButton>
-        <NavButton url="/">Bot Bundles</NavButton>
-        <NavButton url="/">Bot Reviews</NavButton>
-        <NavButton url="/">Deals</NavButton>
-        <NavButton url="/">Compare Bots</NavButton>
-        <NavButton url="/">About Us</NavButton>
-        <Dropdown label={<ThreeLinesIcon />}>
-          <DropdownItem>
-            <NavButton url="/about-us" variant="flat">
-              About Us
+const HeaderBottom = () => {
+  const { width } = useWindowSize();
+
+  return (
+    <section className="flex items-center justify-between px-[80px] py-3 max-md:px-4">
+      <section className="flex items-center gap-[80px]">
+        <Text color="light">Logo</Text>
+        <div className="flex items-center gap-2 max-lg:hidden">
+          {routes.slice(0, 6).map(({ label, url }) => (
+            <NavButton key={label} url={url}>
+              {label}
             </NavButton>
-          </DropdownItem>
-          <DropdownItem>
-            <NavButton url="/faq" variant="flat">
-              FAQ
-            </NavButton>
-          </DropdownItem>
-          <DropdownItem>
-            <NavButton url="/contact" variant="flat">
-              Contact
-            </NavButton>
-          </DropdownItem>
-          <DropdownItem>
-            <NavButton url="/help-center" variant="flat">
-              Help Center
-            </NavButton>
-          </DropdownItem>
-        </Dropdown>
-      </div>
+          ))}
+          <Dropdown label={<ThreeLinesIcon />}>
+            {routes.slice(6, 11).map(({ label, url }) => (
+              <DropdownItem key={label}>
+                <NavButton url={url} variant="flat">
+                  {label}
+                </NavButton>
+              </DropdownItem>
+            ))}
+          </Dropdown>
+        </div>
+      </section>
+      <section className="flex items-center gap-[30px] max-lg:hidden">
+        <Button variant="ghost" size="sm">
+          Cart
+        </Button>
+        <Button variant="secondary" size="sm">
+          Log In
+        </Button>
+      </section>
+      {width < 1024 && <BurgerMenu />}
     </section>
-    <section className="flex items-center gap-[30px] max-lg:hidden">
-      <Button variant="ghost" size="sm">
-        Cart
-      </Button>
-      <Button variant="secondary" size="sm">
-        Log In
-      </Button>
-    </section>
-    <BurgerMenu />
-  </section>
-);
+  );
+};

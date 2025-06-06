@@ -10,7 +10,7 @@ export const getBotBundles = async ({
 }: {
   id?: number;
   params?: { limit?: number };
-}) => {
+} = {}) => {
   const res = await fetch(
     `${SERVER_URL}/api/bundles${id ? `/${id}` : ''}?limit=${params.limit}`,
     {

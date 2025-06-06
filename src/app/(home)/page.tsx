@@ -14,9 +14,11 @@ import {
   YouCanAchieve,
 } from './components';
 
-export default async function Home() {
+export default async function HomePage() {
   const { data: bots } = await getBots({ params: { limit: 3 } });
   const { data: bundles } = await getBotBundles({ params: { limit: 3 } });
+
+  console.log('bundles', bundles);
 
   return (
     <main>

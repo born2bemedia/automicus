@@ -17,8 +17,8 @@ export const BotBundles = ({ bundles }: { bundles: BotBundle[] }) => {
         </div>
       </header>
       <section className="flex flex-col gap-1">
-        {bundles.map(bundle => (
-          <BotBundleCard key={bundle.name} {...bundle} />
+        {bundles.map((bundle, i) => (
+          <BotBundleCard key={bundle.name + i} {...bundle} />
         ))}
       </section>
     </section>

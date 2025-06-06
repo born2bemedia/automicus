@@ -13,7 +13,7 @@ export const NavButton = ({
 }: {
   children: ReactNode;
   url: string;
-  variant?: 'faded' | 'flat' | 'secondary';
+  variant?: 'faded' | 'flat' | 'secondary' | 'primary';
   size?: 'sm' | 'md';
 }) => (
   <Link className="flex" href={url}>
