@@ -32,13 +32,13 @@ export const BotBundleGroup = ({ bundles }: { bundles: BotBundle[] }) => {
 
   return (
     <section className="flex flex-col gap-20 px-10 pt-10 pb-20 max-md:p-6">
-      {Object.entries(groupedBundles).map(([type, typeBundles]) => (
+      {Object.entries(groupedBundles).map(([type, bundles]) => (
         <Fragment key={type}>
           <section className="flex flex-col gap-10">
             <Title as="h2" color="light" uppercase>
               {bundleTitles[type]}
             </Title>
-            {typeBundles.map((bundle, i) => (
+            {bundles.map((bundle, i) => (
               <BotBundleCard key={bundle.name + i} {...bundle} />
             ))}
           </section>
