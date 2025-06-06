@@ -10,7 +10,7 @@ export const getBots = async ({
 }: {
   id?: number;
   params?: { limit?: number };
-}) => {
+} = {}) => {
   const res = await fetch(
     `${SERVER_URL}/api/bots${id ? `/${id}` : ''}?limit=${params.limit}`,
     {

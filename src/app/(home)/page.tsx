@@ -15,7 +15,7 @@ import {
 } from './components';
 
 export default async function HomePage() {
-  const { data: bots } = await getBots({ params: { limit: 3 } });
+  const { data: bots } = await getBots({ params: { limit: 6 } });
   const { data: bundles } = await getBotBundles({ params: { limit: 3 } });
 
   console.log('bundles', bundles);
@@ -29,7 +29,7 @@ export default async function HomePage() {
       <YouCanAchieve />
       <Stats />
       <HowItWorks />
-      <Deals />
+      <Deals bots={bots.docs} />
       <BotBundles bundles={bundles.docs} />
       <NeedHelp />
       <ContactUs />

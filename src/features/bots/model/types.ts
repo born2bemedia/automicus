@@ -6,7 +6,10 @@ export type Bot = {
   description: string;
   discount: number;
   price: number;
+  type: BotType;
 };
+
+export type BotType = 'forex' | 'ai-powered' | 'gold';
 
 export type BotResponse = {
   docs: Bot[];
