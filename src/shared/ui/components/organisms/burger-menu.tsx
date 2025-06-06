@@ -11,6 +11,7 @@ import {
   Trigger,
 } from '@radix-ui/react-dialog';
 
+import { routes } from '@/shared/config/routes';
 import { cn } from '@/shared/lib/utils';
 import { Button, Text } from '@/shared/ui/components/atoms';
 import { NavButton } from '@/shared/ui/components/molecules';
@@ -63,27 +64,32 @@ export const BurgerMenu = () => {
               <section className="flex items-end justify-between gap-24">
                 <section className="flex flex-col gap-[60px]">
                   <div className="flex flex-col gap-4">
-                    <NavButton url="/" variant="flat">
+                    {routes.map(({ label, url }) => (
+                      <NavButton key={label} url={url} variant="flat">
+                        {label}
+                      </NavButton>
+                    ))}
+                    {/* <NavButton url="/catalog" variant="flat">
                       Catalog
                     </NavButton>
-                    <NavButton url="/" variant="flat">
+                    <NavButton url="/bot-bundles" variant="flat">
                       Bot Bundles
                     </NavButton>
-                    <NavButton url="/" variant="flat">
+                    <NavButton url="/bot-reviews" variant="flat">
                       Bot Reviews
                     </NavButton>
-                    <NavButton url="/" variant="flat">
+                    <NavButton url="/deals" variant="flat">
                       Deals
                     </NavButton>
-                    <NavButton url="/" variant="flat">
+                    <NavButton url="/compare-bots" variant="flat">
                       Compare Bots
                     </NavButton>
-                    <NavButton url="/" variant="flat">
+                    <NavButton url="/about-us" variant="flat">
                       About Us
                     </NavButton>
-                    <NavButton url="/" variant="flat">
+                    <NavButton url="/help-center" variant="flat">
                       FAQ
-                    </NavButton>
+                    </NavButton> */}
                   </div>
                   <div className="flex flex-col gap-4">
                     <Button size="sm">

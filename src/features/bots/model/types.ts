@@ -19,7 +19,10 @@ export type BotBundle = {
   price: number;
   discount: number;
   bots: Bot[];
+  type: BotBundleType;
 };
+
+export type BotBundleType = 'high-frequency' | 'trend-following' | 'mixed';
 
 export type BotBundleResponse = {
   docs: BotBundle[];
