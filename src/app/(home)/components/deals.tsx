@@ -13,7 +13,7 @@ export const Deals = ({ bots }: { bots: Bot[] }) => {
       </Title>
       <section className="flex justify-center gap-1 max-md:flex-col">
         {bots.map((bot, i) => (
-          <BotCard key={bot.name + i} {...bot} />
+          <BotCard key={bot.name + i} variant="full" {...bot} />
         ))}
       </section>
       <section className="flex justify-center">
