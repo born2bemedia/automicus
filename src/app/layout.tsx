@@ -1,8 +1,10 @@
+import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Work_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { cn } from '@/shared/lib/utils';
+import { Dialog } from '@/shared/ui/components/atoms';
 import { Footer, Header } from '@/shared/ui/components/organisms';
 
 import './globals.css';
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -59,6 +61,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Dialog />
       </body>
     </html>
   );

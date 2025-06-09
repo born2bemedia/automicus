@@ -5,6 +5,7 @@
   --secondary: #002744;
   --dark: #030712;
   --stroke: #ffffff1a;
+  --danger: #ff5151;
 }
 
 @theme inline {
@@ -12,7 +13,9 @@
   --color-secondary: var(--secondary);
   --color-dark: var(--dark);
   --color-stroke: var(--stroke);
+  --color-danger: var(--danger);
   --font-work-sans: var(--font-work-sans);
+  --font-aeonik: 'Aeonik Fono', sans-serif;
 }
 
 body {

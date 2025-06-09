@@ -2,6 +2,7 @@
 
 'use client';
 
+import { cn } from '@/shared/lib/utils';
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { NavButton } from '@/shared/ui/components/molecules';
 
@@ -10,6 +11,8 @@ export const VideoHero = ({
   text,
   videoUrl,
   metaButton,
+  className,
+  filter,
 }: {
   title: string;
   text: string;
@@ -18,10 +21,17 @@ export const VideoHero = ({
     label: string;
     url: string;
   };
+  className?: string;
+  filter?: string;
 }) => {
   return (
-    <section className="relative flex h-[810px] flex-col items-center justify-center gap-9 px-6 pb-20 max-md:items-start max-md:justify-end">
-      <section className="flex max-w-[1000px] flex-col items-center justify-center gap-4 max-lg:w-full max-md:items-start max-md:justify-start">
+    <section
+      className={cn(
+        'relative flex h-[810px] flex-col items-center justify-center gap-9 px-6 pb-20 max-md:items-start max-md:justify-end',
+        className,
+      )}
+    >
+      <section className="flex max-w-[70%] flex-col items-center justify-center gap-4 max-lg:w-full max-md:items-start max-md:justify-start">
         <Title
           size="6xl"
           zIndex="1"
@@ -45,7 +55,12 @@ export const VideoHero = ({
         muted
         className="absolute right-0 bottom-0 h-full w-full object-cover grayscale filter"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/60" />
+      <div
+        className={cn(
+          'absolute inset-0',
+          filter ?? 'bg-gradient-to-t from-black/60 to-black/60',
+        )}
+      />
     </section>
   );
 };
