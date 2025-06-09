@@ -27,16 +27,15 @@ export const ContactForm = () => {
       onChange: contactSchema,
     },
     onSubmit: async ({ value }) => {
-      // const { status } = await sendContactForm(value);
-      console.log('status', status);
+      const { status } = await sendContactForm(value);
 
-      // if (status === 'OK') {
-      registerContent({
-        title: 'Thank You for Reaching Out!',
-        content: <ThankYouDialog />,
-      });
-      setIsOpen(true);
-      // }
+      if (status === 'OK') {
+        registerContent({
+          title: 'Thank You for Reaching Out!',
+          content: <ThankYouDialog />,
+        });
+        setIsOpen(true);
+      }
     },
   });
 
