@@ -19,6 +19,7 @@ const btnVariants = cva(
       size: {
         sm: 'py-1.5 px-3 text-base',
         md: 'py-3 px-[40px] text-sm',
+        lg: 'py-5 px-[40px] text-base',
       },
       zIndex: {
         '1': 'z-10',
