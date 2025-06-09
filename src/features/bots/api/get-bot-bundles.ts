@@ -20,7 +20,7 @@ export const getBotBundles = async ({
       },
     },
   );
-  console.log('res', res);
   const data: BotBundleResponse = await res.json();
+
   return { data };
 };

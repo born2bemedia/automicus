@@ -21,7 +21,7 @@ export const VideoHero = ({
 }) => {
   return (
     <section className="relative flex h-[810px] flex-col items-center justify-center gap-9 px-6 pb-20 max-md:items-start max-md:justify-end">
-      <section className="flex flex-col items-center justify-center gap-4 max-md:items-start max-md:justify-start">
+      <section className="flex max-w-[1000px] flex-col items-center justify-center gap-4 max-lg:w-full max-md:items-start max-md:justify-start">
         <Title
           size="6xl"
           zIndex="1"
