@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 
-import { Button } from '@/shared/ui/components/atoms';
+import { Button, type ButtonVariants } from '@/shared/ui/components/atoms';
 
 export const NavButton = ({
   children,
@@ -13,7 +13,7 @@ export const NavButton = ({
 }: {
   children: ReactNode;
   url: string;
-  variant?: 'faded' | 'flat' | 'secondary' | 'primary';
+  variant?: ButtonVariants['variant'];
   size?: 'sm' | 'md';
 }) => (
   <Link className="flex" href={url}>
