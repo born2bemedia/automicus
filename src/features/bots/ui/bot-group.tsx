@@ -13,7 +13,13 @@ const botTitles: Record<string, string> = {
   gold: 'Gold Bot Deals',
 };
 
-export const BotGroup = ({ bots }: { bots: Bot[] }) => {
+export const BotGroup = ({
+  bots,
+  limit = 3,
+}: {
+  bots: Bot[];
+  limit?: number;
+}) => {
   const groupedBundles = useMemo(
     () =>
       bots.reduce<Record<BotType, Bot[]>>(
@@ -38,8 +44,10 @@ export const BotGroup = ({ bots }: { bots: Bot[] }) => {
             <Title as="h2" color="light" uppercase>
               {botTitles[type]}
             </Title>
-            <section className="grid grid-cols-3 gap-1 max-md:grid-cols-1">
-              {bots.map((bot, i) => (
+            <section
+              className={`grid grid-cols-${limit} gap-1 max-md:grid-cols-1`}
+            >
+              {bots.slice(0, limit).map((bot, i) => (
                 <BotCard
                   key={bot.name + i}
                   variant="full"

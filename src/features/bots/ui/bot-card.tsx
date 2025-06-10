@@ -60,8 +60,10 @@ export const BotCard = ({
           <Chip>Save {discount}!</Chip>
         </div>
         <div className="flex items-center gap-2.5">
-          <Button>Buy</Button>
-          <Button variant="secondary">Explore</Button>
+          <Button fullWidth>Buy</Button>
+          <Button variant="secondary" fullWidth>
+            Explore
+          </Button>
         </div>
       </section>
     </article>
