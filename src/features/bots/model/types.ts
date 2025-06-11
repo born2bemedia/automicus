@@ -38,3 +38,12 @@ export type BotBundleType = 'high-frequency' | 'trend-following' | 'mixed';
 export type BotBundleResponse = {
   docs: BotBundle[];
 } & Response;
+
+export type BotReview = {
+  id: string;
+  bot: Bot;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: unknown;
+};

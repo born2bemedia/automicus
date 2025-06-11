@@ -6,3 +6,4 @@ export * from './bot-header';
 export * from './bot-preview';
 export * from './bot-suitable-grid';
 export * from './bot-summary';
+export * from './bots-review-preview';
