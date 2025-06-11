@@ -13,6 +13,7 @@ export const VideoHero = ({
   metaButton,
   className,
   filter,
+  disableFilter = false,
 }: {
   title: string;
   text: string;
@@ -23,6 +24,7 @@ export const VideoHero = ({
   };
   className?: string;
   filter?: string;
+  disableFilter?: boolean;
 }) => {
   return (
     <section
@@ -53,7 +55,10 @@ export const VideoHero = ({
         autoPlay
         loop
         muted
-        className="absolute right-0 bottom-0 h-full w-full object-cover grayscale filter"
+        className={cn(
+          'absolute right-0 bottom-0 h-full w-full object-cover',
+          !disableFilter && 'grayscale filter',
+        )}
       />
       <div
         className={cn(
