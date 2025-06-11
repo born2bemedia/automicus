@@ -1,5 +1,6 @@
 import { cn } from '@/shared/lib/utils';
 import { Button, Chip, Text } from '@/shared/ui/components/atoms';
+import { NavButton } from '@/shared/ui/components/molecules';
 
 import type { Bot } from '../model';
 
@@ -8,8 +9,9 @@ export const BotCard = ({
   name,
   price,
   discount,
-  variant = 'simplify',
   layoutClassName,
+  slug,
+  variant = 'simplify',
 }: Bot & {
   variant?: 'simplify' | 'full';
   layoutClassName?: string;
@@ -33,7 +35,14 @@ export const BotCard = ({
         </Text>
         <div className="flex items-center gap-2.5">
           <Button>Buy</Button>
-          <Button variant="secondary">Explore</Button>
+          <NavButton
+            url={`/catalog/${slug}`}
+            variant="secondary"
+            size="md"
+            fullWidth
+          >
+            Explore
+          </NavButton>
         </div>
       </section>
     </article>
@@ -61,9 +70,14 @@ export const BotCard = ({
         </div>
         <div className="flex items-center gap-2.5">
           <Button fullWidth>Buy</Button>
-          <Button variant="secondary" fullWidth>
+          <NavButton
+            url={`/catalog/${slug}`}
+            size="md"
+            variant="secondary"
+            fullWidth
+          >
             Explore
-          </Button>
+          </NavButton>
         </div>
       </section>
     </article>
