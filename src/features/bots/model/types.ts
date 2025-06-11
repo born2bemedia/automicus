@@ -7,7 +7,15 @@ export type Bot = {
   discount: number;
   price: number;
   type: BotType;
+  excerpt: string;
+  slug: string;
+  summary: string;
+  howItWorks: BotTextBlock[];
+  suitableFor: BotTextBlock[];
+  features: BotTextBlock[];
 };
+
+export type BotTextBlock = { id: string; title: string; description: string };
 
 export type BotType = 'forex' | 'ai-powered' | 'gold';
 
