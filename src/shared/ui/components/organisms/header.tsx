@@ -1,13 +1,10 @@
 'use client';
 
+import Image from 'next/image';
+
 import { routes } from '@/shared/config/routes';
 import { useWindowSize } from '@/shared/lib/hooks';
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  Text,
-} from '@/shared/ui/components/atoms';
+import { Button, Dropdown, DropdownItem } from '@/shared/ui/components/atoms';
 import { LangSwitcher, NavButton } from '@/shared/ui/components/molecules';
 import { BurgerMenu } from '@/shared/ui/components/organisms';
 import { ThreeLinesIcon } from '@/shared/ui/icons/fill';
@@ -50,9 +47,9 @@ const HeaderBottom = () => {
   const { width } = useWindowSize();
 
   return (
-    <section className="flex items-center justify-between px-[80px] py-3 max-md:px-4">
+    <section className="flex items-center justify-between bg-black/50 px-[80px] py-3 backdrop-blur-[10px] max-md:px-4">
       <section className="flex items-center gap-[80px]">
-        <Text color="light">Logo</Text>
+        <Image src="/full-logo-white.svg" alt="logo" width={180} height={36} />
         <div className="flex items-center gap-2 max-lg:hidden">
           {routes.slice(0, 6).map(({ label, url }) => (
             <NavButton key={label} url={url}>
