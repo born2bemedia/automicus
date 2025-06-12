@@ -10,6 +10,7 @@ const titleVariants = cva(
     variants: {
       color: {
         primary: 'text-secondary',
+        secondary: 'text-primary',
         dark: 'text-dark',
         light: 'text-white',
       },
