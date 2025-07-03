@@ -6,6 +6,7 @@ import localFont from 'next/font/local';
 import { cn } from '@/shared/lib/utils';
 import { Dialog } from '@/shared/ui/components/atoms';
 import { Footer, Header, Preloader } from '@/shared/ui/components/organisms';
+import { CookieConsent } from '@/shared/ui/components/organisms/cookie-consent';
 
 import './globals.css';
 
@@ -63,6 +64,7 @@ export default function RootLayout({
         <Footer />
         <Dialog />
         <Preloader />
+        <CookieConsent />
       </body>
     </html>
   );
