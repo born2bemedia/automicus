@@ -15,14 +15,20 @@ export const BotsReviewPreview = ({ data }: { data: BotReview[] }) => {
         decisions based on real-world performance.
       </Text>
       <section className="grid grid-cols-3 gap-1 max-md:grid-cols-1">
-        {data.map(item => (
-          <Card
-            key={item.id}
-            botName={item.bot.name}
-            excerpt={item.excerpt}
-            slug={item.slug}
-          />
-        ))}
+        {data.map.length ? (
+          data.map(item => (
+            <Card
+              key={item.id}
+              botName={item.bot.name}
+              excerpt={item.excerpt}
+              slug={item.slug}
+            />
+          ))
+        ) : (
+          <Text weight="medium" color="light">
+            No reviews yet
+          </Text>
+        )}
       </section>
     </section>
   );
