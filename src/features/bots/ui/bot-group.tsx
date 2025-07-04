@@ -38,8 +38,6 @@ export const BotGroup = ({
     [bots],
   );
 
-  console.log('groupedBundles', groupedBundles);
-
   return (
     <section className="flex flex-col gap-20 px-10 pt-10 pb-20 max-md:p-6">
       {Object.entries(groupedBundles).map(([type, bots]) => (
