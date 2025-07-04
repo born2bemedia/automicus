@@ -17,7 +17,7 @@ export type Bot = {
 
 export type BotTextBlock = { id: string; title: string; description: string };
 
-export type BotType = 'forex' | 'ai-powered' | 'gold';
+export type BotType = 'forex' | 'scalping' | 'gold';
 
 export type BotResponse = {
   docs: Bot[];

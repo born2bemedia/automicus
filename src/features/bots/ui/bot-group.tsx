@@ -9,7 +9,7 @@ import { BotCard } from './bot-card';
 
 const botTitles: Record<string, string> = {
   forex: 'Forex Bot Deals',
-  'ai-powered': 'AI-Powered Bot Deals',
+  scalping: 'Scalping Bot Deals',
   gold: 'Gold Bot Deals',
 };
 
@@ -24,17 +24,21 @@ export const BotGroup = ({
     () =>
       bots.reduce<Record<BotType, Bot[]>>(
         (acc, bundle) => {
-          (acc[bundle.type] ||= []).push(bundle);
+          if (['forex', 'scalping', 'gold'].includes(bundle.type)) {
+            (acc[bundle.type] ||= []).push(bundle);
+          }
           return acc;
         },
         {
           forex: [],
-          'ai-powered': [],
+          scalping: [],
           gold: [],
         },
       ),
     [bots],
   );
+
+  console.log('groupedBundles', groupedBundles);
 
   return (
     <section className="flex flex-col gap-20 px-10 pt-10 pb-20 max-md:p-6">
