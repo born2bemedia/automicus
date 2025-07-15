@@ -1,6 +1,6 @@
 'use client';
 
-import { type Key, memo } from 'react';
+import { memo } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 import { Text } from '@/shared/ui/components/atoms/text';
@@ -9,10 +9,10 @@ import { Title } from '@/shared/ui/components/atoms/title';
 import type { Content } from '../model';
 
 export const ReviewStrategies = memo(
-  ({ key, node, type }: { node: Content['root']; key: Key; type: string }) => {
+  ({ node, type }: { node: Content['root']; type: string }) => {
     if (type === 'heading') {
       return (
-        <span key={key} className="mb-10">
+        <span className="mb-10">
           <Title as="h2" color="secondary" size="2xl" uppercase>
             {node.children?.map(item => item?.text)}
           </Title>
@@ -23,14 +23,11 @@ export const ReviewStrategies = memo(
     if (type === 'paragraph') {
       return (
         <span className="mb-10">
-          {node.children.map(item =>
+          {node.children.map((item, i) =>
             item.type === 'linebreak' ? (
-              <br key={key} />
+              <br key={String(`linebreak-${i}`)} />
             ) : (
-              <span
-                key={item.text}
-                className={item.format === 1 ? 'mb-2.5' : ''}
-              >
+              <span key={item.text} className={item.format === 1 ? 'mb-2' : ''}>
                 <Text
                   key={item.text}
                   weight={item.format === 1 ? 'bold' : 'medium'}
@@ -48,7 +45,6 @@ export const ReviewStrategies = memo(
     if (type === 'link') {
       return (
         <a
-          key={key}
           href={node?.fields?.url}
           target={node?.fields?.newTab ? '_blank' : '_self'}
           rel="noopener noreferrer"
@@ -67,7 +63,6 @@ export const ReviewStrategies = memo(
 
       return (
         <ul
-          key={key}
           className={cn(
             'mt-[-30px]',
             node.listType === 'bullet'
@@ -85,7 +80,7 @@ export const ReviewStrategies = memo(
     }
 
     if (type === 'linebreak') {
-      return <br key={key} />;
+      return <br />;
     }
 
     return null;
