@@ -52,8 +52,10 @@ const Card = ({
         {excerpt}
       </Text>
     </section>
-    <NavButton url={`/bot-reviews/${slug}`} size="md" variant="primary">
-      Read
-    </NavButton>
+    <div className="mt-auto">
+      <NavButton url={`/bot-reviews/${slug}`} size="md" variant="primary">
+        Read
+      </NavButton>
+    </div>
   </article>
 );
