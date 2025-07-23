@@ -56,11 +56,6 @@ export const ReviewStrategies = memo(
     }
 
     if (type === 'list') {
-      console.log(
-        'node.children list',
-        node.children.map(item => item.children.map(i => i.text)),
-      );
-
       return (
         <ul
           className={cn(
