@@ -45,7 +45,7 @@ export const BotBundleCard = ({
         <section className="flex gap-20 max-md:flex-col max-md:gap-6">
           <div className="flex gap-2.5">
             <Text size="5xl" weight="bold" color="light">
-              €{price}
+              €{price.toLocaleString()}
             </Text>
             <Chip>Save €{discount}!</Chip>
           </div>
