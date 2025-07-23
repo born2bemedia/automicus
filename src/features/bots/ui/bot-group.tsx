@@ -22,17 +22,19 @@ export const BotGroup = ({
 }) => {
   const groupedBundles = useMemo(
     () =>
-      bots.reduce<Record<BotType, Bot[]>>(
+      bots.reduce<Record<Exclude<BotType, 'gold'>, Bot[]>>(
         (acc, bundle) => {
-          if (['forex', 'scalping', 'gold'].includes(bundle.type)) {
-            (acc[bundle.type] ||= []).push(bundle);
+          if (['forex', 'scalping'].includes(bundle.type)) {
+            acc[bundle.type as keyof typeof acc] = [
+              ...(acc[bundle.type as keyof typeof acc] || []),
+              bundle,
+            ];
           }
           return acc;
         },
         {
           forex: [],
           scalping: [],
-          gold: [],
         },
       ),
     [bots],

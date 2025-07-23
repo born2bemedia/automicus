@@ -23,9 +23,9 @@ export const BotBundleCard = ({
           {description}
         </Text>
       </section>
-      <section className="flex w-full max-w-[815px] flex-col gap-10">
+      <section className="flex w-max flex-col gap-10">
         {bots.length % 2 === 0 ? (
-          <section className="grid grid-cols-2 gap-6 max-md:flex-col">
+          <section className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
             {bots.map((bot, i) => (
               <BotPreview key={bot.name + i} {...bot} />
             ))}
