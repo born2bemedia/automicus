@@ -12,7 +12,7 @@ export const BotPreview = ({ name, price, discount }: Bot) => {
       </Text>
       <div className="flex gap-2.5 max-md:flex-col">
         <Text size="3xl" weight="bold" color="light">
-          €{price}
+          €{price.toLocaleString()}
         </Text>
         <Chip>Save €{discount}!</Chip>
       </div>
