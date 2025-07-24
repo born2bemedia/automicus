@@ -1,5 +1,5 @@
 import { getBots } from '@/features/bots/api';
-import { BotGroup } from '@/features/bots/ui/bot-group';
+import { BotCatalog } from '@/features/bots/ui/bot-catalog';
 
 import { CubesFooter, VideoHero } from '@/shared/ui/components/organisms';
 
@@ -17,7 +17,7 @@ export default async function CatalogPage() {
           url: '/contact',
         }}
       />
-      <BotGroup bots={data.docs} limit={2} />
+      <BotCatalog bots={data.docs} />
       <CubesFooter
         title="Special Deals & Bundles"
         text="Automicus offers exclusive discounts and curated bot bundles to help you save more while automating your trading."

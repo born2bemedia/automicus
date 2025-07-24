@@ -13,9 +13,11 @@ export const BotCard = ({
   slug,
   excerpt,
   variant = 'simplify',
+  showSaleBanner = true,
 }: Bot & {
   variant?: 'simplify' | 'full';
   layoutClassName?: string;
+  showSaleBanner?: boolean;
 }) => {
   return variant === 'simplify' ? (
     <article
@@ -54,11 +56,13 @@ export const BotCard = ({
         layoutClassName,
       )}
     >
-      <span className="w-full rounded-t-lg bg-[#CBFF00] px-10 py-2.5 text-center">
-        <Text color="primary" size="xl">
-          TODAY ONLY!
-        </Text>
-      </span>
+      {showSaleBanner ? (
+        <span className="w-full rounded-t-lg bg-[#CBFF00] px-10 py-2.5 text-center">
+          <Text color="primary" size="xl">
+            TODAY ONLY!
+          </Text>
+        </span>
+      ) : null}
       <section className="flex h-full flex-col gap-6 p-10 max-md:p-6">
         <div className="flex flex-col gap-2">
           <Text size="4xl" className="text-[28px]" weight="bold" color="light">
@@ -68,13 +72,13 @@ export const BotCard = ({
             {excerpt}
           </Text>
         </div>
-        <div className="flex gap-2.5">
+        <div className="mt-auto flex gap-2.5">
           <Text size="4xl" weight="bold" color="light">
             €{price.toLocaleString()}
           </Text>
           <Chip>Save €{discount}!</Chip>
         </div>
-        <div className="mt-auto flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5">
           <Button fullWidth>Buy</Button>
           <NavButton
             url={`/catalog/${slug}`}
