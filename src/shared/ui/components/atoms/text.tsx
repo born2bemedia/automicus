@@ -61,16 +61,19 @@ export const Text = ({
   zIndex,
   hover = false,
   uppercase = false,
+  className,
 }: {
   children: React.ReactNode;
   hover?: boolean;
   uppercase?: boolean;
+  className?: string;
 } & TextVariants) => (
   <p
     className={cn(
       textVariants({ size, color, weight, opacity, zIndex }),
       hover && 'hover:opacity-50',
       uppercase && 'uppercase',
+      className,
     )}
   >
     {children}

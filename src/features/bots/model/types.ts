@@ -13,6 +13,7 @@ export type Bot = {
   howItWorks: BotTextBlock[];
   suitableFor: BotTextBlock[];
   features: BotTextBlock[];
+  pin?: boolean;
 };
 
 export type BotTextBlock = { id: string; title: string; description: string };

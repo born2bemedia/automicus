@@ -3,8 +3,6 @@ import { BotGroup } from '@/features/bots/ui';
 
 import { VideoHero } from '@/shared/ui/components/organisms';
 
-import { NoDeals } from './components';
-
 export default async function DealsPage() {
   const { data } = await getBots();
 
@@ -20,7 +18,6 @@ export default async function DealsPage() {
         }}
       />
       <BotGroup bots={data.docs} />
-      <NoDeals />
     </main>
   );
 }

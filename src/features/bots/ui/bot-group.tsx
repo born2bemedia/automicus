@@ -1,71 +1,63 @@
 'use client';
 
-import { Fragment, useMemo } from 'react';
-
-import { Divider, Title } from '@/shared/ui/components/atoms';
+import { Divider, Text, Title } from '@/shared/ui/components/atoms';
 
 import type { Bot, BotType } from '../model';
 import { BotCard } from './bot-card';
 
-const botTitles: Record<string, string> = {
-  forex: 'Forex Bot Deals',
-  scalping: 'Scalping Bot Deals',
-  gold: 'Gold Bot Deals',
-};
-
-export const BotGroup = ({
-  bots,
-  limit = 3,
-}: {
-  bots: Bot[];
-  limit?: number;
-}) => {
-  const groupedBundles = useMemo(
-    () =>
-      bots.reduce<Record<Exclude<BotType, 'gold'>, Bot[]>>(
-        (acc, bundle) => {
-          if (['forex', 'scalping'].includes(bundle.type)) {
-            acc[bundle.type as keyof typeof acc] = [
-              ...(acc[bundle.type as keyof typeof acc] || []),
-              bundle,
-            ];
-          }
-          return acc;
-        },
-        {
-          forex: [],
-          scalping: [],
-        },
-      ),
-    [bots],
-  );
-
+export const BotGroup = ({ bots }: { bots: Bot[] }) => {
   return (
     <section className="flex flex-col gap-20 px-10 pt-10 pb-20 max-md:p-6">
-      {Object.entries(groupedBundles).map(([type, bots]) => (
-        <Fragment key={type}>
-          <section className="flex flex-col gap-10">
-            <Title as="h2" color="light" uppercase>
-              {botTitles[type]}
-            </Title>
-            <section
-              className={`grid grid-cols-${limit} gap-1 max-md:grid-cols-1`}
-            >
-              {bots.slice(0, limit).map((bot, i) => (
-                <BotCard
-                  key={bot.name + i}
-                  variant="full"
-                  layoutClassName="max-w-[100%]"
-                  {...bot}
-                />
-              ))}
-            </section>
-          </section>
-          {Object.entries(groupedBundles).slice(-1)[0][0] !== type && (
-            <Divider />
-          )}
-        </Fragment>
-      ))}
+      <DealBot
+        bots={bots}
+        type="forex"
+        title="Forex Bot Deals"
+        desc="Maximize your forex trading with exclusive discounts on automated bots designed for the major currency pairs. These deals give you access to top-performing bots for less."
+      />
+      <Divider />
+      <DealBot
+        title="Scalping Bot Deals"
+        bots={bots}
+        desc="Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping."
+        type="scalping"
+      />
+      <Divider />
+      <DealBot
+        title="Gold Bot Deals"
+        bots={bots}
+        desc="Take advantage of exclusive offers on bots tailored for Gold trading. These bots are designed to optimize your entry strategies and manage risk for steady performance in the Gold market."
+        type="gold"
+      />
+    </section>
+  );
+};
+
+const DealBot = ({
+  bots,
+  type,
+  title,
+  desc,
+}: {
+  bots: Bot[];
+  type: BotType;
+  title: string;
+  desc: string;
+}) => {
+  return (
+    <section className="flex gap-10 max-md:flex-col max-md:gap-5">
+      <div className="flex w-1/2 flex-col gap-5 max-md:w-full">
+        <Title as="h2" size="4xl" color="light" weight="bold" uppercase>
+          {title}
+        </Title>
+        <Text color="light" weight="medium">
+          {desc}
+        </Text>
+      </div>
+      <BotCard
+        variant="full"
+        layoutClassName="w-1/2 max-md:w-full"
+        {...(bots.find(item => item.type === type && item.pin) ?? bots[0])}
+      />
     </section>
   );
 };
