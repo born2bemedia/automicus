@@ -11,7 +11,7 @@ export const Deals = ({ bots }: { bots: Bot[] }) => {
       <Title color="light" align="center" zIndex="1" uppercase>
         Deals
       </Title>
-      <section className="flex justify-center gap-1 max-md:flex-col">
+      <section className="flex items-stretch gap-6 max-md:flex-col">
         {bots.map((bot, i) => (
           <BotCard key={bot.name + i} variant="full" {...bot} />
         ))}
@@ -26,7 +26,7 @@ export const Deals = ({ bots }: { bots: Bot[] }) => {
         autoPlay
         loop
         muted
-        className="absolute right-0 bottom-[-300px] h-full w-full object-cover"
+        className="absolute right-0 bottom-[-300px] h-full w-full object-cover brightness-40"
       />
       <div className="absolute inset-0 bg-black/40" />
     </section>

@@ -27,7 +27,7 @@ export default async function HomePage() {
       <YouCanAchieve />
       <Stats />
       <HowItWorks />
-      <Deals bots={bots.docs.slice(3, 6)} />
+      <Deals bots={bots.docs.filter(bot => bot.pin).slice(0, 3)} />
       <BotBundles bundles={bundles.docs} />
       <NeedHelp />
       <ContactUs />

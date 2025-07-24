@@ -5,27 +5,27 @@ import { Divider, Text, Title } from '@/shared/ui/components/atoms';
 import type { Bot, BotType } from '../model';
 import { BotCard } from './bot-card';
 
-export const BotGroup = ({ bots }: { bots: Bot[] }) => {
+export const BotCatalog = ({ bots }: { bots: Bot[] }) => {
   return (
     <section className="flex flex-col gap-20 px-10 pt-10 pb-20 max-md:p-6">
       <DealBot
         bots={bots}
         type="forex"
-        title="Forex Bot Deals"
-        desc="Maximize your forex trading with exclusive discounts on automated bots designed for the major currency pairs. These deals give you access to top-performing bots for less."
+        title="Forex Bots"
+        desc="Automated trading bots designed for major currency pairs. Optimize your forex strategy with precision execution, low risk, and adaptive performance across various market conditions."
       />
       <Divider />
       <DealBot
-        title="Scalping Bot Deals"
+        title="Scalping Bots"
         bots={bots}
         desc="Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping."
         type="scalping"
       />
       <Divider />
       <DealBot
-        title="Gold Bot Deals"
+        title="Gold Bots"
         bots={bots}
-        desc="Take advantage of exclusive offers on bots tailored for Gold trading. These bots are designed to optimize your entry strategies and manage risk for steady performance in the Gold market."
+        desc="Specialised EAs for trading XAU/USD, combining precision entry strategies with adjustable risk settings for steady gold market performance."
         type="gold"
       />
     </section>
@@ -44,7 +44,7 @@ const DealBot = ({
   desc: string;
 }) => {
   return (
-    <section className="flex gap-10 max-md:flex-col max-md:gap-5">
+    <section className="flex flex-col gap-10 max-md:gap-5">
       <div className="flex w-1/2 flex-col gap-5 max-md:w-full">
         <Title as="h2" size="4xl" color="light" weight="bold" uppercase>
           {title}
@@ -53,11 +53,20 @@ const DealBot = ({
           {desc}
         </Text>
       </div>
-      <BotCard
-        variant="full"
-        layoutClassName="w-1/2 max-md:w-full"
-        {...(bots.find(item => item.type === type && item.pin) ?? bots[0])}
-      />
+      <div className="flex items-stretch gap-1">
+        {bots
+          .filter(bot => bot.type === type)
+          .slice(0, 2)
+          .map(bot => (
+            <BotCard
+              key={bot.name}
+              variant="full"
+              showSaleBanner={false}
+              layoutClassName="min-h-[582px]"
+              {...bot}
+            />
+          ))}
+      </div>
     </section>
   );
 };

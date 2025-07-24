@@ -11,15 +11,18 @@ export const BotCard = ({
   discount,
   layoutClassName,
   slug,
+  excerpt,
   variant = 'simplify',
+  showSaleBanner = true,
 }: Bot & {
   variant?: 'simplify' | 'full';
   layoutClassName?: string;
+  showSaleBanner?: boolean;
 }) => {
   return variant === 'simplify' ? (
     <article
       className={cn(
-        'flex flex-col gap-6 rounded-lg bg-[#E5E5E5] p-10 max-md:gap-10',
+        'flex h-full flex-col gap-6 rounded-lg bg-[#E5E5E5] p-10 max-md:gap-10',
         layoutClassName,
       )}
     >
@@ -49,24 +52,31 @@ export const BotCard = ({
   ) : (
     <article
       className={cn(
-        `z-10 flex min-h-[582px] max-w-[350px] flex-col justify-between gap-4 rounded-lg bg-[rgba(229,229,229,0.1)] p-10 backdrop-blur-[15px] max-md:w-full`,
+        'z-10 flex h-auto flex-1 flex-col rounded-b-lg bg-[#E5E5E5]/10 backdrop-blur-[15px]',
         layoutClassName,
       )}
     >
-      <section className="flex flex-col gap-2">
-        <Text size="3xl" color="light" weight="bold">
-          {name}
-        </Text>
-        <Text color="light" weight="medium">
-          {description}
-        </Text>
-      </section>
-      <section className="flex flex-col gap-9">
-        <div className="flex gap-2.5">
-          <Text size="5xl" color="light" weight="bold">
+      {showSaleBanner ? (
+        <span className="w-full rounded-t-lg bg-[#CBFF00] px-10 py-2.5 text-center">
+          <Text color="primary" size="xl">
+            TODAY ONLY!
+          </Text>
+        </span>
+      ) : null}
+      <section className="flex h-full flex-col gap-6 p-10 max-md:p-6">
+        <div className="flex flex-col gap-2">
+          <Text size="4xl" className="text-[28px]" weight="bold" color="light">
+            {name}
+          </Text>
+          <Text weight="medium" color="light">
+            {excerpt}
+          </Text>
+        </div>
+        <div className="mt-auto flex gap-2.5">
+          <Text size="4xl" weight="bold" color="light">
             €{price.toLocaleString()}
           </Text>
-          <Chip>Save {discount}!</Chip>
+          <Chip>Save €{discount}!</Chip>
         </div>
         <div className="flex items-center gap-2.5">
           <Button fullWidth>Buy</Button>
