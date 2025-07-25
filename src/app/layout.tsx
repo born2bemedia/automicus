@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Work_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 import { cn } from '@/shared/lib/utils';
 import { Dialog } from '@/shared/ui/components/atoms';
@@ -58,6 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-SXP03JL3JZ" />
       <body className={cn(workSans.variable, aeonik.className, 'antialiased')}>
         <Header />
         {children}
