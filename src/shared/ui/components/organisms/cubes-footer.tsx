@@ -7,6 +7,7 @@ export const CubesFooter = ({
   title,
   text,
   metaButtons,
+  altVideoUrl,
 }: {
   title: string;
   text: string;
@@ -15,6 +16,7 @@ export const CubesFooter = ({
     url: string;
     variant: ButtonVariants['variant'];
   }[];
+  altVideoUrl?: string;
 }) => {
   return (
     <section className="relative m-1 flex h-[350px] flex-col items-center justify-center gap-10 p-10 text-center max-md:p-6">
@@ -36,7 +38,7 @@ export const CubesFooter = ({
         ))}
       </section>
       <video
-        src="/videos/deals/alert.mp4"
+        src={altVideoUrl ?? '/videos/deals/alert.mp4'}
         autoPlay
         loop
         muted
