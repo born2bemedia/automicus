@@ -12,6 +12,7 @@ const textVariants = cva('transition duration-300 ease-in-out', {
       dark: 'text-dark',
       light: 'text-white',
       danger: 'text-danger',
+      muted: 'text-[rgba(255,255,255,0.50)]',
     },
     size: {
       sm: 'text-sm',

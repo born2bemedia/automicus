@@ -20,14 +20,14 @@ export const TextField = ({
       <Text color="light">{label}</Text>
       <input
         className={cn(
-          'font-aeonik rounded-lg bg-[#111] p-6 text-base text-[rgb(255_255_255_/_0.5)] transition-all duration-300 focus:outline-none',
+          'rounded-lg bg-[#111] p-6 text-base font-medium text-[rgb(255_255_255_/_0.5)] transition-all duration-300 focus:outline-none',
           className,
         )}
         {...args}
       />
       {hint && (
-        <span className="absolute bottom-[-20px] left-0">
-          <Text color="danger" size="sm">
+        <span className="absolute bottom-[-24px] left-1">
+          <Text color="danger" size="sm" weight="medium">
             {hint}
           </Text>
         </span>

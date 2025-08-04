@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { routes } from '@/shared/config/routes';
 import { useWindowSize } from '@/shared/lib/hooks';
@@ -68,9 +69,11 @@ const HeaderBottom = () => {
         </div>
       </section>
       <section className="flex items-center gap-[30px] max-lg:hidden">
-        <Button variant="ghost" size="sm">
-          Cart
-        </Button>
+        <Link href="/cart">
+          <Button variant="ghost" size="sm">
+            Cart
+          </Button>
+        </Link>
         <Button variant="secondary" size="sm">
           Log In
         </Button>

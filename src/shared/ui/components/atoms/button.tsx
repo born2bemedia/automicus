@@ -1,6 +1,6 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/shared/lib/utils';
@@ -55,7 +55,8 @@ export const Button = ({
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
-} & ButtonVariants) => {
+} & ButtonVariants &
+  ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
       className={cn(

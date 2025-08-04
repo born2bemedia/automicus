@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Work_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Toaster } from 'sonner';
 
 import { cn } from '@/shared/lib/utils';
 import { Dialog } from '@/shared/ui/components/atoms';
@@ -67,6 +68,7 @@ export default function RootLayout({
         <Dialog />
         <Preloader />
         <CookieConsent />
+        <Toaster />
       </body>
     </html>
   );
