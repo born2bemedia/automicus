@@ -1,9 +1,11 @@
 'use client';
 
+import { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-import { routes } from '@/shared/config/routes';
+import { getTranslatedRoutes } from '@/shared/config/routes';
 import { useWindowSize } from '@/shared/lib/hooks';
 import { Button, Dropdown, DropdownItem } from '@/shared/ui/components/atoms';
 import { LangSwitcher, NavButton } from '@/shared/ui/components/molecules';
@@ -47,6 +49,10 @@ const HeaderTop = () => (
 const HeaderBottom = () => {
   const { width } = useWindowSize();
 
+  const t = useTranslations('header');
+
+  const routes = useMemo(() => getTranslatedRoutes(t), [t]);
+
   return (
     <section className="flex items-center justify-between bg-black/50 px-[80px] py-3 backdrop-blur-[10px] max-md:px-4">
       <section className="flex items-center gap-[80px]">
@@ -71,11 +77,11 @@ const HeaderBottom = () => {
       <section className="flex items-center gap-[30px] max-lg:hidden">
         <Link href="/cart">
           <Button variant="ghost" size="sm">
-            Cart
+            {t('cart', { fallback: 'Cart' })}
           </Button>
         </Link>
         <Button variant="secondary" size="sm">
-          Log In
+          {t('logIn', { fallback: 'Log In' })}
         </Button>
       </section>
       {width < 1024 && <BurgerMenu />}

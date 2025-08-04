@@ -2,6 +2,7 @@
 
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { useForm } from '@tanstack/react-form';
 
 import { allowedCountries } from '@/shared/lib/countries';
@@ -10,7 +11,7 @@ import { Autocomplete } from '@/shared/ui/components/atoms/autocomplete';
 import { Checkbox } from '@/shared/ui/components/atoms/checkbox';
 import { PhoneField } from '@/shared/ui/components/atoms/phone-field';
 
-import { cartSchema } from '../model/schemas';
+import { getCartSchema } from '../model/schemas';
 import type { CartItem } from '../model/types';
 
 export const CartOrder = ({
@@ -24,6 +25,9 @@ export const CartOrder = ({
   onDecrement: (name: string) => void;
   total: number;
 }) => {
+  const t = useTranslations('cart');
+  const te = useTranslations('cart.errors');
+
   const { Field, Subscribe, handleSubmit } = useForm({
     defaultValues: {
       fullName: '',
@@ -38,7 +42,7 @@ export const CartOrder = ({
       isAgreeRefund: false,
     },
     validators: {
-      onSubmit: cartSchema,
+      onSubmit: getCartSchema(te),
     },
     onSubmit: values => {
       console.log(values);
@@ -57,7 +61,7 @@ export const CartOrder = ({
       <section className="flex w-1/2 flex-col gap-6 max-md:w-full">
         <section className="flex flex-col gap-6 rounded-lg bg-[#181818] p-6">
           <Title size="2xl" color="light" uppercase>
-            Your Choice
+            {t('title', { fallback: 'Your Choice' })}
           </Title>
           <section className="flex flex-col gap-6">
             {items.map(item => (
@@ -80,7 +84,7 @@ export const CartOrder = ({
                     €{item.price}
                   </Text>
                   <Text size="md" color="muted">
-                    Discount: €{item.discount}
+                    {t('discount', { fallback: 'Discount' })}: €{item.discount}
                   </Text>
                 </div>
               </section>
@@ -90,14 +94,16 @@ export const CartOrder = ({
         <section className="flex flex-col gap-10 rounded-lg bg-[#181818] px-6 py-10">
           <div className="flex flex-col gap-5">
             <Title size="2xl" color="light" uppercase>
-              Your Data
+              {t('yourData.title', { fallback: 'Your Data' })}
             </Title>
             <FormRow>
               <Field name="fullName">
                 {field => (
                   <TextField
                     name={field.name}
-                    placeholder="Full Name"
+                    placeholder={t('yourData.fullName', {
+                      fallback: 'Full Name',
+                    })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
                     onChange={e => field.handleChange(e.target.value)}
@@ -111,7 +117,9 @@ export const CartOrder = ({
                 {field => (
                   <TextField
                     name={field.name}
-                    placeholder="Email"
+                    placeholder={t('yourData.email', {
+                      fallback: 'Email',
+                    })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
                     onChange={e => field.handleChange(e.target.value)}
@@ -125,14 +133,16 @@ export const CartOrder = ({
           </div>
           <div className="flex flex-col gap-5">
             <Title size="2xl" color="light" uppercase>
-              Address
+              {t('address.title', { fallback: 'Address' })}
             </Title>
             <FormRow>
               <Field name="addressLine1">
                 {field => (
                   <TextField
                     name={field.name}
-                    placeholder="Address Line 1"
+                    placeholder={t('address.addressLine1', {
+                      fallback: 'Address Line 1',
+                    })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
                     onChange={e => field.handleChange(e.target.value)}
@@ -146,7 +156,9 @@ export const CartOrder = ({
                 {field => (
                   <TextField
                     name={field.name}
-                    placeholder="Address Line 2"
+                    placeholder={t('address.addressLine2', {
+                      fallback: 'Address Line 2',
+                    })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
                     onChange={e => field.handleChange(e.target.value)}
@@ -162,7 +174,9 @@ export const CartOrder = ({
                 {field => (
                   <TextField
                     name={field.name}
-                    placeholder="City"
+                    placeholder={t('address.city', {
+                      fallback: 'City',
+                    })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
                     onChange={e => field.handleChange(e.target.value)}
@@ -181,7 +195,9 @@ export const CartOrder = ({
                         label: label.name,
                       }),
                     )}
-                    placeholder="Country/Region"
+                    placeholder={t('address.country', {
+                      fallback: 'Country/Region',
+                    })}
                     initialValue={String(field.state.value)}
                     onChange={value => field.handleChange(value)}
                     hint={field.state.meta.errors
@@ -190,27 +206,15 @@ export const CartOrder = ({
                   />
                 )}
               </Field>
-              {/* <Field name="country">
-                {field => (
-                  <TextField
-                    name={field.name}
-                    placeholder="Country/Region"
-                    value={String(field.state.value)}
-                    onBlur={field.handleBlur}
-                    onChange={e => field.handleChange(e.target.value)}
-                    hint={field.state.meta.errors
-                      .map(err => err?.message)
-                      .join(', ')}
-                  />
-                )}
-              </Field> */}
             </FormRow>
             <FormRow>
               <Field name="zip">
                 {field => (
                   <TextField
                     name={field.name}
-                    placeholder="ZIP"
+                    placeholder={t('address.zip', {
+                      fallback: 'ZIP',
+                    })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
                     onChange={e => field.handleChange(e.target.value)}
@@ -224,7 +228,9 @@ export const CartOrder = ({
                 {field => (
                   <PhoneField
                     name={field.name}
-                    placeholder="Phone"
+                    placeholder={t('address.phone', {
+                      fallback: 'Phone',
+                    })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
                     onChange={value => field.handleChange(value)}
@@ -240,7 +246,7 @@ export const CartOrder = ({
       </section>
       <section className="sticky top-26 flex h-max w-1/2 flex-col gap-10 rounded-lg bg-[#181818] p-6 max-md:relative max-md:top-0 max-md:w-full">
         <Title size="2xl" color="light" uppercase>
-          Order Summary
+          {t('orderSummary.title', { fallback: 'Order Summary' })}
         </Title>
         <section className="flex flex-col gap-5">
           {items.map(item => (
@@ -256,7 +262,7 @@ export const CartOrder = ({
           <Separator />
           <div className="flex items-center justify-between">
             <Text color="light" size="md" weight="medium">
-              Subtotal:
+              {t('orderSummary.subtotal', { fallback: 'Subtotal' })}:
             </Text>
             <Text color="light" size="md" weight="medium">
               €{total}
@@ -265,7 +271,7 @@ export const CartOrder = ({
           <Separator />
           <div className="flex items-center justify-between">
             <Text color="light" size="xl" weight="bold">
-              Total:
+              {t('orderSummary.total', { fallback: 'Total' })}:
             </Text>
             <Text color="light" size="xl" weight="bold">
               €{total}
@@ -279,9 +285,11 @@ export const CartOrder = ({
                 name={field.name}
                 label={
                   <>
-                    I have read and agree to the website{' '}
+                    {t('terms.0', {
+                      fallback: 'I have read and agree to the website',
+                    })}{' '}
                     <Link className="underline" href="/terms-of-use">
-                      Terms of Use
+                      {t('terms.1', { fallback: 'Terms of Use' })}
                     </Link>
                   </>
                 }
@@ -299,9 +307,11 @@ export const CartOrder = ({
                 name={field.name}
                 label={
                   <>
-                    I have read and agree to the{' '}
+                    {t('terms.2', {
+                      fallback: 'I have read and agree to the website',
+                    })}{' '}
                     <Link className="underline" href="/refund-policy">
-                      Refund Policy
+                      {t('terms.3', { fallback: 'Refund Policy' })}
                     </Link>
                   </>
                 }
@@ -323,7 +333,9 @@ export const CartOrder = ({
               size="lg"
               fullWidth
             >
-              {isSubmitting ? 'Submitting...' : 'Order'}
+              {isSubmitting
+                ? t('submitting', { fallback: 'Submitting...' })
+                : t('order', { fallback: 'Order' })}
             </Button>
           )}
         </Subscribe>

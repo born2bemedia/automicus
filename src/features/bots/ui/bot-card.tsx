@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 import { getCart } from '@/features/cart/api/get-cart';
 
 import { lsWrite } from '@/shared/lib/browser';
@@ -23,6 +25,8 @@ export const BotCard = ({
   layoutClassName?: string;
   showSaleBanner?: boolean;
 }) => {
+  const t = useTranslations('catalog.botCard');
+
   const buyHandle = () => {
     const cart = getCart();
     lsWrite(
@@ -53,14 +57,14 @@ export const BotCard = ({
           €{price.toLocaleString()}
         </Text>
         <div className="flex items-center gap-2.5">
-          <Button onClick={buyHandle}>Buy</Button>
+          <Button onClick={buyHandle}>{t('buy', { fallback: 'Buy' })}</Button>
           <NavButton
             url={`/catalog/${slug}`}
             variant="secondary"
             size="md"
             fullWidth
           >
-            Explore
+            {t('explore', { fallback: 'Explore' })}
           </NavButton>
         </div>
       </section>
@@ -75,7 +79,7 @@ export const BotCard = ({
       {showSaleBanner ? (
         <span className="w-full rounded-t-lg bg-[#CBFF00] px-10 py-2.5 text-center">
           <Text color="primary" size="xl">
-            TODAY ONLY!
+            {t('todayOnly', { fallback: 'TODAY ONLY!' })}
           </Text>
         </span>
       ) : null}
@@ -92,11 +96,13 @@ export const BotCard = ({
           <Text size="4xl" weight="bold" color="light">
             €{price.toLocaleString()}
           </Text>
-          <Chip>Save €{discount}!</Chip>
+          <Chip>
+            {t('save', { fallback: 'Save' })} €{discount}!
+          </Chip>
         </div>
         <div className="flex items-center gap-2.5">
           <Button onClick={buyHandle} fullWidth>
-            Buy
+            {t('buy', { fallback: 'Buy' })}
           </Button>
           <NavButton
             url={`/catalog/${slug}`}
@@ -104,7 +110,7 @@ export const BotCard = ({
             variant="secondary"
             fullWidth
           >
-            Explore
+            {t('explore', { fallback: 'Explore' })}
           </NavButton>
         </div>
       </section>

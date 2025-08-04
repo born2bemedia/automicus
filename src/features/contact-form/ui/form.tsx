@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useForm } from '@tanstack/react-form';
 
 import {
@@ -16,6 +17,8 @@ import { ThankYouDialog } from './thank-you-dialog';
 export const ContactForm = () => {
   const { registerContent, setIsOpen } = useDialogStore();
 
+  const t = useTranslations('contact.contactUs.form');
+
   const { Field, Subscribe, handleSubmit } = useForm({
     defaultValues: {
       name: '',
@@ -31,7 +34,7 @@ export const ContactForm = () => {
 
       if (status === 'OK') {
         registerContent({
-          title: 'Thank You for Reaching Out!',
+          title: t('success', { fallback: 'Thank You for Reaching Out!' }),
           content: <ThankYouDialog />,
         });
         setIsOpen(true);
@@ -53,8 +56,10 @@ export const ContactForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Name"
-              placeholder="Enter Your Name"
+              label={t('name.label', { fallback: 'Name' })}
+              placeholder={t('name.placeholder', {
+                fallback: 'Enter Your Name',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -66,8 +71,10 @@ export const ContactForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Enter Your Email"
-              placeholder="Email"
+              label={t('email.label', { fallback: 'Email' })}
+              placeholder={t('email.placeholder', {
+                fallback: 'Enter Your Email',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -81,8 +88,10 @@ export const ContactForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Enter Your Phone"
-              placeholder="Phone"
+              label={t('phone.label', { fallback: 'Phone' })}
+              placeholder={t('phone.placeholder', {
+                fallback: 'Enter Your Phone',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -94,8 +103,10 @@ export const ContactForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Enter Your Message"
-              placeholder="Message"
+              label={t('message.label', { fallback: 'Message' })}
+              placeholder={t('message.placeholder', {
+                fallback: 'Enter Your Message',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -107,7 +118,9 @@ export const ContactForm = () => {
       <Subscribe selector={state => [state.canSubmit, state.isSubmitting]}>
         {([canSubmit, isSubmitting]) => (
           <Button type="submit" size="lg" disabled={!canSubmit} fullWidth>
-            {isSubmitting ? 'Sending...' : 'Send'}
+            {isSubmitting
+              ? t('sending', { fallback: 'Sending...' })
+              : t('btn', { fallback: 'Send' })}
           </Button>
         )}
       </Subscribe>

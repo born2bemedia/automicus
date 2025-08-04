@@ -18,8 +18,8 @@ export const Preloader = () => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      setTimeout(() => setIsVisible(false), 2000);
-    }, 2000);
+      setTimeout(() => setIsVisible(false), 1500);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [pathname]);

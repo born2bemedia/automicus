@@ -1,9 +1,13 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { CubesFooter } from '@/shared/ui/components/organisms';
 
 export const EmptyCart = () => {
+  const t = useTranslations('emptyCart');
+
   return (
     <section>
       <section className="flex h-[800px] flex-col items-center justify-center gap-4 p-6 max-md:h-[600px] max-md:text-center">
@@ -24,22 +28,36 @@ export const EmptyCart = () => {
           />
         </svg>
         <Title size="6xl" color="light" className="max-md:text-center">
-          Your Strategy. Your Bots.
+          {t('title', { fallback: 'Your Strategy. Your Bots.' })}
         </Title>
         <Text color="light" weight="medium">
-          Review your selection and proceed to secure your trading edge.
+          {t('text', {
+            fallback:
+              'Review your selection and proceed to secure your trading edge.',
+          })}
         </Text>
       </section>
       <CubesFooter
-        title="It seems you haven’t chosen your trading bot yet. Let’s fix that."
+        title={t('subtitle', {
+          fallback:
+            'It seems you haven’t chosen your trading bot yet. Let’s fix that.',
+        })}
         metaButtons={[
-          { label: 'Explore Bots', url: '/catalog', variant: 'primary' },
           {
-            label: 'Browse Bundles',
+            label: t('btn', { fallback: 'Explore Bots' }),
+            url: '/catalog',
+            variant: 'primary',
+          },
+          {
+            label: t('btn2', { fallback: 'Browse Bundles' }),
             url: '/bot-bundles',
             variant: 'secondary',
           },
-          { label: 'Check Deals', url: '/deals', variant: 'secondary' },
+          {
+            label: t('btn3', { fallback: 'Check Deals' }),
+            url: '/deals',
+            variant: 'secondary',
+          },
         ]}
         altVideoUrl="/videos/cart/footer.mp4"
         className="px-[200px] max-md:px-6"
