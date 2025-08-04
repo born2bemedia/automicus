@@ -1,38 +1,40 @@
-export const routes = [
+import type { useTranslations } from 'next-intl';
+
+export const getTranslatedRoutes = (t: ReturnType<typeof useTranslations>) => [
   {
-    label: 'Catalog',
+    label: t('catalog', { fallback: 'Catalog' }),
     url: '/catalog',
   },
   {
-    label: 'Bot Bundles',
+    label: t('botBundles', { fallback: 'Bot Bundles' }),
     url: '/bot-bundles',
   },
   {
-    label: 'Bot Reviews',
+    label: t('botReviews', { fallback: 'Bot Reviews' }),
     url: '/bot-reviews',
   },
   {
-    label: 'Deals',
+    label: t('deals', { fallback: 'Deals' }),
     url: '/deals',
   },
   {
-    label: 'Compare Bots',
+    label: t('compareBots', { fallback: 'Compare Bots' }),
     url: '/compare-bots',
   },
   {
-    label: 'About Us',
+    label: t('aboutUs', { fallback: 'About Us' }),
     url: '/about-us',
   },
   {
-    label: 'FAQ',
+    label: t('faq', { fallback: 'FAQ' }),
     url: '/faq',
   },
   {
-    label: 'Contact',
+    label: t('contact', { fallback: 'Contact' }),
     url: '/contact',
   },
   {
-    label: 'Help Center',
+    label: t('helpCenter', { fallback: 'Help Center' }),
     url: '/help-center',
   },
 ];

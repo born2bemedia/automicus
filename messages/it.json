@@ -1,0 +1,15 @@
+{
+  "header": {
+    "cart": "Carrello",
+    "logIn": "Accedi",
+    "catalog": "Catalogo",
+    "botBundles": "Bot-Pacchetti",
+    "botReviews": "Bot-Recensioni",
+    "deals": "Offerte",
+    "compareBots": "Confronta Bots",
+    "aboutUs": "Chi siamo",
+    "contact": "Contattaci",
+    "helpCenter": "Centro di assistenza",
+    "faq": "FAQ"
+  }
+}
