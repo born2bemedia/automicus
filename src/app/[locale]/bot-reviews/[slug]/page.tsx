@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
 
 import { getReview } from '@/features/reviews/api';
 import { ReviewRenderer } from '@/features/reviews/ui';
@@ -14,6 +15,8 @@ export default async function BotReviewPage({
   params: Promise<{ slug: string }>;
 }) {
   const { data } = await getReview((await params).slug);
+
+  const t = await getTranslations('botReviews.slug');
 
   return (
     <section className="flex flex-col gap-20 px-[160px] py-20 max-md:gap-10 max-md:p-6">
@@ -32,15 +35,16 @@ export default async function BotReviewPage({
         </Title>
         <ReviewRenderer content={data.content.root.children} />
         <Title color="secondary" uppercase>
-          Like This Bot?
+          {t('subtitle', { fallback: 'Like This Bot?' })}
         </Title>
         <Text color="light" weight="medium">
-          Get started with Automicus HedgeMaster Scalper and take your Forex
-          trading to the next level with AI-powered scalping and superior risk
-          management.
+          {t('text', {
+            fallback:
+              'Get started with Automicus HedgeMaster Scalper and take your Forex trading to the next level with AI-powered scalping and superior risk management.',
+          })}
         </Text>
         <Link href={`/catalog/${data.slug}`}>
-          <Button>Explore Bot</Button>
+          <Button>{t('btn', { fallback: 'Explore Bot' })}</Button>
         </Link>
       </main>
     </section>

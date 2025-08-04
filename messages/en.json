@@ -245,5 +245,30 @@
       "btn": "Check Deals",
       "btn2": "Check All Bots"
     }
+  },
+  "botReviews": {
+    "hero": {
+      "title": "In-Depth Reviews of Top Trading Bots",
+      "text": "Compare, evaluate, and learn about the performance of the leading trading bots",
+      "btn": "Explore Bots"
+    },
+    "preview": {
+      "desc": "With thousands of bots on the market, it’s hard to know which ones perform as advertised. Automicus Bot Review Hub provides unbiased, in-depth reviews of the top trading bots, helping you make informed decisions based on real-world performance.",
+      "noReviews": "No reviews yet",
+      "read": "Read"
+    },
+    "needHelp": {
+      "title": "Need Help?",
+      "steps": {
+        "0": "Explore our bot reviews and guides",
+        "1": "Check our Help Center",
+        "2": "Find answers in FAQ"
+      }
+    },
+    "slug": {
+      "subtitle": "Like This Bot?",
+      "text": "Get started with Automicus HedgeMaster Scalper and take your Forex trading to the next level with AI-powered scalping and superior risk management.",
+      "btn": "Explore Bot"
+    }
   }
 }
