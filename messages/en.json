@@ -605,5 +605,12 @@
         "text2": "We encourage all users to thoroughly assess each bot and its compatibility with their strategy before purchase."
       }
     }
+  },
+  "helpCenter": {
+    "hero": {
+      "title": "Learn. Trade. Succeed.",
+      "text": "Step-by-step tutorials and expert reviews to help you get the most out of Automicus bots.",
+      "btn": "Explore Bots"
+    }
   }
 }
