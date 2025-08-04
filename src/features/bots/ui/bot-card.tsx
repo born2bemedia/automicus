@@ -1,3 +1,7 @@
+import { getCart } from '@/features/cart/api/get-cart';
+
+import { lsWrite } from '@/shared/lib/browser';
+import { notifySuccess } from '@/shared/lib/toast';
 import { cn } from '@/shared/lib/utils';
 import { Button, Chip, Text } from '@/shared/ui/components/atoms';
 import { NavButton } from '@/shared/ui/components/molecules';
@@ -19,6 +23,18 @@ export const BotCard = ({
   layoutClassName?: string;
   showSaleBanner?: boolean;
 }) => {
+  const buyHandle = () => {
+    const cart = getCart();
+    lsWrite(
+      'cart',
+      JSON.stringify([
+        ...cart,
+        { name, price, discount, quantity: 1, total: price },
+      ]),
+    );
+    notifySuccess('Bot added to cart');
+  };
+
   return variant === 'simplify' ? (
     <article
       className={cn(
@@ -37,7 +53,7 @@ export const BotCard = ({
           €{price.toLocaleString()}
         </Text>
         <div className="flex items-center gap-2.5">
-          <Button>Buy</Button>
+          <Button onClick={buyHandle}>Buy</Button>
           <NavButton
             url={`/catalog/${slug}`}
             variant="secondary"
@@ -79,7 +95,9 @@ export const BotCard = ({
           <Chip>Save €{discount}!</Chip>
         </div>
         <div className="flex items-center gap-2.5">
-          <Button fullWidth>Buy</Button>
+          <Button onClick={buyHandle} fullWidth>
+            Buy
+          </Button>
           <NavButton
             url={`/catalog/${slug}`}
             size="md"
