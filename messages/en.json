@@ -270,5 +270,49 @@
       "text": "Get started with Automicus HedgeMaster Scalper and take your Forex trading to the next level with AI-powered scalping and superior risk management.",
       "btn": "Explore Bot"
     }
+  },
+  "emptyCart": {
+    "title": "Your Cart Is Empty",
+    "text": "Review your selection and proceed to secure your trading edge.",
+    "subtitle": "It seems you haven’t chosen your trading bot yet. Let’s fix that.",
+    "btn": "Explore Bots",
+    "btn2": "Browse Bundles",
+    "btn3": "Check Deals"
+  },
+  "cart": {
+    "title": "Your Choice",
+    "discount": "Discount",
+    "yourData": {
+      "title": "Your Data",
+      "fullName": "Full Name",
+      "email": "Email"
+    },
+    "address": {
+      "title": "Address",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "country": "Country/Region",
+      "zip": "ZIP",
+      "phone": "Phone"
+    },
+    "orderSummary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "total": "Total"
+    },
+    "terms": {
+      "0": "I have read and agree to the website",
+      "1": "Terms of Use",
+      "2": "I have read and agree to the website",
+      "3": "Refund Policy"
+    },
+    "order": "Order",
+    "submitting": "Submitting...",
+    "errors": {
+      "mustFilled": "This field must be filled.",
+      "email": "The email is invalid.",
+      "required": "This field is required."
+    }
   }
 }
