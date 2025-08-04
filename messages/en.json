@@ -529,5 +529,81 @@
         "desc": "Take advantage of exclusive offers on bots tailored for Gold trading. These bots are designed to optimize your entry strategies and manage risk for steady performance in the Gold market."
       }
     }
+  },
+  "faq": {
+    "hero": {
+      "title": "Support for Smarter Trading.",
+      "text": "Find answers to common questions about top trading bots and Automicus.",
+      "btn": "Contact Us"
+    },
+    "footer": {
+      "title": "Need Help?",
+      "text": "Our resources are here to help, and our team is always ready to provide extra support.",
+      "btn": "Contact Us",
+      "btn2": "Help Center"
+    },
+    "answers": {
+      "0": {
+        "title": "Designed for Precision in the Gold Market",
+        "text": "Choosing the right bot depends on your trading goals, risk tolerance, and strategy preferences. We offer a range of bots designed for different trading styles, such as low-risk, high-frequency, and market trend-following strategies. It’s important to assess your objectives carefully:",
+        "list": {
+          "0": "Risk Tolerance: If you prefer safer, steady growth, look for bots designed with built-in risk management tools (e.g., stop loss, take profit, trailing stop). These bots help protect your investment while aiming for consistent returns.",
+          "1": "Trading Style: Some bots are optimized for scalping or high-frequency trading, while others are better for long-term trend following. Make sure the bot matches the timeframes and style you prefer.",
+          "2": "Market Focus: Choose bots based on your asset focus (e.g., forex, crypto, gold). Some bots specialize in particular markets, while others are multi-asset capable.",
+          "3": "Compatibility: Ensure your selected bot works with your trading platform and broker."
+        },
+        "text2": "We provide general guidance, but the choice is yours based on your trading strategy and preferences."
+      },
+      "1": {
+        "question": "What's the process for purchasing and activating a bot?",
+        "text": "Purchasing and activating a bot with Automicus is straightforward. Here's a step-by-step guide:",
+        "list": {
+          "0": "Choose Your Bot: Browse through our bots catalog and select the one that fits your trading needs.",
+          "1": "Purchase: After selecting your bot, click the 'Buy' button to complete your purchase. You'll be redirected to a secure payment gateway to finalize the transaction.",
+          "2": "Download the Files: Upon successful payment, you will receive a download link for the bot's installation files (typically an .mq4 or .mq5 file).",
+          "3": "Installation: Follow the installation instructions to add the bot to your MetaTrader 4 (MT4) or MetaTrader 5 (MT5) platform. You can easily find these instructions in your account after purchasing or in the download package.",
+          "4": "Activation: Once installed, the bot can be activated by dragging it onto your desired chart within the platform, and adjusting your risk settings, lot size, and other parameters."
+        },
+        "text2": "While we offer general guidance on setup, the activation and configuration process is ultimately your responsibility. If you encounter any issues, our Help Center can assist."
+      },
+      "2": {
+        "question": "Are your bots compatible with MetaTrader 4/5?",
+        "text": "Yes, all our bots are fully compatible with MetaTrader 4 (MT4) and MetaTrader 5 (MT5) platforms. These are the most widely used platforms for automated trading, and our bots are designed to integrate seamlessly with them.",
+        "list": {
+          "0": "MetaTrader 4 (MT4): If you’re using MT4, download and install the .mq4 file provided after purchase. The bot will function on MT4’s interface with no issues.",
+          "1": "MetaTrader 5 (MT5): For MT5 users, download the .mq5 version of the bot and follow the same installation procedure."
+        },
+        "text2": "We recommend ensuring that your MetaTrader platform is updated to the latest version for optimal performance. If you encounter installation issues, check our Help Center for troubleshooting guides."
+      },
+      "3": {
+        "question": "How do I know if your bots will work with my broker?",
+        "text": "Our bots are designed to work with most brokers that support MetaTrader 4 or MetaTrader 5. However, there are certain broker-specific conditions to consider:",
+        "list": {
+          "0": "Broker Compatibility: Make sure your broker provides access to the MetaTrader 4/5 platform and allows the use of Expert Advisors (EAs). Some brokers may impose restrictions on automated trading.",
+          "1": "Account Type: Some brokers may only support manual trading or specific types of accounts (e.g., ECN, STP, or Standard accounts). Check with your broker to ensure your account is compatible with automated bots.",
+          "2": "Spreads and Latency: For optimal performance, using a broker with low spreads and minimal latency is essential. This ensures that your bot can execute trades without delays or higher-than-expected costs."
+        },
+        "text2": "While we can offer general guidance regarding compatibility, the client must verify that their broker and account type are compatible with the bot."
+      },
+      "4": {
+        "question": "What if I encounter issues after purchasing a bot?",
+        "text": "If you encounter any issues after purchasing a bot, we offer customer support through our Help Center. Here's how we can assist:",
+        "text2": "Please be aware that any issues related to your broker, account settings, or other external factors must be addressed with the relevant parties.",
+        "list": {
+          "0": "Installation Issues: If you have trouble setting up the bot on your platform, we provide step-by-step instructions and troubleshooting guides to help you through the process.",
+          "1": "Performance Issues: If the bot isn't performing as expected, ensure you have followed all configuration steps, such as setting the correct risk parameters and lot sizes. Check the FAQ or contact our team for guidance if performance is still an issue.",
+          "2": "Refunds: Since we do not offer financial advice or manage trading decisions, we do not provide refunds. However, we offer full product support to ensure your bot works as intended."
+        }
+      },
+      "5": {
+        "question": "Do you offer any warranties or refunds?",
+        "text": "At Automicus, we do not provide warranties or refunds. Once a bot is purchased, it is considered final, as bots are digital products that cannot be returned. However, we stand by the quality of our products and provide extensive support to help you use the bots effectively.",
+        "list": {
+          "0": "Support: Our Help Center is available for troubleshooting, and our team is here to assist with installation or performance questions.",
+          "1": "No Financial Advice: Since all trading decisions and bot configurations are the user's responsibility, we cannot guarantee profits or offer financial advice."
+        },
+        "text2": "We encourage all users to thoroughly assess each bot and its compatibility with their strategy before purchase."
+      }
+    }
   }
 }
