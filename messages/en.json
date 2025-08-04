@@ -508,5 +508,26 @@
         "continue": "Continue"
       }
     }
+  },
+  "deals": {
+    "hero": {
+      "title": "Exclusive Deals",
+      "text": "Unlock massive savings with our limited-time offers and exclusive discounts.",
+      "btn": "Get Assistance"
+    },
+    "botGroup": {
+      "forex": {
+        "title": "Forex Bot Deals",
+        "desc": "Maximize your forex trading with exclusive discounts on automated bots designed for the major currency pairs. These deals give you access to top-performing bots for less."
+      },
+      "scalping": {
+        "title": "Scalping Bot Deals",
+        "desc": "Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping."
+      },
+      "gold": {
+        "title": "Gold Bot Deals",
+        "desc": "Take advantage of exclusive offers on bots tailored for Gold trading. These bots are designed to optimize your entry strategies and manage risk for steady performance in the Gold market."
+      }
+    }
   }
 }

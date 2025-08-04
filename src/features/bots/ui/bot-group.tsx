@@ -1,31 +1,44 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Divider, Text, Title } from '@/shared/ui/components/atoms';
 
 import type { Bot, BotType } from '../model';
 import { BotCard } from './bot-card';
 
 export const BotGroup = ({ bots }: { bots: Bot[] }) => {
+  const t = useTranslations('deals.botGroup');
+
   return (
     <section className="flex flex-col gap-20 px-10 pt-10 pb-20 max-md:p-6">
       <DealBot
         bots={bots}
         type="forex"
-        title="Forex Bot Deals"
-        desc="Maximize your forex trading with exclusive discounts on automated bots designed for the major currency pairs. These deals give you access to top-performing bots for less."
+        title={t('forex.title', { fallback: 'Forex Bot Deals' })}
+        desc={t('forex.desc', {
+          fallback:
+            'Maximize your forex trading with exclusive discounts on automated bots designed for the major currency pairs. These deals give you access to top-performing bots for less.',
+        })}
       />
       <Divider />
       <DealBot
-        title="Scalping Bot Deals"
+        title={t('scalping.title', { fallback: 'Scalping Bot Deals' })}
         bots={bots}
-        desc="Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping."
+        desc={t('scalping.desc', {
+          fallback:
+            'Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping.',
+        })}
         type="scalping"
       />
       <Divider />
       <DealBot
-        title="Gold Bot Deals"
+        title={t('gold.title', { fallback: 'Gold Bot Deals' })}
         bots={bots}
-        desc="Take advantage of exclusive offers on bots tailored for Gold trading. These bots are designed to optimize your entry strategies and manage risk for steady performance in the Gold market."
+        desc={t('gold.desc', {
+          fallback:
+            'Take advantage of exclusive offers on bots tailored for Gold trading. These bots are designed to optimize your entry strategies and manage risk for steady performance in the Gold market.',
+        })}
         type="gold"
       />
     </section>
