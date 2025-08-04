@@ -612,5 +612,10 @@
       "text": "Step-by-step tutorials and expert reviews to help you get the most out of Automicus bots.",
       "btn": "Explore Bots"
     }
+  },
+  "langSwitcher": {
+    "en": "English",
+    "de": "German",
+    "it": "Italian"
   }
 }
