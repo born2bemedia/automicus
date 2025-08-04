@@ -1,3 +1,5 @@
+import { getTranslations } from 'next-intl/server';
+
 import { getBotBundles } from '@/features/bots/api';
 import { BotBundleGroup } from '@/features/bots/ui';
 
@@ -8,14 +10,18 @@ import { ContactUs } from './components';
 export default async function BotBundlesPage() {
   const { data } = await getBotBundles();
 
+  const t = await getTranslations('botBundles.hero');
+
   return (
     <main>
       <VideoHero
-        title="Explore Our Bot Bundles"
-        text="Maximize savings with our exclusive bot bundles."
+        title={t('title', { fallback: 'Explore Our Bot Bundles' })}
+        text={t('text', {
+          fallback: 'Maximize savings with our exclusive bot bundles.',
+        })}
         videoUrl="/videos/bot-bundles/hero.mp4"
         metaButton={{
-          label: 'Get Assistance',
+          label: t('btn', { fallback: 'Get Assistance' }),
           url: '/contact',
         }}
       />

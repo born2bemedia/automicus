@@ -227,5 +227,23 @@
         }
       }
     }
+  },
+  "botBundles": {
+    "hero": {
+      "title": "Explore Our Bot Bundles",
+      "text": "Maximize savings with our exclusive bot bundles.",
+      "btn": "Get Assistance"
+    },
+    "botBundleGroup": {
+      "high-frequency": "High-Frequency & Scalping Bot Bundles",
+      "trend-following": "Trend-Following & Momentum Bot Bundles",
+      "mixed": "Mixed Strategy Bot Bundles"
+    },
+    "contactUs": {
+      "title": "Special Deals & Bots",
+      "text": "Automicus offers exclusive discounts and curated bot bundles to help you save more while automating your trading.",
+      "btn": "Check Deals",
+      "btn2": "Check All Bots"
+    }
   }
 }
