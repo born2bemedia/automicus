@@ -333,5 +333,147 @@
       "todayOnly": "TODAY ONLY!",
       "save": "Save"
     }
+  },
+  "compareBots": {
+    "hero": {
+      "title": "Compare Our Top Trading Bots.",
+      "text": "Explore key features and find the perfect bot for your trading style and goals.",
+      "btn": "Explore Bots"
+    },
+    "footer": {
+      "title": "Special Deals & Bundles",
+      "text": "Automicus offers exclusive discounts and curated bot bundles to help you save more while automating your trading.",
+      "btn": "Check Deals",
+      "btn2": "Check Bundles"
+    },
+    "table": {
+      "title": "Compare All Automicus Bots",
+      "0": {
+        "title": "Feature",
+        "children": {
+          "0": "Trading Pairs",
+          "1": "Timeframe",
+          "2": "Trading Strategy",
+          "3": "Risk Management",
+          "4": "Scalping Capabilities",
+          "5": "Hedging",
+          "6": "AI/Algorithmic Trading",
+          "7": "Profitability",
+          "8": "Customization",
+          "9": "System Requirements",
+          "10": "Min. Account Balance",
+          "11": "Trade Execution Method",
+          "12": "Time-Specific Trading"
+        }
+      },
+      "1": {
+        "title": "ProfitPulse FX",
+        "children": {
+          "0": "Major and minor pairs",
+          "1": "M15",
+          "2": "Scalping, Trend, Breakout",
+          "3": "Adjustable SL/TP, Auto risk",
+          "4": "Yes",
+          "5": "No",
+          "6": "No",
+          "7": "High monthly returns",
+          "8": "High (Customizable settings)",
+          "9": "MT4/MT5, VPS",
+          "10": "$150",
+          "11": "Multi-strategy execution",
+          "12": "No"
+        }
+      },
+      "2": {
+        "title": "SpreadMaster FX",
+        "children": {
+          "0": "Major and minor pairs",
+          "1": "M1, M5",
+          "2": "Customizable strategies",
+          "3": "SL/TP, Auto risk management",
+          "4": "Yes",
+          "5": "No",
+          "6": "No",
+          "7": "Steady, low-risk profits",
+          "8": "High (Customizable strategies)",
+          "9": "MT4/MT5, VPS",
+          "10": "$100",
+          "11": "Customizable execution",
+          "12": "No"
+        }
+      },
+      "3": {
+        "title": "Night Scalper",
+        "children": {
+          "0": "Major and minor pairs",
+          "1": "M1",
+          "2": "Mean-Reversion",
+          "3": "TP, SL, Trailing Stop",
+          "4": "Yes",
+          "5": "No",
+          "6": "Yes",
+          "7": "High-probability trades",
+          "8": "Medium (adjustable settings)",
+          "9": "MT4, VPS",
+          "10": "$100",
+          "11": "Single trade at a time",
+          "12": "Yes (American session)"
+        }
+      },
+      "4": {
+        "title": "HedgeMaster Scalper",
+        "children": {
+          "0": "Major and minor pairs",
+          "1": "M1, M5",
+          "2": "AI-powered, Hedging, Scalping",
+          "3": "Hedging strategies and risk management",
+          "4": "Yes",
+          "5": "Yes",
+          "6": "Yes",
+          "7": "Low-risk, high-frequency trades",
+          "8": "High (Customizable risk, lot size)",
+          "9": "MT4/MT5, VPS",
+          "10": "$100",
+          "11": "Multi-strategy, Hedging",
+          "12": "Yes (specific time frames)"
+        }
+      },
+      "5": {
+        "title": "GoldTrade Master",
+        "children": {
+          "0": "XAUUSD",
+          "1": "Daily (D1)",
+          "2": "Support & Resistance Breakout",
+          "3": "SL/TP, Trailing Stop",
+          "4": "No",
+          "5": "No",
+          "6": "No",
+          "7": "Low-risk, steady growth",
+          "8": "Low (focused on Gold)",
+          "9": "MT4/MT5, VPS",
+          "10": "$200",
+          "11": "Single trade at a time",
+          "12": "Yes (Daily timeframe)"
+        }
+      },
+      "6": {
+        "title": "GoldHunter Bot",
+        "children": {
+          "0": "XAUUSD",
+          "1": "M1",
+          "2": "Mean-Reversion",
+          "3": "SL/TP, Risk management",
+          "4": "Yes",
+          "5": "No",
+          "6": "No",
+          "7": "Steady, low-risk profits",
+          "8": "Medium (adjustable settings)",
+          "9": "MT4, VPS",
+          "10": "$300",
+          "11": "Automated, market-driven",
+          "12": "Yes (specific time frames)"
+        }
+      }
+    }
   }
 }
