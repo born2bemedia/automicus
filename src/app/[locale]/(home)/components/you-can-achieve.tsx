@@ -1,13 +1,17 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Title } from '@/shared/ui/components/atoms';
 
 export const YouCanAchieve = () => {
+  const t = useTranslations('home.youCanAchieve');
+
   return (
     <section className="relative m-1 h-[396px]">
       <section className="flex h-full items-end justify-center p-10">
         <Title color="light" zIndex="1" align="center" uppercase>
-          What You Can Achieve with Our Bots
+          {t('title', { fallback: 'What You Can Achieve with Our Bots' })}
         </Title>
       </section>
       <video

@@ -1,16 +1,38 @@
 'use client';
 
+import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
+
 import { Text } from '@/shared/ui/components/atoms';
 
-const stats = [
-  { title: 'Monthly ROI', value: 'up to +17%' },
-  { title: 'Drawdown reduced', value: 'by 65%' },
-  { title: 'Time Saved:', value: '20+ hours/week' },
-  { title: 'Setup in', value: 'under 10 minutes' },
-  { title: 'Win Rate of', value: '70% per session' },
+const getStats = (t: ReturnType<typeof useTranslations>) => [
+  {
+    title: t('monthlyRoi.title', { fallback: 'Monthly ROI' }),
+    value: t('monthlyRoi.value', { fallback: 'up to +17%' }),
+  },
+  {
+    title: t('drawdownReduced.title', { fallback: 'Drawdown reduced' }),
+    value: t('drawdownReduced.value', { fallback: 'by 65%' }),
+  },
+  {
+    title: t('timeSaved.title', { fallback: 'Time Saved:' }),
+    value: t('timeSaved.value', { fallback: '20+ hours/week' }),
+  },
+  {
+    title: t('setupIn.title', { fallback: 'Setup in' }),
+    value: t('setupIn.value', { fallback: 'under 10 minutes' }),
+  },
+  {
+    title: t('winRate.title', { fallback: 'Win Rate of' }),
+    value: t('winRate.value', { fallback: '70% per session' }),
+  },
 ];
 
 export const Stats = () => {
+  const t = useTranslations('home.stats');
+
+  const stats = useMemo(() => getStats(t), [t]);
+
   return (
     <section className="m-1 flex justify-between gap-1 max-md:flex-col">
       {stats.map(stat => (

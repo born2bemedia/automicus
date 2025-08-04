@@ -1,15 +1,19 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import type { Bot } from '@/features/bots/model';
 import { BotCard } from '@/features/bots/ui';
 
 import { Button, Title } from '@/shared/ui/components/atoms';
 
 export const Deals = ({ bots }: { bots: Bot[] }) => {
+  const t = useTranslations('home.deals');
+
   return (
     <section className="relative m-1 flex flex-col gap-10 overflow-hidden px-10 py-20">
       <Title color="light" align="center" zIndex="1" uppercase>
-        Deals
+        {t('title', { fallback: 'Deals' })}
       </Title>
       <section className="flex items-stretch gap-6 max-md:flex-col">
         {bots.map((bot, i) => (
@@ -18,7 +22,7 @@ export const Deals = ({ bots }: { bots: Bot[] }) => {
       </section>
       <section className="flex justify-center">
         <Button variant="secondary" zIndex="1">
-          All Deals
+          {t('allDeals', { fallback: 'All Deals' })}
         </Button>
       </section>
       <video

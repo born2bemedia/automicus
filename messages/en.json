@@ -11,5 +11,161 @@
     "contact": "Contact",
     "helpCenter": "Help Center",
     "faq": "FAQ"
+  },
+  "footer": {
+    "title": {
+      "0": "We provide automation tools",
+      "1": "your strategy drives the results."
+    },
+    "discover": {
+      "title": "Discover",
+      "links": {
+        "0": "Bot Reviews",
+        "1": "Compare Bots",
+        "2": "Bot Bundles",
+        "3": "Deals"
+      },
+      "links2": {
+        "0": "Catalog",
+        "1": "About Us",
+        "2": "FAQ",
+        "3": "Contact"
+      }
+    },
+    "contact": "Contact",
+    "location": {
+      "title": "Location",
+      "registeredAddress": "Registered Address:",
+      "officeAddress": "Office Address:",
+      "registeredNumber": "Registered Number:"
+    },
+    "policies": {
+      "0": "Terms of Use",
+      "1": "Privacy Policy",
+      "2": "Cookie Policy",
+      "3": "Refund Policy"
+    },
+    "copyright": "All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "title": {
+        "0": "Automate Smarter.",
+        "1": "Trade Better."
+      },
+      "description": "Powerful trading bots designed to execute your strategy with precision.",
+      "btn": "Explore Bots"
+    },
+    "whatWeOffer": {
+      "title": "What We Offer",
+      "description": "Expert-crafted trading bots that automate your strategies with precision — no martingale, no grid, just consistent, controlled performance. From low-risk scalpers to thoughtful, pair-specific EAs, each bot is tested and built to work reliably, even with small deposits."
+    },
+    "topBots": {
+      "title": "Automicus Top Bots",
+      "btn": "All Bots"
+    },
+    "whyChoose": {
+      "title": "Why Choose Automicus Bots",
+      "reasons": {
+        "0": {
+          "title": "Smart Automation for Every Strategy",
+          "description": "From steady low-risk scalping to pair-specific systems, our bots are built to suit diverse goals without using dangerous tactics like martingale or grid."
+        },
+        "1": {
+          "title": "Easy MT5 Integration",
+          "description": "All bots work seamlessly with MetaTrader 5. Set up quickly and start trading without technical hurdles — ideal even for non-tech users."
+        },
+        "2": {
+          "title": "Safe, Tested, and Proven",
+          "description": "Every bot is stress-tested using months of historical data to ensure consistent results and low drawdowns, even on small accounts."
+        },
+        "3": {
+          "title": "Control and Customization",
+          "description": "Adjust lot sizing, risk levels, and trading logic to match your style — with documentation and support included."
+        },
+        "4": {
+          "title": "Ongoing Improvements",
+          "description": "We regularly update bot algorithms to reflect changing market conditions, and you get those upgrades automatically, free of charge."
+        }
+      }
+    },
+    "youCanAchieve": {
+      "title": "What You Can Achieve with Our Bots"
+    },
+    "stats": {
+      "monthlyRoi": {
+        "title": "Monthly ROI",
+        "value": "up to +17%"
+      },
+      "drawdownReduced": {
+        "title": "Drawdown Reduced",
+        "value": "by 65%"
+      },
+      "timeSaved": {
+        "title": "Time Saved",
+        "value": "20+ hours/week"
+      },
+      "setupIn": {
+        "title": "Setup In",
+        "value": "under 10 minutes"
+      },
+      "winRate": {
+        "title": "Win Rate of",
+        "value": "70% per session"
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": {
+        "0": {
+          "title": "Choose Your Bot",
+          "description": "Browse our collection of trading bots, each tailored to different strategies, risk levels, and asset classes."
+        },
+        "1": {
+          "title": "Register & Fund Your Account",
+          "description": "Sign up with a supported broker and deposit funds — starting from as little as $100."
+        },
+        "2": {
+          "title": "Set Up MetaTrader",
+          "description": "Install the free MetaTrader 5 platform — our bots are fully compatible and easy to connect."
+        },
+        "3": {
+          "title": "Add the Bot",
+          "description": "Follow our clear integration guide to install the bot on your MT5 terminal."
+        },
+        "4": {
+          "title": "Configure Settings",
+          "description": "Adjust key parameters like lot size, risk level, and trading frequency to match your strategy."
+        },
+        "5": {
+          "title": "Let It Trade",
+          "description": "Once activated, your bot will trade automatically — 24/5 — while you monitor, refine, or relax."
+        }
+      }
+    },
+    "deals": {
+      "title": "Deals",
+      "allDeals": "All Deals"
+    },
+    "botBundles": {
+      "title": "Bot Bundles",
+      "allBundles": "All Bot Bundles"
+    },
+    "botBundleCard": {
+      "save": "Save",
+      "buy": "Buy"
+    },
+    "needHelp": {
+      "title": "Need Help?",
+      "steps": {
+        "0": "Explore our bot reviews and guides",
+        "1": "Check our Help Center",
+        "2": "Find answers in FAQ"
+      }
+    },
+    "contactUs": {
+      "title": "Still Have Questions?",
+      "btn": "Contact Us"
+    }
   }
 }

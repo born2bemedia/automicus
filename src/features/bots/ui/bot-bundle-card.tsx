@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Button, Chip } from '@/shared/ui/components/atoms';
 import { Text } from '@/shared/ui/components/atoms';
 
@@ -13,6 +15,8 @@ export const BotBundleCard = ({
   discount,
   bots,
 }: BotBundle) => {
+  const t = useTranslations('home.botBundleCard');
+
   return (
     <article className="flex items-center justify-between gap-20 rounded-lg bg-[rgba(229,229,229,0.1)] p-10 backdrop-blur-[15px] max-md:flex-col max-md:gap-10">
       <section className="flex w-[376px] flex-col gap-2 max-md:w-full">
@@ -47,9 +51,11 @@ export const BotBundleCard = ({
             <Text size="5xl" weight="bold" color="light">
               €{price.toLocaleString()}
             </Text>
-            <Chip>Save €{discount}!</Chip>
+            <Chip>
+              {t('save', { fallback: 'Save' })} €{discount}!
+            </Chip>
           </div>
-          <Button fullWidth>Buy</Button>
+          <Button fullWidth>{t('buy', { fallback: 'Buy' })}</Button>
         </section>
       </section>
     </article>

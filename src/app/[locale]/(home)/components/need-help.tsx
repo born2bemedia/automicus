@@ -1,24 +1,27 @@
 'use client';
 
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { ArrowRightDownIcon } from '@/shared/ui/icons/fill';
 
-const steps = [
-  'Explore our bot reviews and guides',
-  'Check our Help Center',
-  'Find answers in FAQ',
+const getSteps = (t: ReturnType<typeof useTranslations>) => [
+  t('steps.0', { fallback: 'Explore our bot reviews and guides' }),
+  t('steps.1', { fallback: 'Check our Help Center' }),
+  t('steps.2', { fallback: 'Find answers in FAQ' }),
 ];
 
 export const NeedHelp = () => {
+  const t = useTranslations('home.needHelp');
+
   return (
     <section className="m-1 flex flex-col gap-10 rounded-lg bg-[#E5E5E5] p-10 max-md:p-6">
       <Title as="h2" uppercase>
-        Need Help?
+        {t('title', { fallback: 'Need Help?' })}
       </Title>
       <section className="flex gap-1 max-md:flex-col">
-        {steps.map(step => (
+        {getSteps(t).map(step => (
           <Card key={step} name={step} />
         ))}
       </section>

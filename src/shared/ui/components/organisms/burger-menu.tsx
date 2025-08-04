@@ -72,27 +72,6 @@ export const BurgerMenu = () => {
                         {label}
                       </NavButton>
                     ))}
-                    {/* <NavButton url="/catalog" variant="flat">
-                      Catalog
-                    </NavButton>
-                    <NavButton url="/bot-bundles" variant="flat">
-                      Bot Bundles
-                    </NavButton>
-                    <NavButton url="/bot-reviews" variant="flat">
-                      Bot Reviews
-                    </NavButton>
-                    <NavButton url="/deals" variant="flat">
-                      Deals
-                    </NavButton>
-                    <NavButton url="/compare-bots" variant="flat">
-                      Compare Bots
-                    </NavButton>
-                    <NavButton url="/about-us" variant="flat">
-                      About Us
-                    </NavButton>
-                    <NavButton url="/help-center" variant="flat">
-                      FAQ
-                    </NavButton> */}
                   </div>
                   <div className="flex flex-col gap-4">
                     <Button size="sm">
