@@ -314,5 +314,24 @@
       "email": "The email is invalid.",
       "required": "This field is required."
     }
+  },
+  "catalog": {
+    "hero": {
+      "title": "Explore Our Bots",
+      "text": "Advanced automation for smarter, faster trading.",
+      "btn": "Get Assistance"
+    },
+    "footer": {
+      "title": "Special Deals & Bundles",
+      "text": "Automicus offers exclusive discounts and curated bot bundles to help you save more while automating your trading.",
+      "btn": "Check Deals",
+      "btn2": "Check Bundles"
+    },
+    "botCard": {
+      "buy": "Buy",
+      "explore": "Explore",
+      "todayOnly": "TODAY ONLY!",
+      "save": "Save"
+    }
   }
 }
