@@ -167,5 +167,65 @@
       "title": "Still Have Questions?",
       "btn": "Contact Us"
     }
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "Efficiency in Automation. Excellence in Trading.",
+      "text": "A team of experts driving smarter trading solutions.",
+      "btn": "Get Assistance"
+    },
+    "cards": {
+      "0": {
+        "title": "Who We Are",
+        "text": "Automicus is a team of expert traders and tech innovators dedicated to creating efficient trading bots that deliver precision and reliability in every market."
+      },
+      "1": {
+        "title": "Our Mission",
+        "text": "To empower traders with cutting-edge, automated solutions designed to improve decision-making, reduce risk, and optimize trading performance"
+      },
+      "2": {
+        "title": "What We Do",
+        "text": "We specialize in building bots that solve real trading challenges. Our team constantly tests and improves our bots, ensuring they are always ahead of the curve."
+      },
+      "3": {
+        "title": "Our Approach",
+        "text": "At Automicus, innovation and adaptability are at the core of everything we do. We focus on market-tested solutions that evolve with changing market dynamics."
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "cards": {
+        "0": {
+          "title": "Proven Expertise",
+          "text": "Developed by professionals with real trading experience."
+        },
+        "1": {
+          "title": "High-Efficacy Solutions",
+          "text": "Each bot is rigorously tested for optimal performance."
+        },
+        "2": {
+          "title": "Constant Updates",
+          "text": "We keep our bots in line with market and tech shifts."
+        }
+      }
+    },
+    "stayConnected": {
+      "title": "Stay Connected",
+      "text": "Automicus is always evolving. Check back regularly for new tools and updates that can enhance your trading journey.",
+      "cards": {
+        "0": {
+          "title": "Get in Touch",
+          "button": "Contact Us"
+        },
+        "1": {
+          "title": "Find Guides for Bots",
+          "button": "Help Center"
+        },
+        "2": {
+          "title": "Check Answers",
+          "button": "FAQ"
+        }
+      }
+    }
   }
 }

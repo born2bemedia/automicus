@@ -1,31 +1,46 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { NavButton } from '@/shared/ui/components/molecules';
 
-const cards = [
+const getCards = (t: ReturnType<typeof useTranslations>) => [
   {
-    title: 'Get in Touch',
-    metaButton: { label: 'Contact Us', url: '/contact' },
+    title: t('cards.0.title', { fallback: 'Get in Touch' }),
+    metaButton: {
+      label: t('cards.0.button', { fallback: 'Contact Us' }),
+      url: '/contact',
+    },
   },
   {
-    title: 'Find Guides for Bots',
-    metaButton: { label: 'Help Center', url: '/help-center' },
+    title: t('cards.1.title', { fallback: 'Find Guides for Bots' }),
+    metaButton: {
+      label: t('cards.1.button', { fallback: 'Help Center' }),
+      url: '/help-center',
+    },
   },
   {
-    title: 'Check Answers',
-    metaButton: { label: 'FAQ', url: '/faq' },
+    title: t('cards.2.title', { fallback: 'Check Answers' }),
+    metaButton: {
+      label: t('cards.2.button', { fallback: 'FAQ' }),
+      url: '/faq',
+    },
   },
 ];
 
 export const StayConnected = () => {
+  const t = useTranslations('aboutUs.stayConnected');
+
   return (
     <section className="m-1 flex flex-col gap-10 rounded-lg bg-[#CBFF00] p-10 max-md:p-6">
       <section className="flex flex-col gap-5">
-        <Title as="h2">Stay Connected</Title>
+        <Title as="h2">{t('title', { fallback: 'Stay Connected' })}</Title>
         <Text>
-          Automicus is always evolving. Check back regularly for new tools and
-          updates that can enhance your trading journey.
+          {t('text', {
+            fallback:
+              'Automicus is always evolving. Check back regularly for new tools and updates that can enhance your trading journey.',
+          })}
         </Text>
       </section>
       <section className="flex h-[530px] gap-1 max-lg:h-max max-lg:flex-col">
@@ -37,7 +52,7 @@ export const StayConnected = () => {
           muted
         />
         <div className="flex h-max w-[30%] flex-col gap-1 max-lg:w-full">
-          {cards.map(card => (
+          {getCards(t).map(card => (
             <Card key={card.title} {...card} />
           ))}
         </div>
