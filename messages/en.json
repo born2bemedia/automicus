@@ -475,5 +475,38 @@
         }
       }
     }
+  },
+  "contact": {
+    "hero": {
+      "title": "We’re Here to Help. Reach Out Anytime.",
+      "text": "Get in touch with our team for any questions, support, or assistance.",
+      "btn": "Check FAQ"
+    },
+    "contactUs": {
+      "title": "Request Assistance",
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter Your Name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter Your Email"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter Your Phone"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Enter Your Message"
+        },
+        "btn": "Send",
+        "sending": "Sending...",
+        "success": "Thank You for Reaching Out!",
+        "text": "Your request has been successfully submitted. Our team will review your message and get back to you as soon as possible. We appreciate your patience!",
+        "continue": "Continue"
+      }
+    }
   }
 }
