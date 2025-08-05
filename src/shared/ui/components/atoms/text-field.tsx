@@ -17,7 +17,9 @@ export const TextField = ({
 }) => {
   return (
     <label className="relative flex w-full flex-col gap-2">
-      <Text color="light">{label}</Text>
+      <Text color="light" weight="medium">
+        {label}
+      </Text>
       <input
         className={cn(
           'rounded-lg bg-[#111] p-6 text-base font-medium text-[rgb(255_255_255_/_0.5)] transition-all duration-300 focus:outline-none',

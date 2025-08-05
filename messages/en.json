@@ -635,5 +635,48 @@
     "works": {
       "title": "How it Works"
     }
+  },
+  "auth": {
+    "login": {
+      "success": "Logged in successfully",
+      "error": "Failed to login. Please try again later.",
+      "title": "Welcome back",
+      "text": "Enter your credentials to access your account.",
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter Your Email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter Your Password"
+      },
+      "forgotPassword": "Forgot password?",
+      "btn": {
+        "label": "Login",
+        "loading": "Logging in..."
+      }
+    },
+    "signUp": {
+      "success": "Account created successfully",
+      "error": "Failed to sign up. Please try again later.",
+      "title": "Create Account",
+      "text": "Start your journey with us",
+      "fullName": {
+        "label": "Full Name",
+        "placeholder": "Enter Your Full Name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter Your Email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter Your Password"
+      },
+      "btn": {
+        "label": "Sign Up",
+        "loading": "Signing up..."
+      }
+    }
   }
 }
