@@ -1,9 +1,13 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { NavButton } from '@/shared/ui/components/molecules';
 
 export const BotSummary = ({ name, text }: { name: string; text: string }) => {
+  const t = useTranslations('botPage');
+
   return (
     <section className="m-1 flex h-full gap-1 max-md:flex-col-reverse">
       <section className="w-1/2 rounded-lg bg-[linear-gradient(0deg,rgba(40,40,40,0.50)_0%,rgba(40,40,40,0.50)_100%)] max-md:h-[350px] max-md:w-full">
@@ -25,7 +29,7 @@ export const BotSummary = ({ name, text }: { name: string; text: string }) => {
           </Text>
         </div>
         <NavButton url="/contact" size="md" variant="primary">
-          Get Assistance
+          {t('summary.title', { fallback: 'Get Assistance' })}
         </NavButton>
       </section>
     </section>

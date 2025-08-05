@@ -18,12 +18,15 @@ export const BotCard = ({
   layoutClassName,
   slug,
   excerpt,
+  deals,
   variant = 'simplify',
   showSaleBanner = true,
+  deal = false,
 }: Bot & {
   variant?: 'simplify' | 'full';
   layoutClassName?: string;
   showSaleBanner?: boolean;
+  deal?: boolean;
 }) => {
   const t = useTranslations('catalog.botCard');
 
@@ -89,7 +92,7 @@ export const BotCard = ({
             {name}
           </Text>
           <Text weight="medium" color="light">
-            {excerpt}
+            {deal ? deals : excerpt}
           </Text>
         </div>
         <div className="mt-auto flex gap-2.5">

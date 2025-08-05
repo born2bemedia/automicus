@@ -7,8 +7,13 @@ import { VideoHero } from '@/shared/ui/components/organisms';
 
 import { ContactUs } from './components';
 
-export default async function BotBundlesPage() {
-  const { data } = await getBotBundles();
+export default async function BotBundlesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const { data } = await getBotBundles({ params: { locale } });
 
   const t = await getTranslations('botBundles.hero');
 

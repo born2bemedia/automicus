@@ -617,5 +617,23 @@
     "en": "English",
     "de": "German",
     "it": "Italian"
+  },
+  "botPage": {
+    "footer": {
+      "title": "Need More?",
+      "text": "Explore our Bundles and Special Deals to maximize your trading potential and save on multiple bots.",
+      "btn": "Check Deals",
+      "btn2": "Check Bundles"
+    },
+    "header": {
+      "subtitle": "Technical Features:",
+      "btn": "Add to Card"
+    },
+    "summary": {
+      "title": "Get Assistance"
+    },
+    "works": {
+      "title": "How it Works"
+    }
   }
 }
