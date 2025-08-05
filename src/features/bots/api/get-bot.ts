@@ -4,9 +4,9 @@ import { SERVER_URL } from '@/shared/config/env';
 
 import type { BotResponse } from '../model';
 
-export async function getBot(slug: string) {
+export async function getBot(params: { slug: string; locale: string }) {
   const res = await fetch(
-    `${SERVER_URL}/api/bots?where[slug][equals]=${slug}`,
+    `${SERVER_URL}/api/bots?where[slug][equals]=${params.slug}&locale=${params.locale}`,
     {
       method: 'GET',
       headers: {

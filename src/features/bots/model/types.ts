@@ -8,6 +8,7 @@ export type Bot = {
   price: number;
   type: BotType;
   excerpt: string;
+  deals: string;
   slug: string;
   summary: string;
   howItWorks: BotTextBlock[];

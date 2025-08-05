@@ -12,9 +12,10 @@ import { Title } from '@/shared/ui/components/atoms/title';
 export default async function BotReviewPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { data } = await getReview((await params).slug);
+  const { locale, slug } = await params;
+  const { data } = await getReview({ slug, locale });
 
   const t = await getTranslations('botReviews.slug');
 

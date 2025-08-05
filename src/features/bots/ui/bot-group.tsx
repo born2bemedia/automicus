@@ -7,7 +7,7 @@ import { Divider, Text, Title } from '@/shared/ui/components/atoms';
 import type { Bot, BotType } from '../model';
 import { BotCard } from './bot-card';
 
-export const BotGroup = ({ bots }: { bots: Bot[] }) => {
+export const BotGroup = ({ bots, deal }: { bots: Bot[]; deal?: boolean }) => {
   const t = useTranslations('deals.botGroup');
 
   return (
@@ -20,6 +20,7 @@ export const BotGroup = ({ bots }: { bots: Bot[] }) => {
           fallback:
             'Maximize your forex trading with exclusive discounts on automated bots designed for the major currency pairs. These deals give you access to top-performing bots for less.',
         })}
+        deal={deal}
       />
       <Divider />
       <DealBot
@@ -30,6 +31,7 @@ export const BotGroup = ({ bots }: { bots: Bot[] }) => {
             'Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping.',
         })}
         type="scalping"
+        deal={deal}
       />
       <Divider />
       <DealBot
@@ -40,6 +42,7 @@ export const BotGroup = ({ bots }: { bots: Bot[] }) => {
             'Take advantage of exclusive offers on bots tailored for Gold trading. These bots are designed to optimize your entry strategies and manage risk for steady performance in the Gold market.',
         })}
         type="gold"
+        deal={deal}
       />
     </section>
   );
@@ -50,11 +53,13 @@ const DealBot = ({
   type,
   title,
   desc,
+  deal,
 }: {
   bots: Bot[];
   type: BotType;
   title: string;
   desc: string;
+  deal?: boolean;
 }) => {
   return (
     <section className="flex gap-10 max-md:flex-col max-md:gap-5">
@@ -70,6 +75,7 @@ const DealBot = ({
         variant="full"
         layoutClassName="w-1/2 max-md:w-full"
         {...(bots.find(item => item.type === type && item.pin) ?? bots[0])}
+        deal={deal}
       />
     </section>
   );

@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Button, Divider, Text, Title } from '@/shared/ui/components/atoms';
 import { FeatureList } from '@/shared/ui/components/molecules';
 
@@ -13,6 +15,8 @@ export const BotHeader = ({
   name,
   price,
 }: Pick<Bot, 'name' | 'description' | 'features' | 'price' | 'excerpt'>) => {
+  const t = useTranslations('botPage');
+
   return (
     <header className="flex items-center gap-10 p-10 max-md:flex-col max-md:p-6">
       <BotTitle name={name} excerpt={excerpt} />
@@ -30,11 +34,13 @@ export const BotHeader = ({
         <Divider />
         <section className="flex flex-col gap-4">
           <Text size="xl" weight="bold" color="light">
-            Technical Features:
+            {t('header.subtitle', { fallback: 'Technical Features:' })}
           </Text>
           <FeatureList values={features} />
         </section>
-        <Button size="md">Add to Card</Button>
+        <Button size="md">
+          {t('header.btn', { fallback: 'Add to Card' })}
+        </Button>
       </section>
     </header>
   );

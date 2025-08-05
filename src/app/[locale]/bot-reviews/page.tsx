@@ -7,8 +7,14 @@ import { VideoHero } from '@/shared/ui/components/organisms';
 
 import { NeedHelp } from './components';
 
-export default async function BotReviewsPage() {
-  const { data } = await getBotReviews();
+export default async function BotReviewsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  const { data } = await getBotReviews(locale);
 
   const t = await getTranslations('botReviews.hero');
 

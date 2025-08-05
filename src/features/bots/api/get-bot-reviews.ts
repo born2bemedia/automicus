@@ -2,8 +2,8 @@
 
 import { SERVER_URL } from '@/shared/config/env';
 
-export async function getBotReviews() {
-  const res = await fetch(`${SERVER_URL}/api/reviews`, {
+export async function getBotReviews(locale: string) {
+  const res = await fetch(`${SERVER_URL}/api/reviews?locale=${locale}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

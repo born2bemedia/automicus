@@ -5,8 +5,14 @@ import { BotGroup } from '@/features/bots/ui';
 
 import { VideoHero } from '@/shared/ui/components/organisms';
 
-export default async function DealsPage() {
-  const { data } = await getBots();
+export default async function DealsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  const { data } = await getBots({ params: { locale } });
 
   const t = await getTranslations('deals.hero');
 
@@ -24,7 +30,7 @@ export default async function DealsPage() {
           url: '/contact',
         }}
       />
-      <BotGroup bots={data.docs} />
+      <BotGroup bots={data.docs} deal />
     </main>
   );
 }

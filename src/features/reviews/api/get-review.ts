@@ -2,9 +2,15 @@
 
 import { SERVER_URL } from '@/shared/config/env';
 
-export async function getReview(slug: string) {
+export async function getReview({
+  slug,
+  locale = 'en',
+}: {
+  slug: string;
+  locale?: string;
+}) {
   const res = await fetch(
-    `${SERVER_URL}/api/reviews?where[slug][equals]=${slug}`,
+    `${SERVER_URL}/api/reviews?where[slug][equals]=${slug}&locale=${locale}`,
     {
       method: 'GET',
       headers: {

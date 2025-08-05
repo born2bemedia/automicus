@@ -5,8 +5,14 @@ import { BotCatalog } from '@/features/bots/ui/bot-catalog';
 
 import { CubesFooter, VideoHero } from '@/shared/ui/components/organisms';
 
-export default async function CatalogPage() {
-  const { data } = await getBots();
+export default async function CatalogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  const { data } = await getBots({ params: { locale } });
 
   const t = await getTranslations('catalog');
 
@@ -23,7 +29,7 @@ export default async function CatalogPage() {
           url: '/contact',
         }}
       />
-      <BotCatalog bots={data.docs} />
+      <BotCatalog bots={data.docs.reverse()} />
       <CubesFooter
         title={t('footer.title', { fallback: 'Special Deals & Bundles' })}
         text={t('footer.text', {
