@@ -1,14 +1,17 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { Link } from '@/shared/ui/components/molecules';
 
 export const Footer = () => {
   const t = useTranslations('footer');
+  const pathname = usePathname();
+  const locale = useLocale();
 
-  return (
+  return !pathname.startsWith(`/${locale}/account`) ? (
     <footer className="bg-primary flex flex-col gap-10 p-10">
       <section className="flex justify-between max-md:flex-col max-md:gap-10">
         <section className="flex flex-col gap-10">
@@ -137,5 +140,5 @@ export const Footer = () => {
         </Text>
       </section>
     </footer>
-  );
+  ) : null;
 };

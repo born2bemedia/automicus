@@ -20,6 +20,7 @@ const phoneFieldVariants = cva(
     variants: {
       variant: {
         primary: '!bg-[#111]',
+        secondary: '!bg-[#181818]',
       },
     },
     defaultVariants: {
@@ -32,15 +33,22 @@ export type PhoneFieldVariants = VariantProps<typeof phoneFieldVariants>;
 
 export const PhoneField = ({
   country,
-  variant,
   hint,
+  label,
+  variant = 'primary',
   ...args
 }: PhoneInputProps & {
   country?: string;
   hint?: string;
+  label?: string;
 } & PhoneFieldVariants) => {
   return (
-    <div className="relative h-max w-full">
+    <div className="relative flex h-max w-full flex-col gap-2">
+      {label && (
+        <Text color="light" weight="medium">
+          {label}
+        </Text>
+      )}
       <PhoneInput
         defaultCountry={
           defaultCountries.some(
@@ -59,7 +67,10 @@ export const PhoneField = ({
           ([, iso2]) => !excludedCountries.includes(iso2),
         )}
         countrySelectorStyleProps={{
-          buttonClassName: cn('!h-full !bg-[#111] !border-none !pr-3 !pl-2.5'),
+          buttonClassName: cn(
+            '!h-full !border-none !pr-3 !pl-2.5',
+            variant === 'primary' ? '!bg-[#111]' : '!bg-[#181818]',
+          ),
           dropdownStyleProps: {
             className: '!outline-none',
           },

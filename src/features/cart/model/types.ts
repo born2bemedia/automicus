@@ -1,7 +1,5 @@
-export type CartItem = {
-  name: string;
-  price: number;
-  quantity: number;
-  discount: number;
-  total: number;
-};
+import type { Bot, BotBundle } from '@/features/bots/model';
+
+export type CartItem =
+  | (Bot & { quantity: number })
+  | (BotBundle & { quantity: number });

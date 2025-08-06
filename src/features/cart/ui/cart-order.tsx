@@ -2,17 +2,23 @@
 
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useForm } from '@tanstack/react-form';
 
+import { lsWrite } from '@/shared/lib/browser';
 import { allowedCountries } from '@/shared/lib/countries';
+import { notifySuccess, notifyWarning } from '@/shared/lib/toast';
+import { cn } from '@/shared/lib/utils';
 import { Button, Text, TextField, Title } from '@/shared/ui/components/atoms';
 import { Autocomplete } from '@/shared/ui/components/atoms/autocomplete';
 import { Checkbox } from '@/shared/ui/components/atoms/checkbox';
 import { PhoneField } from '@/shared/ui/components/atoms/phone-field';
 
+import { sendOrder } from '../api/send-order';
 import { getCartSchema } from '../model/schemas';
 import type { CartItem } from '../model/types';
+import { useUser } from '@/core/user/model/use-user';
 
 export const CartOrder = ({
   items,
@@ -28,24 +34,45 @@ export const CartOrder = ({
   const t = useTranslations('cart');
   const te = useTranslations('cart.errors');
 
+  const user = useUser();
+  const router = useRouter();
+
   const { Field, Subscribe, handleSubmit } = useForm({
     defaultValues: {
-      fullName: '',
-      email: '',
-      addressLine1: '',
-      addressLine2: '',
-      city: '',
-      country: '',
-      zip: '',
-      phone: '',
+      firstName: user?.firstName ?? '',
+      lastName: user?.lastName ?? '',
+      email: user?.email ?? '',
+      addressLine1: user?.addressLine1 ?? '',
+      addressLine2: user?.addressLine2 ?? '',
+      city: user?.city ?? '',
+      country: user?.country ?? '',
+      zip: user?.zip ?? '',
+      phone: user?.phone ?? '',
       isAgreeTerms: false,
       isAgreeRefund: false,
     },
     validators: {
       onSubmit: getCartSchema(te),
     },
-    onSubmit: values => {
-      console.log(values);
+    onSubmit: async data => {
+      const res = await sendOrder({
+        billing: data.value,
+        products: items,
+        totalPrice: total,
+        user,
+      });
+
+      if (res.doc) {
+        notifySuccess(t('success', { fallback: 'Order sent successfully' }));
+        lsWrite('cart', JSON.stringify([]));
+        router.push('/thank-you-wire');
+      } else {
+        notifyWarning(
+          t('error', {
+            fallback: 'Failed to send order. Please try again later.',
+          }),
+        );
+      }
     },
   });
 
@@ -96,13 +123,29 @@ export const CartOrder = ({
             <Title size="2xl" color="light" uppercase>
               {t('yourData.title', { fallback: 'Your Data' })}
             </Title>
-            <FormRow>
-              <Field name="fullName">
+            <FormRow className="max-2xl:flex-wrap">
+              <Field name="firstName">
                 {field => (
                   <TextField
                     name={field.name}
-                    placeholder={t('yourData.fullName', {
-                      fallback: 'Full Name',
+                    placeholder={t('yourData.firstName', {
+                      fallback: 'First Name',
+                    })}
+                    value={String(field.state.value)}
+                    onBlur={field.handleBlur}
+                    onChange={e => field.handleChange(e.target.value)}
+                    hint={field.state.meta.errors
+                      .map(err => err?.message)
+                      .join(', ')}
+                  />
+                )}
+              </Field>
+              <Field name="lastName">
+                {field => (
+                  <TextField
+                    name={field.name}
+                    placeholder={t('yourData.lastName', {
+                      fallback: 'Last Name',
                     })}
                     value={String(field.state.value)}
                     onBlur={field.handleBlur}
@@ -400,8 +443,19 @@ const Counter = ({
 
 export const Separator = () => <span className="h-[1px] w-full bg-white/5" />;
 
-export const FormRow = ({ children }: { children: ReactNode }) => (
-  <div className="flex items-end gap-5 max-md:flex-col max-md:items-start">
+export const FormRow = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={cn(
+      'flex items-end gap-5 max-md:flex-col max-md:items-start',
+      className,
+    )}
+  >
     {children}
   </div>
 );
