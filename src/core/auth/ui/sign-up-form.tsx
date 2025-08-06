@@ -19,7 +19,8 @@ export const SignUpForm = () => {
 
   const { Field, Subscribe, handleSubmit } = useForm({
     defaultValues: {
-      fullName: '',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
     },
@@ -67,21 +68,34 @@ export const SignUpForm = () => {
         </Text>
       </header>
       <section className="flex flex-col gap-5">
-        <Field name="fullName">
-          {({ name, state, handleBlur, handleChange }) => (
-            <TextField
-              name={name}
-              label={t('fullName.label', { fallback: 'Full Name' })}
-              placeholder={t('fullName.placeholder', {
-                fallback: 'Enter Your Full Name',
-              })}
-              value={String(state.value)}
-              onBlur={handleBlur}
-              onChange={e => handleChange(e.target.value)}
-              hint={state.meta.errors.map(err => err?.message).join(', ')}
-            />
-          )}
-        </Field>
+        <div className="flex gap-5">
+          <Field name="firstName">
+            {({ name, state, handleBlur, handleChange }) => (
+              <TextField
+                name={name}
+                label="First Name"
+                placeholder="Enter Your First Name"
+                value={String(state.value)}
+                onBlur={handleBlur}
+                onChange={e => handleChange(e.target.value)}
+                hint={state.meta.errors.map(err => err?.message).join(', ')}
+              />
+            )}
+          </Field>
+          <Field name="lastName">
+            {({ name, state, handleBlur, handleChange }) => (
+              <TextField
+                name={name}
+                label="Last Name"
+                placeholder="Enter Your Last Name"
+                value={String(state.value)}
+                onBlur={handleBlur}
+                onChange={e => handleChange(e.target.value)}
+                hint={state.meta.errors.map(err => err?.message).join(', ')}
+              />
+            )}
+          </Field>
+        </div>
         <Field name="email">
           {({ name, state, handleBlur, handleChange }) => (
             <TextField

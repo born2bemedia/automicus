@@ -1,0 +1,36 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
+import { notifyWarning } from '@/shared/lib/toast';
+import { Text } from '@/shared/ui/components/atoms';
+import { DoorsIcon } from '@/shared/ui/icons/fill/doors';
+
+import { logout } from '../api/logout';
+import { useUserStore } from '../model/user.store';
+
+export const LogoutBtn = () => {
+  const router = useRouter();
+  const { setUser } = useUserStore();
+
+  const logoutHandle = async () => {
+    const res = await logout();
+
+    if (res.success) {
+      router.push('/');
+      setUser(null);
+    } else {
+      notifyWarning('Something went wrong — please refresh and try again.');
+    }
+  };
+
+  return (
+    <button
+      className="flex w-[257px] cursor-pointer items-center gap-2.5 rounded-lg border border-[#1C1C1C] bg-[#1C1C1C] p-4 transition duration-300 hover:border-[#CBFF00] max-md:w-full"
+      onClick={logoutHandle}
+    >
+      <DoorsIcon />
+      <Text color="light">Log out</Text>
+    </button>
+  );
+};

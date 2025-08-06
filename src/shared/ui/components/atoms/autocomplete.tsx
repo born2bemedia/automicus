@@ -13,6 +13,7 @@ export const Autocomplete = ({
   disabled,
   initialValue = '',
   hint,
+  variant = 'primary',
 }: {
   items: { value: string; label: string }[];
   onChange?: (value: string) => void;
@@ -21,6 +22,7 @@ export const Autocomplete = ({
   label?: string;
   disabled?: boolean;
   hint?: string;
+  variant?: 'primary' | 'secondary';
 }) => {
   const [search, setSearch] = useState(initialValue);
   const [isOpen, setIsOpen] = useState(false);
@@ -68,6 +70,7 @@ export const Autocomplete = ({
           setIsOpen(true);
         }}
         hint={hint}
+        variant={variant}
       />
       {isOpen && search && (
         <ul className="absolute top-[110%] left-0 z-10 flex max-h-52 w-full flex-col overflow-y-auto rounded-lg bg-[#111] p-2 transition-all duration-300 ease-in-out">

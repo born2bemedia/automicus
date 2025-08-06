@@ -3,7 +3,8 @@
 import { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { getTranslatedRoutes } from '@/shared/config/routes';
 import { useWindowSize } from '@/shared/lib/hooks';
@@ -20,12 +21,15 @@ import {
 } from '@/shared/ui/icons/socials';
 
 export const Header = () => {
-  return (
+  const pathname = usePathname();
+  const locale = useLocale();
+
+  return !pathname.startsWith(`/${locale}/account`) ? (
     <header className="sticky top-0 z-50 flex flex-col">
       <HeaderTop />
       <HeaderBottom />
     </header>
-  );
+  ) : null;
 };
 
 const HeaderTop = () => (
