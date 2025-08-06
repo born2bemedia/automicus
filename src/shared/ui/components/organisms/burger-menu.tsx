@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import {
@@ -29,6 +31,8 @@ import {
   YouTubeIcon,
 } from '@/shared/ui/icons/socials';
 
+import { useUser } from '@/core/user/model/use-user';
+
 export const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
 
@@ -46,6 +50,8 @@ export const BurgerMenu = () => {
 
   const t = useTranslations('header');
 
+  const user = useUser();
+
   return (
     <Root open={open} onOpenChange={setOpen}>
       <Trigger asChild>
@@ -59,7 +65,12 @@ export const BurgerMenu = () => {
           <Description asChild>
             <section className="flex h-full flex-col gap-6">
               <section className="flex items-center justify-between">
-                <Text>Logo</Text>
+                <Image
+                  src="/full-logo-black.svg"
+                  alt="logo"
+                  width={180}
+                  height={36}
+                />
                 <button onClick={() => setOpen(false)}>
                   <ThreeLinesIcon color="black" />
                 </button>
@@ -74,12 +85,31 @@ export const BurgerMenu = () => {
                     ))}
                   </div>
                   <div className="flex flex-col gap-4">
-                    <Button size="sm">
-                      Account <ArrowRightDownIcon />
-                    </Button>
-                    <Button size="sm">
-                      Cart <ArrowRightDownIcon />
-                    </Button>
+                    {user ? (
+                      <Link href="/account">
+                        <Button size="sm">
+                          Account <ArrowRightDownIcon />
+                        </Button>
+                      </Link>
+                    ) : (
+                      <>
+                        <Link href="/login">
+                          <Button variant="secondary" size="sm">
+                            {t('logIn', { fallback: 'Log In' })}
+                          </Button>
+                        </Link>
+                        <Link href="/sign-up">
+                          <Button size="sm">
+                            {t('signUp', { fallback: 'Sign Up' })}
+                          </Button>
+                        </Link>
+                      </>
+                    )}
+                    <Link href="/cart">
+                      <Button size="sm">
+                        Cart <ArrowRightDownIcon />
+                      </Button>
+                    </Link>
                     <Text>number</Text>
                     <Text>email</Text>
                   </div>

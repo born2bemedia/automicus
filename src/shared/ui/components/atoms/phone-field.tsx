@@ -35,7 +35,7 @@ export const PhoneField = ({
   country,
   hint,
   label,
-  variant,
+  variant = 'primary',
   ...args
 }: PhoneInputProps & {
   country?: string;

@@ -1,7 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
+import { cookies } from '@/shared/lib/cookie';
 import { notifyWarning } from '@/shared/lib/toast';
 import { Text } from '@/shared/ui/components/atoms';
 import { DoorsIcon } from '@/shared/ui/icons/fill/doors';
@@ -11,16 +13,23 @@ import { useUserStore } from '../model/user.store';
 
 export const LogoutBtn = () => {
   const router = useRouter();
+  const t = useTranslations('account.tabs');
   const { setUser } = useUserStore();
 
   const logoutHandle = async () => {
     const res = await logout();
 
     if (res.success) {
-      router.push('/');
+      cookies.remove('token');
+      cookies.remove('user');
       setUser(null);
+      router.push('/');
     } else {
-      notifyWarning('Something went wrong — please refresh and try again.');
+      notifyWarning(
+        t('failedToLogOut', {
+          fallback: 'Failed to log out. Please try again later.',
+        }),
+      );
     }
   };
 
@@ -30,7 +39,7 @@ export const LogoutBtn = () => {
       onClick={logoutHandle}
     >
       <DoorsIcon />
-      <Text color="light">Log out</Text>
+      <Text color="light">{t('logOut', { fallback: 'Log Out' })}</Text>
     </button>
   );
 };

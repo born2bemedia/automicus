@@ -1,14 +1,18 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { cn } from '@/shared/lib/utils';
 import { Text } from '@/shared/ui/components/atoms';
 
 import { useTabsStore } from '../model/tabs.store';
 
 export const AccountTabs = () => {
-  const { activeTab, setActiveTab, tabs } = useTabsStore();
+  const t = useTranslations('account.tabs');
 
-  return tabs.map(({ icon: Icon, label, tab }) => (
+  const { activeTab, setActiveTab, getTabs } = useTabsStore();
+
+  return getTabs(t).map(({ icon: Icon, label, tab }) => (
     <button
       key={label}
       className={cn(

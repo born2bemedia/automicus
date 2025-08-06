@@ -2,6 +2,10 @@
 
 import { useTranslations } from 'next-intl';
 
+import { getCart } from '@/features/cart/api/get-cart';
+
+import { lsWrite } from '@/shared/lib/browser';
+import { notifySuccess } from '@/shared/lib/toast';
 import { Button, Chip } from '@/shared/ui/components/atoms';
 import { Text } from '@/shared/ui/components/atoms';
 
@@ -16,6 +20,18 @@ export const BotBundleCard = ({
   bots,
 }: BotBundle) => {
   const t = useTranslations('home.botBundleCard');
+
+  const onBuyHandle = () => {
+    const cart = getCart();
+    lsWrite(
+      'cart',
+      JSON.stringify([
+        ...cart,
+        { name, price, bots, discount, quantity: 1, total: price },
+      ]),
+    );
+    notifySuccess('Bot bundle added to cart');
+  };
 
   return (
     <article className="flex items-center justify-between gap-20 rounded-lg bg-[rgba(229,229,229,0.1)] p-10 backdrop-blur-[15px] max-md:flex-col max-md:gap-10">
@@ -55,7 +71,9 @@ export const BotBundleCard = ({
               {t('save', { fallback: 'Save' })} €{discount}!
             </Chip>
           </div>
-          <Button fullWidth>{t('buy', { fallback: 'Buy' })}</Button>
+          <Button onClick={onBuyHandle} fullWidth>
+            {t('buy', { fallback: 'Buy' })}
+          </Button>
         </section>
       </section>
     </article>

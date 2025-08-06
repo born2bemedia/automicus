@@ -8,7 +8,12 @@ import { useLocale, useTranslations } from 'next-intl';
 
 import { getTranslatedRoutes } from '@/shared/config/routes';
 import { useWindowSize } from '@/shared/lib/hooks';
-import { Button, Dropdown, DropdownItem } from '@/shared/ui/components/atoms';
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  Text,
+} from '@/shared/ui/components/atoms';
 import { LangSwitcher, NavButton } from '@/shared/ui/components/molecules';
 import { BurgerMenu } from '@/shared/ui/components/organisms';
 import { ThreeLinesIcon } from '@/shared/ui/icons/fill';
@@ -19,6 +24,9 @@ import {
   XIcon,
   YouTubeIcon,
 } from '@/shared/ui/icons/socials';
+
+import { UserBadgeIcon } from '../../icons/fill/user-badge';
+import { useUser } from '@/core/user/model/use-user';
 
 export const Header = () => {
   const pathname = usePathname();
@@ -55,6 +63,8 @@ const HeaderBottom = () => {
 
   const t = useTranslations('header');
 
+  const user = useUser();
+
   const routes = useMemo(() => getTranslatedRoutes(t), [t]);
 
   return (
@@ -84,9 +94,25 @@ const HeaderBottom = () => {
             {t('cart', { fallback: 'Cart' })}
           </Button>
         </Link>
-        <Button variant="secondary" size="sm">
-          {t('logIn', { fallback: 'Log In' })}
-        </Button>
+        {user ? (
+          <div className="flex items-center gap-2.5 rounded-full bg-white/10 py-1.5 pr-3 pl-1.5 backdrop-blur-[5px]">
+            <UserBadgeIcon />
+            <Text color="light" weight="medium">
+              {user.firstName + ' ' + user.lastName}
+            </Text>
+          </div>
+        ) : (
+          <div className="flex items-center gap-[6px]">
+            <Link href="/login">
+              <Button variant="secondary" size="sm">
+                {t('logIn', { fallback: 'Log In' })}
+              </Button>
+            </Link>
+            <Link href="/sign-up">
+              <Button size="sm">{t('signUp', { fallback: 'Sign Up' })}</Button>
+            </Link>
+          </div>
+        )}
       </section>
       {width < 1024 && <BurgerMenu />}
     </section>

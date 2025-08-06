@@ -2,6 +2,7 @@
   "header": {
     "cart": "Cart",
     "logIn": "Log In",
+    "signUp": "Sign Up",
     "catalog": "Catalog",
     "botBundles": "Bot Bundles",
     "botReviews": "Bot Reviews",
@@ -282,9 +283,12 @@
   "cart": {
     "title": "Your Choice",
     "discount": "Discount",
+    "success": "Order sent successfully",
+    "error": "Failed to send order. Please try again later.",
     "yourData": {
       "title": "Your Data",
-      "fullName": "Full Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
       "email": "Email"
     },
     "address": {
@@ -676,6 +680,86 @@
       "btn": {
         "label": "Sign Up",
         "loading": "Signing up..."
+      }
+    }
+  },
+  "account": {
+    "tabs": {
+      "yourData": "Your Data",
+      "yourBots": "Your Bots",
+      "yourOrders": "Your Orders",
+      "logOut": "Log Out",
+      "failedToLogOut": "Failed to log out. Please try again later."
+    },
+    "title": "Welcome to Your Automicus Account",
+    "yourData": {
+      "editUser": {
+        "success": "User updated successfully",
+        "error": "Failed to update user. Please try again later.",
+        "titleData": "Your Data",
+        "titleAddress": "Your Address",
+        "textData": "Manage your data, addresses, emails and passwords",
+        "save": "Save",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "fields": {
+          "firstName": {
+            "label": "First Name",
+            "placeholder": "Enter Your First Name"
+          },
+          "lastName": {
+            "label": "Last Name",
+            "placeholder": "Enter Your Last Name"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Enter Your Email"
+          },
+          "phone": {
+            "label": "Phone",
+            "placeholder": "Enter Your Phone"
+          },
+          "addressLine1": {
+            "label": "Address Line 1",
+            "placeholder": "Enter Your Address Line 1"
+          },
+          "addressLine2": {
+            "label": "Address Line 2",
+            "placeholder": "Enter Your Address Line 2"
+          },
+          "city": {
+            "label": "City",
+            "placeholder": "Enter Your City"
+          },
+          "country": {
+            "label": "Country/Region",
+            "placeholder": "Search for a country"
+          },
+          "zip": {
+            "label": "Postal Code",
+            "placeholder": "Enter Your Postal Code"
+          }
+        }
+      }
+    },
+    "changePassword": {
+      "success": "Password changed successfully",
+      "error": "Failed to change password. Please try again later.",
+      "title": "Your Password",
+      "save": "Save",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "fields": {
+        "currentPassword": {
+          "label": "Current Password",
+          "placeholder": "Enter Your Current Password"
+        },
+        "newPassword": {
+          "label": "New Password",
+          "placeholder": "Enter Your New Password"
+        }
       }
     }
   }

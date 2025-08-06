@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { useForm } from '@/shared/lib/forms';
 import { notifySuccess, notifyWarning } from '@/shared/lib/toast';
@@ -16,6 +17,8 @@ import { useUser } from '@/core/user/model/use-user';
 
 export const ChangePasswordForm = () => {
   const [isEdit, setIsEdit] = useState(false);
+
+  const t = useTranslations('account.changePassword');
 
   const user = useUser();
 
@@ -36,12 +39,18 @@ export const ChangePasswordForm = () => {
       console.log('res', res);
 
       if (res.message === 'Updated successfully.') {
-        notifySuccess('Password changed successfully');
+        notifySuccess(
+          t('success', { fallback: 'Password changed successfully' }),
+        );
         reset();
         setIsEdit(false);
       } else {
         console.error(res);
-        notifyWarning('Password change failed. Please try again later.');
+        notifyWarning(
+          t('error', {
+            fallback: 'Password change failed. Please try again later.',
+          }),
+        );
       }
     },
   });
@@ -57,7 +66,7 @@ export const ChangePasswordForm = () => {
     >
       <div className="flex items-center justify-between max-md:flex-col max-md:gap-4">
         <Title size="3xl" color="light" weight="bold">
-          Your Password
+          {t('title', { fallback: 'Your Password' })}
         </Title>
         {isEdit ? (
           <div className="flex items-center gap-3 max-md:w-full">
@@ -72,11 +81,11 @@ export const ChangePasswordForm = () => {
                   disabled={!canSubmit}
                 >
                   {isSubmitting ? (
-                    'Saving...'
+                    t('saving', { fallback: 'Saving...' })
                   ) : (
                     <>
                       <DiskIcon />
-                      Save
+                      {t('save', { fallback: 'Save' })}
                     </>
                   )}
                 </Button>
@@ -89,7 +98,7 @@ export const ChangePasswordForm = () => {
               variant="secondary"
             >
               <CloseIcon />
-              Cancel
+              {t('cancel', { fallback: 'Cancel' })}
             </Button>
           </div>
         ) : (
@@ -99,7 +108,7 @@ export const ChangePasswordForm = () => {
             onClick={() => setIsEdit(true)}
           >
             <PencilIcon />
-            Edit
+            {t('edit', { fallback: 'Edit' })}
           </Button>
         )}
       </div>
@@ -108,8 +117,12 @@ export const ChangePasswordForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Current Password"
-              placeholder="Enter Your Current Password"
+              label={t('fields.currentPassword.label', {
+                fallback: 'Current Password',
+              })}
+              placeholder={t('fields.currentPassword.placeholder', {
+                fallback: 'Enter Your Current Password',
+              })}
               type="password"
               value={String(state.value)}
               onBlur={handleBlur}
@@ -123,8 +136,12 @@ export const ChangePasswordForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="New Password"
-              placeholder="Enter Your New Password"
+              label={t('fields.newPassword.label', {
+                fallback: 'New Password',
+              })}
+              placeholder={t('fields.newPassword.placeholder', {
+                fallback: 'Enter Your New Password',
+              })}
               type="password"
               value={String(state.value)}
               onBlur={handleBlur}

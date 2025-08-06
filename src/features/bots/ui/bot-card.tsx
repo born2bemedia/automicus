@@ -11,6 +11,7 @@ import { NavButton } from '@/shared/ui/components/molecules';
 import type { Bot } from '../model';
 
 export const BotCard = ({
+  id,
   description,
   name,
   price,
@@ -36,7 +37,7 @@ export const BotCard = ({
       'cart',
       JSON.stringify([
         ...cart,
-        { name, price, discount, quantity: 1, total: price },
+        { id, name, price, discount, quantity: 1, total: price },
       ]),
     );
     notifySuccess('Bot added to cart');

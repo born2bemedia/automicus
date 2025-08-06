@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { allowedCountries } from '@/shared/lib/countries';
 import { useForm } from '@/shared/lib/forms';
@@ -20,6 +21,8 @@ import { useUser } from '../model/use-user';
 
 export const EditUserForm = () => {
   const [isEdit, setIsEdit] = useState(false);
+
+  const t = useTranslations('account.yourData.editUser');
 
   const user = useUser();
 
@@ -41,13 +44,15 @@ export const EditUserForm = () => {
     onSubmit: async values => {
       const res = await editUser({ ...values.value, id: user?.id });
 
-      console.log('@res', res);
-
       if (res.message === 'Updated successfully.') {
         setIsEdit(false);
-        notifySuccess('User updated successfully');
+        notifySuccess(t('success', { fallback: 'User updated successfully' }));
       } else {
-        notifyWarning('Failed to update user. Please try again later.');
+        notifyWarning(
+          t('error', {
+            fallback: 'Failed to update user. Please try again later.',
+          }),
+        );
       }
     },
   });
@@ -64,10 +69,12 @@ export const EditUserForm = () => {
       <header className="flex items-center justify-between gap-6 max-md:flex-col">
         <div className="flex flex-col gap-3">
           <Title size="3xl" color="light" weight="bold">
-            Your Data
+            {t('titleData', { fallback: 'Your Data' })}
           </Title>
           <Text color="muted" weight="medium">
-            Manage your data, addresses, emails and passwords
+            {t('textData', {
+              fallback: 'Manage your data, addresses, emails and passwords',
+            })}
           </Text>
         </div>
         {isEdit ? (
@@ -83,11 +90,11 @@ export const EditUserForm = () => {
                   disabled={!canSubmit}
                 >
                   {isSubmitting ? (
-                    'Saving...'
+                    t('saving', { fallback: 'Saving...' })
                   ) : (
                     <>
                       <DiskIcon />
-                      Save
+                      {t('save', { fallback: 'Save' })}
                     </>
                   )}
                 </Button>
@@ -100,7 +107,7 @@ export const EditUserForm = () => {
               variant="secondary"
             >
               <CloseIcon />
-              Cancel
+              {t('cancel', { fallback: 'Cancel' })}
             </Button>
           </div>
         ) : (
@@ -110,7 +117,7 @@ export const EditUserForm = () => {
             onClick={() => setIsEdit(true)}
           >
             <PencilIcon />
-            Edit
+            {t('edit', { fallback: 'Edit' })}
           </Button>
         )}
       </header>
@@ -119,8 +126,12 @@ export const EditUserForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="First Name"
-              placeholder="Enter Your First Name"
+              label={t('fields.firstName.label', {
+                fallback: 'First Name',
+              })}
+              placeholder={t('fields.firstName.placeholder', {
+                fallback: 'Enter Your First Name',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -134,8 +145,12 @@ export const EditUserForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Last Name"
-              placeholder="Enter Your Last Name"
+              label={t('fields.lastName.label', {
+                fallback: 'Last Name',
+              })}
+              placeholder={t('fields.lastName.placeholder', {
+                fallback: 'Enter Your Last Name',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -151,8 +166,12 @@ export const EditUserForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Email address"
-              placeholder="Enter email address"
+              label={t('fields.email.label', {
+                fallback: 'Email address',
+              })}
+              placeholder={t('fields.email.placeholder', {
+                fallback: 'Enter email address',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -166,8 +185,12 @@ export const EditUserForm = () => {
           {field => (
             <PhoneField
               name={field.name}
-              label="Phone number"
-              placeholder="Enter phone number"
+              label={t('fields.phone.label', {
+                fallback: 'Phone number',
+              })}
+              placeholder={t('fields.phone.placeholder', {
+                fallback: 'Enter phone number',
+              })}
               value={String(field.state.value)}
               onBlur={field.handleBlur}
               onChange={value => field.handleChange(value)}
@@ -180,15 +203,19 @@ export const EditUserForm = () => {
       </FormRow>
       <Separator />
       <Title size="3xl" color="light" weight="bold">
-        Your Address
+        {t('titleAddress', { fallback: 'Your Address' })}
       </Title>
       <FormRow>
         <Field name="addressLine1">
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Address line 1"
-              placeholder="Enter your address line"
+              label={t('fields.addressLine1.label', {
+                fallback: 'Address line 1',
+              })}
+              placeholder={t('fields.addressLine1.placeholder', {
+                fallback: 'Enter your address line',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -202,8 +229,12 @@ export const EditUserForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="Address line 2"
-              placeholder="Enter your address line"
+              label={t('fields.addressLine2.label', {
+                fallback: 'Address line 2',
+              })}
+              placeholder={t('fields.addressLine2.placeholder', {
+                fallback: 'Enter your address line',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -219,8 +250,12 @@ export const EditUserForm = () => {
           {({ name, state, handleBlur, handleChange }) => (
             <TextField
               name={name}
-              label="City"
-              placeholder="Enter your city"
+              label={t('fields.city.label', {
+                fallback: 'City',
+              })}
+              placeholder={t('fields.city.placeholder', {
+                fallback: 'Enter your city',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
@@ -237,8 +272,12 @@ export const EditUserForm = () => {
                 value,
                 label: label.name,
               }))}
-              label="Country/Region"
-              placeholder="Search for a country"
+              label={t('fields.country.label', {
+                fallback: 'Country/Region',
+              })}
+              placeholder={t('fields.country.placeholder', {
+                fallback: 'Search for a country',
+              })}
               initialValue={String(field.state.value)}
               onChange={value => field.handleChange(value)}
               hint={field.state.meta.errors.map(err => err?.message).join(', ')}
@@ -252,8 +291,12 @@ export const EditUserForm = () => {
             <TextField
               name={name}
               type="number"
-              label="Postal code"
-              placeholder="Enter your postal code"
+              label={t('fields.zip.label', {
+                fallback: 'Postal code',
+              })}
+              placeholder={t('fields.zip.placeholder', {
+                fallback: 'Enter your postal code',
+              })}
               value={String(state.value)}
               onBlur={handleBlur}
               onChange={e => handleChange(e.target.value)}
