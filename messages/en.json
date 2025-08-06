@@ -762,5 +762,38 @@
         }
       }
     }
+  },
+  "thankYouWire": {
+    "footer": {
+      "title": "Need Assistance?",
+      "text": "Have questions about your order or setup?",
+      "btn": "Contact Support"
+    },
+    "whatNext": {
+      "title": "What’s Next?",
+      "text": "You’ll receive a confirmation email shortly with your bot files, installation guide, and access to tutorials."
+    },
+    "bankTransferInfo": {
+      "title": {
+        "0": "You’re One Step Away",
+        "1": "from Completing Your Order"
+      },
+      "text": {
+        "0": "Thank you for your order! To complete your purchase, please make a bank transfer using the details below.",
+        "1": "Make sure to include the payment reference exactly as provided so we can process your order without delays."
+      },
+      "panel": {
+        "title": "Pay with Bank Transfer",
+        "iban": "IBAN:",
+        "bic": "BIC / SWIFT:",
+        "recipient": "Recipient:",
+        "recipientAddress": "Recipient Address:",
+        "bankName": "Bank Name:",
+        "reference": "Reference (Mandatory):",
+        "referenceText": "Use the exact reference above when making the payment.",
+        "copy": "Copy",
+        "copied": "Copied!"
+      }
+    }
   }
 }

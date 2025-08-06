@@ -16,7 +16,7 @@ export const BotSummary = ({ name, text }: { name: string; text: string }) => {
           autoPlay
           loop
           muted
-          className="h-full w-full rounded-lg object-cover"
+          className="h-full w-full rounded-lg object-cover [filter:brightness(0.4)]"
         />
       </section>
       <section className="flex w-1/2 flex-col gap-10 rounded-lg bg-[#282828] p-10 max-md:w-full">
