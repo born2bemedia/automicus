@@ -3,6 +3,8 @@
 import { useTranslations } from 'next-intl';
 
 import { ChangePasswordForm } from '@/features/change-password/ui/form';
+import type { Order } from '@/features/orders/model/types';
+import { OrdersTable } from '@/features/orders/ui/orders-table';
 
 import { Title } from '@/shared/ui/components/atoms';
 import { Separator } from '@/shared/ui/components/atoms/separator';
@@ -10,7 +12,7 @@ import { Separator } from '@/shared/ui/components/atoms/separator';
 import { useTabsStore } from '@/core/user/model/tabs.store';
 import { EditUserForm } from '@/core/user/ui/edit-user-form';
 
-export const AccountContainer = () => {
+export const AccountContainer = ({ orders }: { orders: Order[] }) => {
   const { activeTab } = useTabsStore();
 
   const t = useTranslations('account');
@@ -33,6 +35,7 @@ export const AccountContainer = () => {
             <ChangePasswordForm />
           </div>
         )}
+        {activeTab === 'orders' && <OrdersTable values={orders} />}
       </section>
     </section>
   );
