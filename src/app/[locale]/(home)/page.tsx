@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { getBotBundles, getBots } from '@/features/bots/api';
 
 import {
@@ -13,6 +15,23 @@ import {
   WhyChoose,
   YouCanAchieve,
 } from './components';
+
+export const metadata: Metadata = {
+  title: 'Automated Trading Bots | Automicus',
+  description:
+    'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
+  openGraph: {
+    title: 'Automated Trading Bots | Automicus',
+    description:
+      'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Automated Trading Bots | Automicus',
+    description:
+      'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
+  },
+};
 
 export default async function HomePage({
   params,

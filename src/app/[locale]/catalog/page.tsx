@@ -1,9 +1,27 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { getBots } from '@/features/bots/api';
 import { BotCatalog } from '@/features/bots/ui/bot-catalog';
 
 import { CubesFooter, VideoHero } from '@/shared/ui/components/organisms';
+
+export const metadata: Metadata = {
+  title: 'Trading Bots Catalog | Automicus',
+  description:
+    'Explore our full catalog of advanced trading bots for Forex and Gold – compare strategies, features, and find your perfect match.',
+  openGraph: {
+    title: 'Trading Bots Catalog | Automicus',
+    description:
+      'Explore our full catalog of advanced trading bots for Forex and Gold – compare strategies, features, and find your perfect match.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trading Bots Catalog | Automicus',
+    description:
+      'Explore our full catalog of advanced trading bots for Forex and Gold – compare strategies, features, and find your perfect match.',
+  },
+};
 
 export default async function CatalogPage({
   params,

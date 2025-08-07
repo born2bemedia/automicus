@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { getBot } from '@/features/bots/api';
@@ -5,6 +6,25 @@ import { BotHeader, BotSuitableGrid, BotSummary } from '@/features/bots/ui';
 import { BotWorks } from '@/features/bots/ui/bot-works';
 
 import { CubesFooter } from '@/shared/ui/components/organisms';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    slug: string;
+    locale: string;
+  }>;
+}): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const { data } = await getBot({ slug, locale });
+
+  const cleanName = data.name.replace(/Automicus/gi, '').trim();
+
+  return {
+    title: `${cleanName} Bot | Automicus`,
+    description: data.excerpt,
+  };
+}
 
 export default async function CatalogPage({
   params,

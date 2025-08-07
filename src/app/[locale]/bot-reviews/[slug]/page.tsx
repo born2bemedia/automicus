@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
@@ -8,6 +9,23 @@ import { ReviewRenderer } from '@/features/reviews/ui';
 import { SERVER_URL } from '@/shared/config/env';
 import { Button, Text } from '@/shared/ui/components/atoms';
 import { Title } from '@/shared/ui/components/atoms/title';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    slug: string;
+    locale: string;
+  }>;
+}): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const { data } = await getReview({ slug, locale });
+
+  return {
+    title: data.metaTitle,
+    description: data.metaDescription,
+  };
+}
 
 export default async function BotReviewPage({
   params,

@@ -1,8 +1,26 @@
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
 import { CubesFooter, VideoHero } from '@/shared/ui/components/organisms';
 
 import { Answers } from './components';
+
+export const metadata: Metadata = {
+  title: 'FAQ | Automicus',
+  description:
+    'Explore our FAQ to learn more about Automicus trading bots, installation, usage, and troubleshooting. Get answers to common questions and improve your trading experience.',
+  openGraph: {
+    title: 'FAQ | Automicus',
+    description:
+      'Explore our FAQ to learn more about Automicus trading bots, installation, usage, and troubleshooting. Get answers to common questions and improve your trading experience.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FAQ | Automicus',
+    description:
+      'Explore our FAQ to learn more about Automicus trading bots, installation, usage, and troubleshooting. Get answers to common questions and improve your trading experience.',
+  },
+};
 
 export default function FaqPage() {
   const t = useTranslations('faq');
