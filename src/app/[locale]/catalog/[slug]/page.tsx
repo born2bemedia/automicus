@@ -10,12 +10,12 @@ import { CubesFooter } from '@/shared/ui/components/organisms';
 export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }): Promise<Metadata> {
-  const { slug, locale } = params;
+  const { slug, locale } = await params;
   const { data } = await getBot({ slug, locale });
 
   const cleanName = data.name.replace(/Automicus/gi, '').trim();

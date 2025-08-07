@@ -13,12 +13,12 @@ import { Title } from '@/shared/ui/components/atoms/title';
 export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }): Promise<Metadata> {
-  const { slug, locale } = params;
+  const { slug, locale } = await params;
   const { data } = await getReview({ slug, locale });
 
   return {
