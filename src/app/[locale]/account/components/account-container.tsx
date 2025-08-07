@@ -2,9 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 
+import type { Bot } from '@/features/bots/model';
 import { ChangePasswordForm } from '@/features/change-password/ui/form';
 import type { Order } from '@/features/orders/model/types';
+import { NoAvailableBots } from '@/features/orders/ui/no-available-bots';
 import { OrdersTable } from '@/features/orders/ui/orders-table';
+import { PurchasedBots } from '@/features/orders/ui/purchased-bots';
 
 import { Title } from '@/shared/ui/components/atoms';
 import { Separator } from '@/shared/ui/components/atoms/separator';
@@ -12,7 +15,13 @@ import { Separator } from '@/shared/ui/components/atoms/separator';
 import { useTabsStore } from '@/core/user/model/tabs.store';
 import { EditUserForm } from '@/core/user/ui/edit-user-form';
 
-export const AccountContainer = ({ orders }: { orders: Order[] }) => {
+export const AccountContainer = ({
+  orders,
+  bots,
+}: {
+  orders: Order[];
+  bots: Bot[];
+}) => {
   const { activeTab } = useTabsStore();
 
   const t = useTranslations('account');
@@ -36,6 +45,11 @@ export const AccountContainer = ({ orders }: { orders: Order[] }) => {
           </div>
         )}
         {activeTab === 'orders' && <OrdersTable values={orders} />}
+        {activeTab === 'bots' && bots.length ? (
+          <PurchasedBots values={bots} />
+        ) : (
+          <NoAvailableBots />
+        )}
       </section>
     </section>
   );

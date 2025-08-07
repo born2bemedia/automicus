@@ -2,9 +2,14 @@
 
 import { cookies } from 'next/headers';
 
+import type { Bot } from '@/features/bots/model';
+
 import type { Order } from '../model/types';
 
-export async function getUserOrders(): Promise<Order[]> {
+export async function getUserOrders(): Promise<{
+  orders: Order[];
+  bots: Bot[];
+}> {
   const cookieInst = await cookies();
 
   const user = cookieInst.get('user')?.value;
@@ -21,19 +26,30 @@ export async function getUserOrders(): Promise<Order[]> {
   );
   const data = await res.json();
 
-  return data.docs.map(
-    (item: {
-      orderNumber: string;
-      items: { name: string }[];
-      total: number;
-      createdAt: string;
-      status: string;
-    }) => ({
-      orderId: item.orderNumber,
-      name: item.items.map(bot => bot.name),
-      price: item.total,
-      orderDate: item.createdAt,
-      orderStatus: item.status,
-    }),
-  );
+  return {
+    orders: data.docs.map(
+      (item: {
+        orderNumber: string;
+        items: { name: string }[];
+        total: number;
+        createdAt: string;
+        status: string;
+      }) => ({
+        orderId: item.orderNumber,
+        name: item.items.map(bot => bot.name),
+        price: item.total,
+        orderDate: item.createdAt,
+        orderStatus: item.status,
+      }),
+    ),
+    bots: data.docs.flatMap(
+      (item: {
+        orderNumber: string;
+        items: Bot[];
+        total: number;
+        createdAt: string;
+        status: string;
+      }) => (item.status === 'completed' ? item.items : []).filter(Boolean),
+    ),
+  };
 }
