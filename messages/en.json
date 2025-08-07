@@ -761,6 +761,25 @@
           "placeholder": "Enter Your New Password"
         }
       }
+    },
+    "orders": {
+      "title": "Your Orders",
+      "text": "Track your order history. Here you can view all your completed, pending, and failed bot orders—across all time.",
+      "columns": {
+        "orderId": "Order ID",
+        "name": "Bot name",
+        "orderStatus": "Order status",
+        "price": "Price",
+        "date": "Order date"
+      },
+      "card": {
+        "price": "Price",
+        "date": "Date"
+      },
+      "status": {
+        "waiting": "waiting your payment",
+        "failed": "your payment failed"
+      }
     }
   },
   "thankYouWire": {
