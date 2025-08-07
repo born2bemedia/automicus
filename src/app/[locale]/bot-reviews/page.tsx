@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { getBotReviews } from '@/features/bots/api';
@@ -6,6 +7,23 @@ import { BotsReviewPreview } from '@/features/bots/ui';
 import { VideoHero } from '@/shared/ui/components/organisms';
 
 import { NeedHelp } from './components';
+
+export const metadata: Metadata = {
+  title: 'Bot Reviews | Automicus',
+  description:
+    'Explore detailed reviews of Automicus trading bots. Discover features, benefits, and user experiences to choose the right bot for you.',
+  openGraph: {
+    title: 'Bot Reviews | Automicus',
+    description:
+      'Explore detailed reviews of Automicus trading bots. Discover features, benefits, and user experiences to choose the right bot for you.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bot Reviews | Automicus',
+    description:
+      'Explore detailed reviews of Automicus trading bots. Discover features, benefits, and user experiences to choose the right bot for you.',
+  },
+};
 
 export default async function BotReviewsPage({
   params,

@@ -1,8 +1,26 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { VideoHero } from '@/shared/ui/components/organisms';
 
 import { AboutUsCards, StayConnected, WhyChooseUs } from './components';
+
+export const metadata: Metadata = {
+  title: 'About Us | Automicus',
+  description:
+    'Learn about Automicus, your trusted partner for advanced trading bots. Discover how we help traders automate smarter and trade better.',
+  openGraph: {
+    title: 'About Us | Automicus',
+    description:
+      'Learn about Automicus, your trusted partner for advanced trading bots. Discover how we help traders automate smarter and trade better.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us | Automicus',
+    description:
+      'Learn about Automicus, your trusted partner for advanced trading bots. Discover how we help traders automate smarter and trade better.',
+  },
+};
 
 export default async function AboutUsPage() {
   const t = await getTranslations('aboutUs.hero');

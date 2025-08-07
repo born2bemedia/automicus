@@ -1,4 +1,20 @@
+import type { Metadata } from 'next';
+
 import { LoginForm } from '@/core/auth/ui/login-form';
+
+export const metadata: Metadata = {
+  title: 'Login | Automicus',
+  openGraph: {
+    title: 'Login | Automicus',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Login | Automicus',
+  },
+  robots: {
+    index: false,
+  },
+};
 
 export default function SignUpPage() {
   return (

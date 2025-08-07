@@ -1,8 +1,26 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { CompareBots } from '@/features/compare-bots/ui/compare-bots';
 
 import { CubesFooter, VideoHero } from '@/shared/ui/components/organisms';
+
+export const metadata: Metadata = {
+  title: 'Trading Bots Comparison | Automicus',
+  description:
+    'Discover and compare features of Automicus trading bots to find the perfect fit for your trading style. Explore detailed comparisons and make informed choices today.',
+  openGraph: {
+    title: 'Trading Bots Comparison | Automicus',
+    description:
+      'Compare Automicus trading bots side by side. Discover key features, performance metrics, and user reviews to make an informed decision.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trading Bots Comparison | Automicus',
+    description:
+      'Compare Automicus trading bots side by side. Discover key features, performance metrics, and user reviews to make an informed decision.',
+  },
+};
 
 export default async function CompareBotsPage() {
   const t = await getTranslations('compareBots');
