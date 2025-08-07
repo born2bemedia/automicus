@@ -780,6 +780,24 @@
         "waiting": "waiting your payment",
         "failed": "your payment failed"
       }
+    },
+    "noBots": {
+      "title": {
+        "0": "You haven’t purchased",
+        "1": "any Automicus bots yet."
+      },
+      "text": {
+        "0": "Once you complete your first order,",
+        "1": "your bots will appear here."
+      },
+      "btn": "Choose Bots"
+    },
+    "bots": {
+      "title": "All your trading tools in one place.",
+      "text": "Here you’ll find the bots you’ve purchased, along with their detailed reviews, setup instructions, and video tutorials to help you trade smarter.",
+      "download": "Download",
+      "review": "Review",
+      "video": "Video"
     }
   },
   "thankYouWire": {
