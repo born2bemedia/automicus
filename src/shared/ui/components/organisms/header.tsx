@@ -70,7 +70,14 @@ const HeaderBottom = () => {
   return (
     <section className="flex items-center justify-between bg-black/50 px-[80px] py-3 backdrop-blur-[10px] max-md:px-4">
       <section className="flex items-center gap-[80px]">
-        <Image src="/full-logo-white.svg" alt="logo" width={180} height={36} />
+        <Link href="/">
+          <Image
+            src="/full-logo-white.svg"
+            alt="logo"
+            width={180}
+            height={36}
+          />
+        </Link>
         <div className="flex items-center gap-2 max-lg:hidden">
           {routes.slice(0, 6).map(({ label, url }) => (
             <NavButton key={label} url={url}>
