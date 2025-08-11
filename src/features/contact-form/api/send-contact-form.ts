@@ -2,6 +2,8 @@
 
 import { google } from 'googleapis';
 
+import { requestFormBody } from '@/features/email-letters/request-form-body';
+
 import {
   EMAIL_CLIENT_ID,
   EMAIL_CLIENT_SECRET,
@@ -52,7 +54,7 @@ export async function sendContactForm({
     from: EMAIL_USER,
     subject:
       "We've Received Your Inquiry - Thank You for Contacting Automicus!",
-    message: 'Mock',
+    message: requestFormBody({ username: name }),
   });
 
   const res = await gmail.users.messages.send({

@@ -48,7 +48,7 @@ export default async function BotBundlesPage({
           url: '/contact',
         }}
       />
-      <BotBundleGroup bundles={data.docs} />
+      <BotBundleGroup bundles={data.docs.reverse()} />
       <ContactUs />
     </main>
   );

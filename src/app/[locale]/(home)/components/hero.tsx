@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import { Button, Text, Title } from '@/shared/ui/components/atoms';
@@ -25,9 +26,11 @@ export const Hero = () => {
             })}
           </Text>
         </section>
-        <Button variant="secondary" zIndex="2">
-          {t('btn', { fallback: 'Explore Bots' })}
-        </Button>
+        <Link href="/catalog">
+          <Button variant="secondary" zIndex="2">
+            {t('btn', { fallback: 'Explore Bots' })}
+          </Button>
+        </Link>
       </section>
       <video
         src="/videos/home/hero.mp4"

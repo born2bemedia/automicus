@@ -45,6 +45,8 @@ export default async function CatalogPage({
         excerpt={data.excerpt}
         features={data.features}
         price={data.price}
+        id={data.id}
+        discount={data.discount}
       />
       <BotSuitableGrid suitableFor={data.suitableFor} />
       <BotWorks values={data.howItWorks} />

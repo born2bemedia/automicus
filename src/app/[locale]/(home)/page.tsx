@@ -42,20 +42,33 @@ export default async function HomePage({
 
   const { data: bots } = await getBots({ params: { limit: 6, locale } });
   const { data: bundles } = await getBotBundles({
-    params: { limit: 3, locale },
+    params: { locale },
   });
 
   return (
     <main>
       <Hero />
       <WhatWeOffer />
-      <TopBots bots={bots.docs.slice(0, 3)} />
+      <TopBots
+        bots={bots.docs
+          .filter(
+            bot =>
+              bot.slug === 'automicus-goldtrade-master' ||
+              bot.slug === 'automicus-profitpulse-fx' ||
+              bot.slug === 'automicus-spreadmaster-fx',
+          )
+          .reverse()}
+      />
       <WhyChoose />
       <YouCanAchieve />
       <Stats />
       <HowItWorks />
       <Deals bots={bots.docs.filter(bot => bot.pin).slice(0, 3)} />
-      <BotBundles bundles={bundles.docs} />
+      <BotBundles
+        bundles={bundles.docs
+          .filter(bundle => [10, 12, 14].includes(bundle.id))
+          .reverse()}
+      />
       <NeedHelp />
       <ContactUs />
     </main>

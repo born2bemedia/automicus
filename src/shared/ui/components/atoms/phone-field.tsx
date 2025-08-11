@@ -9,6 +9,7 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { excludedCountries } from '@/shared/lib/countries';
+import { useCountryCode } from '@/shared/lib/hooks/use-country-code';
 import { cn } from '@/shared/lib/utils/styles';
 
 import 'react-international-phone/style.css';
@@ -32,16 +33,16 @@ const phoneFieldVariants = cva(
 export type PhoneFieldVariants = VariantProps<typeof phoneFieldVariants>;
 
 export const PhoneField = ({
-  country,
   hint,
   label,
   variant = 'primary',
   ...args
 }: PhoneInputProps & {
-  country?: string;
   hint?: string;
   label?: string;
 } & PhoneFieldVariants) => {
+  const country = useCountryCode();
+
   return (
     <div className="relative flex h-max w-full flex-col gap-2">
       {label && (
