@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import type { Bot } from '@/features/bots/model';
 import { ChangePasswordForm } from '@/features/change-password/ui/form';
 import type { Order } from '@/features/orders/model/types';
-import { NoAvailableBots } from '@/features/orders/ui/no-available-bots';
 import { OrdersTable } from '@/features/orders/ui/orders-table';
 import { PurchasedBots } from '@/features/orders/ui/purchased-bots';
 
@@ -45,11 +44,7 @@ export const AccountContainer = ({
           </div>
         )}
         {activeTab === 'orders' && <OrdersTable values={orders} />}
-        {activeTab === 'bots' && bots.length ? (
-          <PurchasedBots values={bots} />
-        ) : (
-          <NoAvailableBots />
-        )}
+        {activeTab === 'bots' && <PurchasedBots values={bots} />}
       </section>
     </section>
   );

@@ -3,15 +3,21 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
+import { cn } from '@/shared/lib/utils';
 import { Button } from '@/shared/ui/components/atoms/button';
 import { Text } from '@/shared/ui/components/atoms/text';
 import { Title } from '@/shared/ui/components/atoms/title';
 
-export const NoAvailableBots = () => {
+export const NoAvailableBots = ({ className }: { className?: string }) => {
   const t = useTranslations('account.noBots');
 
   return (
-    <section className="flex h-[79vh] flex-col items-center justify-center gap-[48px] max-lg:h-[600px]">
+    <section
+      className={cn(
+        'flex h-[79vh] flex-col items-center justify-center gap-[48px] max-lg:h-[600px]',
+        className,
+      )}
+    >
       <div className="flex flex-col items-center gap-4 text-center">
         <BotIcon />
         <Title color="light" size="2xl" weight="bold">

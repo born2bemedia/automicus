@@ -8,15 +8,15 @@ import { ArrowRightDownIcon } from '@/shared/ui/icons/fill';
 
 const getItems = (t: ReturnType<typeof useTranslations>) => [
   {
-    label: t('steps.0', { fallback: 'Explore our bot reviews and guides' }),
-    url: '/bot-reviews',
+    label: t('steps.0', { fallback: 'Get in Touch' }),
+    url: '/contact',
   },
   {
-    label: t('steps.1', { fallback: 'Check our Help Center' }),
+    label: t('steps.1', { fallback: 'Find Guides for Bots' }),
     url: '/help-center',
   },
   {
-    label: t('steps.2', { fallback: 'Find answers in FAQ' }),
+    label: t('steps.2', { fallback: 'Check Answers' }),
     url: '/faq',
   },
 ];

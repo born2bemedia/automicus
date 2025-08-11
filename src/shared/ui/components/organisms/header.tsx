@@ -41,7 +41,7 @@ export const Header = () => {
 };
 
 const HeaderTop = () => (
-  <section className="flex items-center gap-[63px] bg-[#E5E5E5] px-[80px] py-1.5 max-lg:hidden">
+  <section className="flex items-center gap-[63px] bg-[#E5E5E5] px-[80px] py-1.5 max-[1350px]:hidden">
     <section className="ml-auto flex items-center gap-3.5 bg-white/10">
       {[XIcon, FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon].map(
         (Icon, index) => (
@@ -70,7 +70,7 @@ const HeaderBottom = () => {
   return (
     <section className="flex items-center justify-between bg-black/50 px-[80px] py-3 backdrop-blur-[10px] max-md:px-4">
       <section className="flex items-center gap-[80px]">
-        <Link href="/">
+        <Link href="/" className="shrink-0">
           <Image
             src="/full-logo-white.svg"
             alt="logo"
@@ -78,7 +78,7 @@ const HeaderBottom = () => {
             height={36}
           />
         </Link>
-        <div className="flex items-center gap-2 max-lg:hidden">
+        <div className="flex items-center gap-2 max-[1350px]:hidden">
           {routes.slice(0, 6).map(({ label, url }) => (
             <NavButton key={label} url={url}>
               {label}
@@ -95,19 +95,22 @@ const HeaderBottom = () => {
           </Dropdown>
         </div>
       </section>
-      <section className="flex items-center gap-[30px] max-lg:hidden">
+      <section className="flex items-center gap-[30px] max-[1350px]:hidden">
         <Link href="/cart">
           <Button variant="ghost" size="sm">
             {t('cart', { fallback: 'Cart' })}
           </Button>
         </Link>
         {user ? (
-          <div className="flex items-center gap-2.5 rounded-full bg-white/10 py-1.5 pr-3 pl-1.5 backdrop-blur-[5px]">
+          <Link
+            href="/account"
+            className="flex items-center gap-2.5 rounded-full bg-white/10 py-1.5 pr-3 pl-1.5 backdrop-blur-[5px]"
+          >
             <UserBadgeIcon />
             <Text color="light" weight="medium">
               {user.firstName + ' ' + user.lastName}
             </Text>
-          </div>
+          </Link>
         ) : (
           <div className="flex items-center gap-[6px]">
             <Link href="/login">
@@ -121,7 +124,7 @@ const HeaderBottom = () => {
           </div>
         )}
       </section>
-      {width < 1024 && <BurgerMenu />}
+      {width < 1350 && <BurgerMenu />}
     </section>
   );
 };

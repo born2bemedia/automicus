@@ -17,7 +17,7 @@ export const Footer = () => {
         <section className="flex flex-col gap-10">
           <div className="flex flex-col">
             <Title as="h3" weight="normal" uppercase>
-              {t('title.0', { fallback: 'We provide automation tools' })}
+              {t('title.0', { fallback: 'We provide automation tools' })} —
             </Title>
             <Title as="h3" uppercase>
               {t('title.1', { fallback: 'your strategy drives the results.' })}

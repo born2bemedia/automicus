@@ -7,7 +7,7 @@ import { Header } from '@/core/user/ui/header';
 import { Sidebar } from '@/core/user/ui/sidebar';
 
 export const metadata: Metadata = {
-  title: 'Account| Automicus',
+  title: 'Account | Automicus',
   openGraph: {
     title: 'Account | Automicus',
   },

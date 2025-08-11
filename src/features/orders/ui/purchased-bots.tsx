@@ -12,10 +12,12 @@ import { DownloadIcon } from '@/shared/ui/icons/fill/download';
 import { EyeIcon } from '@/shared/ui/icons/fill/eye';
 import { PlayIcon } from '@/shared/ui/icons/fill/play';
 
+import { NoAvailableBots } from './no-available-bots';
+
 export const PurchasedBots = ({ values }: { values: Bot[] }) => {
   const t = useTranslations('account.bots');
 
-  return (
+  return values.length ? (
     <section className="flex flex-col gap-6">
       <div className="flex flex-col gap-3">
         <Title as="h2" color="light" weight="bold">
@@ -34,6 +36,8 @@ export const PurchasedBots = ({ values }: { values: Bot[] }) => {
         ))}
       </section>
     </section>
+  ) : (
+    <NoAvailableBots />
   );
 };
 

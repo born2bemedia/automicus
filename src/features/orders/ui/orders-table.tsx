@@ -7,6 +7,7 @@ import { Table } from '@/shared/ui/components/atoms/table';
 
 import { getColumns } from '../model/get-columns';
 import type { Order } from '../model/types';
+import { NoAvailableBots } from './no-available-bots';
 import { OrderCard } from './order-card';
 
 export const OrdersTable = ({ values }: { values: Order[] }) => {
@@ -27,14 +28,20 @@ export const OrdersTable = ({ values }: { values: Order[] }) => {
           })}
         </Text>
       </div>
-      <div className="max-md:hidden">
-        <Table<Order> data={values} columns={columns} />
-      </div>
-      <div className="hidden flex-col gap-6 max-md:flex">
-        {values.map(value => (
-          <OrderCard key={value.orderId} value={value} />
-        ))}
-      </div>
+      {values.length ? (
+        <>
+          <div className="max-md:hidden">
+            <Table<Order> data={values} columns={columns} />
+          </div>
+          <div className="hidden flex-col gap-6 max-md:flex">
+            {values.map(value => (
+              <OrderCard key={value.orderId} value={value} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <NoAvailableBots className="h-[64vh]" />
+      )}
     </section>
   );
 };
