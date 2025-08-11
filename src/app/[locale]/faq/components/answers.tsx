@@ -14,7 +14,7 @@ export const Answers = () => {
         values={[
           {
             question: t('0.title', {
-              fallback: 'Designed for Precision in the Gold Market',
+              fallback: 'How do I choose the right bot for my trading goals?',
             }),
             answer: (
               <ListItemLayout>

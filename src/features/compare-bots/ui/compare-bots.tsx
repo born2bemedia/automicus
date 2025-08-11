@@ -145,17 +145,19 @@ export const CompareBots = () => {
       <Title size="4xl" color="light" uppercase>
         {t('title', { fallback: 'Compare All Automicus Bots' })}
       </Title>
-      <section className="flex gap-[6px] overflow-x-auto rounded-lg bg-[rgba(229,229,229,0.10)] p-10 backdrop-blur-[15px] max-md:p-5">
-        {items.map(item => (
-          <div key={item.title} className="flex flex-col gap-[6px]">
-            <Item type="heading">{item.title}</Item>
-            {item.children.map((child, index) => (
-              <Item type="content" key={index}>
-                {child}
-              </Item>
-            ))}
-          </div>
-        ))}
+      <section className="rounded-lg bg-[rgba(229,229,229,0.10)] pr-10 max-md:pr-5">
+        <section className="flex gap-[6px] overflow-x-auto py-10 pl-10 backdrop-blur-[15px] max-md:py-5 max-md:pl-5 min-[2000px]:justify-center">
+          {items.map(item => (
+            <div key={item.title} className="flex flex-col gap-[6px]">
+              <Item type="heading">{item.title}</Item>
+              {item.children.map((child, index) => (
+                <Item type="content" key={index}>
+                  {child}
+                </Item>
+              ))}
+            </div>
+          ))}
+        </section>
       </section>
     </section>
   );
@@ -171,7 +173,7 @@ const Item = ({
   return (
     <section
       className={cn(
-        'h-[85px] w-[186px] shrink-0 rounded-lg px-5 py-2.5 text-base',
+        'h-[85px] w-[186px] shrink-0 rounded-lg px-5 py-2.5 text-base min-[1441px]:w-full',
         type === 'heading'
           ? 'bg-[#CBFF00] font-medium text-[#010101]'
           : 'bg-[#212121] text-[rgba(255,255,255,0.70)]',
