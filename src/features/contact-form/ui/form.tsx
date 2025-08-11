@@ -8,6 +8,7 @@ import {
   TextField,
   useDialogStore,
 } from '@/shared/ui/components/atoms';
+import { PhoneField } from '@/shared/ui/components/atoms/phone-field';
 import { FormRow } from '@/shared/ui/components/molecules';
 
 import { sendContactForm } from '../api/send-contact-form';
@@ -86,7 +87,7 @@ export const ContactForm = () => {
       <FormRow>
         <Field name="phone">
           {({ name, state, handleBlur, handleChange }) => (
-            <TextField
+            <PhoneField
               name={name}
               label={t('phone.label', { fallback: 'Phone' })}
               placeholder={t('phone.placeholder', {
@@ -94,7 +95,7 @@ export const ContactForm = () => {
               })}
               value={String(state.value)}
               onBlur={handleBlur}
-              onChange={e => handleChange(e.target.value)}
+              onChange={value => handleChange(value)}
               hint={state.meta.errors.map(err => err?.message).join(', ')}
             />
           )}

@@ -61,7 +61,9 @@ export const BotCard = ({
           €{price.toLocaleString()}
         </Text>
         <div className="flex items-center gap-2.5">
-          <Button onClick={buyHandle}>{t('buy', { fallback: 'Buy' })}</Button>
+          <Button onClick={buyHandle} fullWidth>
+            {t('buy', { fallback: 'Buy' })}
+          </Button>
           <NavButton
             url={`/catalog/${slug}`}
             variant="secondary"

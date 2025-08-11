@@ -57,7 +57,7 @@ export default async function CatalogPage({
         metaButtons={[
           {
             label: t('footer.btn', { fallback: 'Check Deals' }),
-            url: '/catalog',
+            url: '/deals',
             variant: 'primary',
           },
           {

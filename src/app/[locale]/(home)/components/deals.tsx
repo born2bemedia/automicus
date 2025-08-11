@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import type { Bot } from '@/features/bots/model';
@@ -20,10 +21,12 @@ export const Deals = ({ bots }: { bots: Bot[] }) => {
           <BotCard key={bot.name + i} variant="full" {...bot} />
         ))}
       </section>
-      <section className="flex justify-center">
-        <Button variant="secondary" zIndex="1">
-          {t('allDeals', { fallback: 'All Deals' })}
-        </Button>
+      <section className="z-10 flex justify-center">
+        <Link href="/deals">
+          <Button variant="secondary" zIndex="1">
+            {t('allDeals', { fallback: 'All Deals' })}
+          </Button>
+        </Link>
       </section>
       <video
         src="/videos/home/particles.mp4"

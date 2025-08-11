@@ -17,8 +17,6 @@ export const sendOrder = async ({
 }) => {
   const orderNumber = String(Date.now());
 
-  console.log('products', products);
-
   const items = products.flatMap(item =>
     'bots' in item
       ? item.bots.flatMap(bot => Array(item.quantity).fill(bot.id))

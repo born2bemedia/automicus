@@ -7,9 +7,18 @@ import { Text, Title } from '@/shared/ui/components/atoms';
 import { ArrowRightDownIcon } from '@/shared/ui/icons/fill';
 
 const getSteps = (t: ReturnType<typeof useTranslations>) => [
-  t('steps.0', { fallback: 'Explore our bot reviews and guides' }),
-  t('steps.1', { fallback: 'Check our Help Center' }),
-  t('steps.2', { fallback: 'Find answers in FAQ' }),
+  {
+    label: t('steps.0', { fallback: 'Explore our bot reviews and guides' }),
+    link: '/bot-reviews',
+  },
+  {
+    label: t('steps.1', { fallback: 'Check our Help Center' }),
+    link: '/help-center',
+  },
+  {
+    label: t('steps.2', { fallback: 'Find answers in FAQ' }),
+    link: '/faq',
+  },
 ];
 
 export const NeedHelp = () => {
@@ -22,17 +31,17 @@ export const NeedHelp = () => {
       </Title>
       <section className="flex gap-1 max-md:flex-col">
         {getSteps(t).map(step => (
-          <Card key={step} name={step} />
+          <Card key={step.label} name={step.label} link={step.link} />
         ))}
       </section>
     </section>
   );
 };
 
-const Card = ({ name }: { name: string }) => {
+const Card = ({ name, link }: { name: string; link: string }) => {
   return (
     <Link
-      href="#"
+      href={link}
       className="flex w-full flex-col justify-between rounded-lg bg-white p-6"
     >
       <Text size="3xl">{name}</Text>

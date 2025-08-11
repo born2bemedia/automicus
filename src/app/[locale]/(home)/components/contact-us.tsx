@@ -14,7 +14,7 @@ export const ContactUs = () => {
         <Title size="7xl" color="light" zIndex="1" align="center" uppercase>
           {t('title', { fallback: 'Still Have Questions?' })}
         </Title>
-        <NavButton url="/contact-us" size="md" variant="secondary">
+        <NavButton url="/contact" size="md" variant="secondary">
           {t('btn', { fallback: 'Contact Us' })}
         </NavButton>
       </div>

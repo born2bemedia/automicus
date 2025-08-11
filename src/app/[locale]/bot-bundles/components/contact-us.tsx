@@ -28,7 +28,7 @@ export const ContactUs = () => {
           <NavButton url="/deals" size="md" variant="primary">
             {t('btn', { fallback: 'Check Deals' })}
           </NavButton>
-          <NavButton url="/bots" size="md" variant="secondary">
+          <NavButton url="/catalog" size="md" variant="secondary">
             {t('btn2', { fallback: 'Check All Bots' })}
           </NavButton>
         </section>
