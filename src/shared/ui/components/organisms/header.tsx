@@ -102,12 +102,15 @@ const HeaderBottom = () => {
           </Button>
         </Link>
         {user ? (
-          <div className="flex items-center gap-2.5 rounded-full bg-white/10 py-1.5 pr-3 pl-1.5 backdrop-blur-[5px]">
+          <Link
+            href="/account"
+            className="flex items-center gap-2.5 rounded-full bg-white/10 py-1.5 pr-3 pl-1.5 backdrop-blur-[5px]"
+          >
             <UserBadgeIcon />
             <Text color="light" weight="medium">
               {user.firstName + ' ' + user.lastName}
             </Text>
-          </div>
+          </Link>
         ) : (
           <div className="flex items-center gap-[6px]">
             <Link href="/login">
