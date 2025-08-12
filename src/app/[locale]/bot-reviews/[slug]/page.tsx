@@ -24,6 +24,17 @@ export async function generateMetadata({
   return {
     title: data.metaTitle,
     description: data.metaDescription,
+    openGraph: {
+      title: data.metaTitle,
+      description: data.metaDescription,
+      images: ['https://automicus.com/meta.jpg'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: data.metaTitle,
+      description: data.metaDescription,
+      images: ['https://automicus.com/meta.jpg'],
+    },
   };
 }
 

@@ -13,12 +13,14 @@ export const metadata: Metadata = {
     title: 'About Us | Automicus',
     description:
       'Learn about Automicus, your trusted partner for advanced trading bots. Discover how we help traders automate smarter and trade better.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Us | Automicus',
     description:
       'Learn about Automicus, your trusted partner for advanced trading bots. Discover how we help traders automate smarter and trade better.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 

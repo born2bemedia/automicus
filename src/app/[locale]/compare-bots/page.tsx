@@ -13,12 +13,14 @@ export const metadata: Metadata = {
     title: 'Trading Bots Comparison | Automicus',
     description:
       'Compare Automicus trading bots side by side. Discover key features, performance metrics, and user reviews to make an informed decision.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Trading Bots Comparison | Automicus',
     description:
       'Compare Automicus trading bots side by side. Discover key features, performance metrics, and user reviews to make an informed decision.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 

@@ -13,12 +13,14 @@ export const metadata: Metadata = {
     title: 'FAQ | Automicus',
     description:
       'Explore our FAQ to learn more about Automicus trading bots, installation, usage, and troubleshooting. Get answers to common questions and improve your trading experience.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FAQ | Automicus',
     description:
       'Explore our FAQ to learn more about Automicus trading bots, installation, usage, and troubleshooting. Get answers to common questions and improve your trading experience.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 

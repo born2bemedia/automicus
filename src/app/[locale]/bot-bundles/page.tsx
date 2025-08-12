@@ -16,12 +16,14 @@ export const metadata: Metadata = {
     title: 'Bot Bundles | Automicus',
     description:
       'Explore exclusive bot bundles and save on powerful automated trading solutions tailored for various strategies and markets.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bot Bundles | Automicus',
     description:
       'Explore exclusive bot bundles and save on powerful automated trading solutions tailored for various strategies and markets.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 

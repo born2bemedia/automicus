@@ -14,12 +14,14 @@ export const metadata: Metadata = {
     title: 'Deals | Automicus',
     description:
       'Discover limited-time deals and special offers on top trading bots. Save now and boost your automated trading performance.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Deals | Automicus',
     description:
       'Discover limited-time deals and special offers on top trading bots. Save now and boost your automated trading performance.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 
