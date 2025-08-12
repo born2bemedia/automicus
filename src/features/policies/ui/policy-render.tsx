@@ -14,7 +14,7 @@ export const PolicyRender = ({
   title: string;
 }) => {
   return (
-    <section className="mx-auto flex w-[832px] flex-col gap-10 py-[80px]">
+    <section className="mx-auto flex w-[832px] flex-col gap-10 py-[80px] max-lg:w-full max-lg:px-6 max-lg:py-[64px]">
       <Title
         color="secondary"
         as="h1"

@@ -10,13 +10,15 @@ export const PolicySection = ({
   heading,
 }: {
   children: ReactNode;
-  heading: string;
+  heading?: string;
 }) => {
   return (
     <section className="flex flex-col gap-4">
-      <Title as="h2" color="secondary" size="2xl" weight="bold" uppercase>
-        {heading}
-      </Title>
+      {heading ? (
+        <Title as="h2" color="secondary" size="2xl" weight="bold" uppercase>
+          {heading}
+        </Title>
+      ) : null}
       <PolicyTexting>{children}</PolicyTexting>
     </section>
   );
