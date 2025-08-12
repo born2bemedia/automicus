@@ -2,7 +2,8 @@
 
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { Text } from '@/shared/ui/components/atoms/text';
 import { Title } from '@/shared/ui/components/atoms/title';
@@ -13,10 +14,13 @@ import { UrlIcon } from '@/shared/ui/icons/fill/url';
 export const ContactUs = () => {
   const t = useTranslations('policies.contactUs');
 
+  const pathname = usePathname();
+  const locale = useLocale();
+
   return (
     <section className="flex flex-col gap-4">
       <Title as="h2" color="secondary" size="2xl" weight="bold" uppercase>
-        {t('title', { fallback: 'Contact Us' })}
+        {pathname === `/${locale}/refund-policy` ? t('needHelp') : t('title')}
       </Title>
       <Text color="light" weight="medium">
         {t('description', {

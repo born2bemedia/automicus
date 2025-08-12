@@ -1,5 +1,7 @@
 'use client';
 
+import type { ReactNode } from 'react';
+
 import { Text } from '@/shared/ui/components/atoms';
 
 export const PolicyList = ({
@@ -7,7 +9,7 @@ export const PolicyList = ({
   heading,
   headingBold = false,
 }: {
-  values: string[];
+  values: ReactNode[];
   heading?: string;
   headingBold?: boolean;
 }) => (
@@ -18,8 +20,8 @@ export const PolicyList = ({
       </Text>
     ) : null}
     <ul className="ml-4 flex list-disc flex-col text-white">
-      {values.map(value => (
-        <li key={value}>
+      {values.map((value, index) => (
+        <li key={index}>
           <Text color="light" weight="medium">
             {value}
           </Text>
