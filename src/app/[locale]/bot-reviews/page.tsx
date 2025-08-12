@@ -16,12 +16,14 @@ export const metadata: Metadata = {
     title: 'Bot Reviews | Automicus',
     description:
       'Explore detailed reviews of Automicus trading bots. Discover features, benefits, and user experiences to choose the right bot for you.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bot Reviews | Automicus',
     description:
       'Explore detailed reviews of Automicus trading bots. Discover features, benefits, and user experiences to choose the right bot for you.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 

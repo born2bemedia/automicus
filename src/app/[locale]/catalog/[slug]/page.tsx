@@ -23,6 +23,17 @@ export async function generateMetadata({
   return {
     title: `${cleanName} Bot | Automicus`,
     description: data.excerpt,
+    openGraph: {
+      title: `${cleanName} Bot | Automicus`,
+      description: data.excerpt,
+      images: ['https://automicus.com/meta.jpg'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${cleanName} Bot | Automicus`,
+      description: data.excerpt,
+      images: ['https://automicus.com/meta.jpg'],
+    },
   };
 }
 

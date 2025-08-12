@@ -14,12 +14,14 @@ export const metadata: Metadata = {
     title: 'Trading Bots Catalog | Automicus',
     description:
       'Explore our full catalog of advanced trading bots for Forex and Gold – compare strategies, features, and find your perfect match.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Trading Bots Catalog | Automicus',
     description:
       'Explore our full catalog of advanced trading bots for Forex and Gold – compare strategies, features, and find your perfect match.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 

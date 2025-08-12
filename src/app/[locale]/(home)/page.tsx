@@ -24,12 +24,14 @@ export const metadata: Metadata = {
     title: 'Automated Trading Bots | Automicus',
     description:
       'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
+    images: ['https://automicus.com/meta.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Automated Trading Bots | Automicus',
     description:
       'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
+    images: ['https://automicus.com/meta.jpg'],
   },
 };
 
