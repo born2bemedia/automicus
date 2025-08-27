@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import ReCaptcha from 'react-google-recaptcha';
 import { useTranslations } from 'next-intl';
 import { useForm } from '@tanstack/react-form';
 
@@ -16,6 +18,8 @@ import { contactSchema } from '../model/schema';
 import { ThankYouDialog } from './thank-you-dialog';
 
 export const ContactForm = () => {
+  const [isRecaptchaFilled, setIsRecaptchaFilled] = useState(false);
+
   const { registerContent, setIsOpen } = useDialogStore();
 
   const t = useTranslations('contact.contactUs.form');
@@ -42,6 +46,9 @@ export const ContactForm = () => {
       }
     },
   });
+
+  const recaptchaHandle = (token: string | null) =>
+    setIsRecaptchaFilled(!!token);
 
   return (
     <form
@@ -118,13 +125,22 @@ export const ContactForm = () => {
       </FormRow>
       <Subscribe selector={state => [state.canSubmit, state.isSubmitting]}>
         {([canSubmit, isSubmitting]) => (
-          <Button type="submit" size="lg" disabled={!canSubmit} fullWidth>
+          <Button
+            type="submit"
+            size="lg"
+            disabled={!canSubmit || !isRecaptchaFilled}
+            fullWidth
+          >
             {isSubmitting
               ? t('sending', { fallback: 'Sending...' })
               : t('btn', { fallback: 'Send' })}
           </Button>
         )}
       </Subscribe>
+      <ReCaptcha
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}
+        onChange={recaptchaHandle}
+      />
     </form>
   );
 };
