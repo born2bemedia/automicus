@@ -8,7 +8,6 @@ import { useLocale, useTranslations } from 'next-intl';
 import { Text } from '@/shared/ui/components/atoms/text';
 import { Title } from '@/shared/ui/components/atoms/title';
 import { ConvertIcon } from '@/shared/ui/icons/fill/convert';
-import { PhoneIcon } from '@/shared/ui/icons/fill/phone';
 import { UrlIcon } from '@/shared/ui/icons/fill/url';
 
 export const ContactUs = () => {
@@ -31,25 +30,25 @@ export const ContactUs = () => {
       <div className="flex flex-col gap-5 p-10">
         <ItemLayout>
           <ConvertIcon />
-          <Link href="mailto:example@gmail.com">
+          <Link href="mailto:info@automicus.com">
             <Text color="light" weight="medium">
-              example@gmail.com
+              info@automicus.com
             </Text>
           </Link>
         </ItemLayout>
-        <ItemLayout>
+        {/* <ItemLayout>
           <PhoneIcon />
           <Link href="tel:+1000000000">
             <Text color="light" weight="medium">
               +1 000 000 000
             </Text>
           </Link>
-        </ItemLayout>
+        </ItemLayout> */}
         <ItemLayout>
           <UrlIcon />
-          <Link href="https://automicus.com/">
+          <Link href="https://automicus.com/en/contact">
             <Text color="light" weight="medium">
-              automicus.com
+              https://automicus.com/en/contact
             </Text>
           </Link>
         </ItemLayout>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
 import { PolicyList } from '@/features/policies/ui/policy-list';
@@ -41,7 +42,10 @@ export default async function RefundPolicyPage() {
         <PolicyText>
           <span className="font-bold">{t('2.text.1')}</span> <br />
           {t('2.text.2')}{' '}
-          <span className="font-bold">[insert contact email]</span> <br />
+          <Link href="mailto:info@automicus.com" className="font-bold">
+            info@automicus.com
+          </Link>{' '}
+          <br />
           {t('2.text.3')} <span className="font-bold">{t('2.text.4')}</span>
         </PolicyText>
         <PolicyText>{t('2.text.5')}</PolicyText>

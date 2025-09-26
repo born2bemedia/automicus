@@ -75,11 +75,11 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <Header />
           {children}
-          <Footer />
           <Dialog />
           <Preloader />
           <CookieConsent />
           <Toaster position="top-right" richColors />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -23,13 +23,7 @@ import {
   ThreeLinesIcon,
   TranslateIcon,
 } from '@/shared/ui/icons/fill';
-import {
-  FacebookIcon,
-  InstagramIcon,
-  TikTokIcon,
-  XIcon,
-  YouTubeIcon,
-} from '@/shared/ui/icons/socials';
+import { FacebookIcon, LinkedInIcon, XIcon } from '@/shared/ui/icons/socials';
 
 import { useUser } from '@/core/user/model/use-user';
 
@@ -110,8 +104,10 @@ export const BurgerMenu = () => {
                         Cart <ArrowRightDownIcon />
                       </Button>
                     </Link>
-                    <Text>number</Text>
-                    <Text>email</Text>
+                    {/* <Text>number</Text> */}
+                    <Link href="mailto:info@automicus.com">
+                      <Text>info@automicus.com</Text>
+                    </Link>
                   </div>
                 </section>
                 <section className="flex flex-col gap-2.5">
@@ -131,16 +127,14 @@ export const BurgerMenu = () => {
 
 const SocialNetworks = () => (
   <IconWrapper className="flex flex-col items-center gap-6">
-    {[XIcon, FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon].map(
-      (Icon, index) => (
-        <div
-          key={`icon-${index}`}
-          className="flex h-4 w-max items-center justify-center"
-        >
-          <Icon />
-        </div>
-      ),
-    )}
+    {[XIcon, FacebookIcon, LinkedInIcon].map((Icon, index) => (
+      <div
+        key={`icon-${index}`}
+        className="flex h-4 w-max items-center justify-center"
+      >
+        <Icon />
+      </div>
+    ))}
   </IconWrapper>
 );
 
