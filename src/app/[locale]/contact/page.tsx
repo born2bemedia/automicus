@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Hero } from './components';
+import { Hero, InfoBlock } from './components';
 
 export const metadata: Metadata = {
   title: 'Contact | Automicus',
@@ -25,7 +25,7 @@ export default function ContactPage() {
   return (
     <main>
       <Hero />
-      {/* <InfoBlock /> */}
+      <InfoBlock />
     </main>
   );
 }

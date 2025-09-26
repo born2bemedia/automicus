@@ -37,7 +37,7 @@ export default async function PrivacyPolicyPage() {
         heading={t('1.title', { fallback: 'Information We Collect' })}
       >
         <PolicyText>
-          <span className="text-primary">{t('1.text.0')}</span> {t('1.text.1')}{' '}
+          <span className="text-primary">AQM Global Ltd</span> {t('1.text.1')}{' '}
           <Link
             href="https://automicus.com/"
             className="text-primary underline"
@@ -48,11 +48,11 @@ export default async function PrivacyPolicyPage() {
         <PolicyList
           heading={t('1.text.3')}
           values={[
-            `${t('1.list.1.label')} ${t('1.list.1.value')}`,
-            `${t('1.list.2.label')} ${t('1.list.2.value')}`,
-            `${t('1.list.3.label')} ${t('1.list.3.value')}`,
-            `${t('1.list.4.label')} ${t('1.list.4.value')}`,
-            `${t('1.list.5.label')} ${t('1.list.5.value')}`,
+            `${t('1.list.1.label')} AQM Global Ltd`,
+            `${t('1.list.2.label')} 16735132`,
+            `${t('1.list.3.label')} 2nd Floor College House, 17 King Edwards Road, Ruislip, London, United Kingdom, HA4 7AE`,
+            `${t('1.list.4.label')} 5th Floor, Office 502, 70 Brompton Road, London SW3 1ER, United Kingdom`,
+            `${t('1.list.5.label')} info@automicus.com`,
             `${t('1.list.6.label')} Automicus`,
           ]}
         />

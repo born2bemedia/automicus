@@ -17,13 +17,7 @@ import {
 import { LangSwitcher, NavButton } from '@/shared/ui/components/molecules';
 import { BurgerMenu } from '@/shared/ui/components/organisms';
 import { ThreeLinesIcon } from '@/shared/ui/icons/fill';
-import {
-  FacebookIcon,
-  InstagramIcon,
-  TikTokIcon,
-  XIcon,
-  YouTubeIcon,
-} from '@/shared/ui/icons/socials';
+import { FacebookIcon, LinkedInIcon, XIcon } from '@/shared/ui/icons/socials';
 
 import { UserBadgeIcon } from '../../icons/fill/user-badge';
 import { useUser } from '@/core/user/model/use-user';
@@ -42,17 +36,18 @@ export const Header = () => {
 
 const HeaderTop = () => (
   <section className="flex items-center gap-[63px] bg-[#E5E5E5] px-[80px] py-1.5 max-[1350px]:hidden">
-    <section className="ml-auto flex items-center gap-3.5 bg-white/10">
-      {[XIcon, FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon].map(
-        (Icon, index) => (
-          <div
-            key={`icon-${index}`}
-            className="flex h-4 w-max items-center justify-center"
-          >
-            <Icon />
-          </div>
-        ),
-      )}
+    <Link href="mailto:info@automicus.com" className="ml-auto">
+      <Text>info@automicus.com</Text>
+    </Link>
+    <section className="flex items-center gap-3.5 bg-white/10">
+      {[XIcon, FacebookIcon, LinkedInIcon].map((Icon, index) => (
+        <div
+          key={`icon-${index}`}
+          className="flex h-4 w-max items-center justify-center"
+        >
+          <Icon />
+        </div>
+      ))}
     </section>
     <LangSwitcher />
   </section>
@@ -85,13 +80,15 @@ const HeaderBottom = () => {
             </NavButton>
           ))}
           <Dropdown label={<ThreeLinesIcon />}>
-            {routes.slice(6, 11).map(({ label, url }) => (
-              <DropdownItem key={label}>
-                <NavButton url={url} variant="flat">
-                  {label}
-                </NavButton>
-              </DropdownItem>
-            ))}
+            {({ setOpen }) =>
+              routes.slice(6, 11).map(({ label, url }) => (
+                <DropdownItem key={label} onClick={() => setOpen(false)}>
+                  <NavButton url={url} variant="flat">
+                    {label}
+                  </NavButton>
+                </DropdownItem>
+              ))
+            }
           </Dropdown>
         </div>
       </section>

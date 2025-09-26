@@ -85,9 +85,37 @@ export const Footer = () => {
                   {t('contact', { fallback: 'Contact' })}
                 </Text>
                 <nav className="flex flex-col gap-2">
-                  <Link url="#" placeholder="Email" />
-                  <Link url="#" placeholder="Phone" />
+                  <Link
+                    url="mailto:info@automicus.com"
+                    placeholder="info@automicus.com"
+                  />
+                  {/* <Link url="#" placeholder="Phone" /> */}
                 </nav>
+              </div>
+              <div className="flex flex-col gap-6">
+                <Text size="xl" weight="medium" opacity="low" uppercase>
+                  Legal
+                </Text>
+                <section className="flex flex-col gap-2">
+                  <Link
+                    url="/terms-of-use"
+                    placeholder={t('policies.0', { fallback: 'Terms of Use' })}
+                  />
+                  <Link
+                    url="/privacy-policy"
+                    placeholder={t('policies.1', {
+                      fallback: 'Privacy Policy',
+                    })}
+                  />
+                  <Link
+                    url="/cookie-policy"
+                    placeholder={t('policies.2', { fallback: 'Cookie Policy' })}
+                  />
+                  <Link
+                    url="/refund-policy"
+                    placeholder={t('policies.3', { fallback: 'Refund Policy' })}
+                  />
+                </section>
               </div>
               <div className="flex flex-col gap-6">
                 <Text size="xl" weight="medium" opacity="low" uppercase>
@@ -98,44 +126,33 @@ export const Footer = () => {
                     {t('location.registeredAddress', {
                       fallback: 'Registered Address:',
                     })}
+                    <br /> 2nd Floor College House, 17 King Edwards Road,
+                    Ruislip, London, United Kingdom, HA4 7AE
                   </Text>
                   <Text>
                     {t('location.officeAddress', {
                       fallback: 'Office Address:',
-                    })}
+                    })}{' '}
+                    <br /> 5th Floor, Office 502, 70 Brompton Road, London SW3
+                    1ER, United Kingdom
                   </Text>
                   <Text>
                     {t('location.registeredNumber', {
                       fallback: 'Registered Number:',
-                    })}
+                    })}{' '}
+                    <br />
+                    16735132
                   </Text>
                 </nav>
               </div>
             </section>
           </section>
         </section>
-        <section className="flex flex-col gap-2">
-          <Link
-            url="/terms-of-use"
-            placeholder={t('policies.0', { fallback: 'Terms of Use' })}
-          />
-          <Link
-            url="/privacy-policy"
-            placeholder={t('policies.1', { fallback: 'Privacy Policy' })}
-          />
-          <Link
-            url="/cookie-policy"
-            placeholder={t('policies.2', { fallback: 'Cookie Policy' })}
-          />
-          <Link
-            url="/refund-policy"
-            placeholder={t('policies.3', { fallback: 'Refund Policy' })}
-          />
-        </section>
       </section>
-      <section className="ml-auto opacity-50 max-md:mx-auto">
+      <span className="h-px w-full bg-[rgba(0,39,68,0.10)]" />
+      <section className="text-center opacity-50">
         <Text>
-          © 2025 [Company].{' '}
+          © 2025 AQM Global Ltd.{' '}
           {t('copyright', { fallback: 'All rights reserved.' })}
         </Text>
       </section>

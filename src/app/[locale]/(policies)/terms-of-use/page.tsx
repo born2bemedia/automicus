@@ -47,15 +47,18 @@ export default async function TermsOfUsePage() {
               'These Terms of Use govern your use of the software and tools offered by',
           })}{' '}
           <span className="text-primary">
-            {t('1.text.1', { fallback: '[Company Name]' })}
+            {t('1.text.1', { fallback: 'AQM Global Ltd' })}
           </span>
           , {t('1.text.2', { fallback: 'a company registered under number' })}{' '}
           <span className="text-primary">
-            {t('1.text.3', { fallback: '[Registration Number]' })}
+            {t('1.text.3', { fallback: '16735132' })}
           </span>{' '}
           {t('1.text.4', { fallback: 'with its registered office at' })}{' '}
           <span className="text-primary">
-            {t('1.text.5', { fallback: '[Registered Address]' })}
+            {t('1.text.5', {
+              fallback:
+                '2nd Floor College House, 17 King Edwards Road, Ruislip, London, United Kingdom, HA4 7AE',
+            })}
           </span>
           .{' '}
           {t('1.text.6', {
@@ -102,7 +105,7 @@ export default async function TermsOfUsePage() {
         </PolicyText>
         <PolicyText>
           <span className="text-primary">
-            {t('2.text.4', { fallback: '[Company Name]' })}
+            {t('2.text.4', { fallback: 'AQM Global Ltd' })}
           </span>{' '}
           {t('2.text.5', {
             fallback:
@@ -207,7 +210,7 @@ export default async function TermsOfUsePage() {
               'These Terms of Use, along with any disputes or claims arising from them or related matters (including non-contractual claims), shall be governed by and interpreted according to the laws of ',
           })}{' '}
           <span className="text-primary">
-            {t('8.text.1', { fallback: '[Country/State to be inserted]' })}
+            {t('8.text.1', { fallback: 'the United Kingdom' })}
           </span>
           .{' '}
           {t('8.text.2', {
@@ -215,7 +218,7 @@ export default async function TermsOfUsePage() {
               'Regardless of your location or residency, the operation and provision of our services are exclusively subject to the laws of',
           })}{' '}
           <span className="text-primary">
-            {t('8.text.3', { fallback: '[Country/State to be inserted]' })}
+            {t('8.text.3', { fallback: 'the United Kingdom' })}
           </span>
           .
         </PolicyText>
