@@ -9,12 +9,18 @@ import {
 
 export const metadata: Metadata = {
   title: 'Terms of Use | Automicus',
+  description:
+    'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
   openGraph: {
     title: 'Terms of Use | Automicus',
+    description:
+      'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Terms of Use | Automicus',
+    description:
+      'Discover powerful trading bots tailored for precision, risk control, and consistent results in Forex and Gold markets.',
   },
   robots: {
     index: false,
