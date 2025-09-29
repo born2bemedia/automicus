@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import { cn } from '@/shared/lib/utils';
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { NavButton } from '@/shared/ui/components/molecules';

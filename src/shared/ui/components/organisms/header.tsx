@@ -21,6 +21,7 @@ import { FacebookIcon, LinkedInIcon, XIcon } from '@/shared/ui/icons/socials';
 
 import { UserBadgeIcon } from '../../icons/fill/user-badge';
 import { useUser } from '@/core/user/model/use-user';
+import { Link as NavLink } from '@/i18n/navigation';
 
 export const Header = () => {
   const pathname = usePathname();
@@ -65,14 +66,14 @@ const HeaderBottom = () => {
   return (
     <section className="flex items-center justify-between bg-black/50 px-[80px] py-3 backdrop-blur-[10px] max-md:px-4">
       <section className="flex items-center gap-[80px]">
-        <Link href="/" className="shrink-0">
+        <NavLink href="/" className="shrink-0">
           <Image
             src="/full-logo-white.svg"
             alt="logo"
             width={180}
             height={36}
           />
-        </Link>
+        </NavLink>
         <div className="flex items-center gap-2 max-[1350px]:hidden">
           {routes.slice(0, 6).map(({ label, url }) => (
             <NavButton key={label} url={url}>
@@ -93,13 +94,13 @@ const HeaderBottom = () => {
         </div>
       </section>
       <section className="flex items-center gap-[30px] max-[1350px]:hidden">
-        <Link href="/cart">
+        <NavLink href="/cart">
           <Button variant="ghost" size="sm">
             {t('cart', { fallback: 'Cart' })}
           </Button>
-        </Link>
+        </NavLink>
         {user ? (
-          <Link
+          <NavLink
             href="/account"
             className="flex items-center gap-2.5 rounded-full bg-white/10 py-1.5 pr-3 pl-1.5 backdrop-blur-[5px]"
           >
@@ -107,17 +108,17 @@ const HeaderBottom = () => {
             <Text color="light" weight="medium">
               {user.firstName + ' ' + user.lastName}
             </Text>
-          </Link>
+          </NavLink>
         ) : (
           <div className="flex items-center gap-[6px]">
-            <Link href="/login">
+            <NavLink href="/login">
               <Button variant="secondary" size="sm">
                 {t('logIn', { fallback: 'Log In' })}
               </Button>
-            </Link>
-            <Link href="/sign-up">
+            </NavLink>
+            <NavLink href="/sign-up">
               <Button size="sm">{t('signUp', { fallback: 'Sign Up' })}</Button>
-            </Link>
+            </NavLink>
           </div>
         )}
       </section>

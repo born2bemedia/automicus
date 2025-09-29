@@ -1,10 +1,11 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import Link from 'next/link';
 
 import { cn } from '@/shared/lib/utils';
 import { Button, type ButtonVariants } from '@/shared/ui/components/atoms';
+
+import { Link } from '@/i18n/navigation';
 
 export const NavButton = ({
   children,

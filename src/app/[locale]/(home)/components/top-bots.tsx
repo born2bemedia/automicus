@@ -1,12 +1,13 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import type { Bot } from '@/features/bots/model';
 import { BotCard } from '@/features/bots/ui';
 
 import { Button, Text } from '@/shared/ui/components/atoms';
+
+import { Link } from '@/i18n/navigation';
 
 export const TopBots = ({ bots }: { bots: Bot[] }) => {
   const t = useTranslations('home.topBots');

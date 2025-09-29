@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
 import { getReview } from '@/features/reviews/api';
@@ -9,6 +8,8 @@ import { ReviewRenderer } from '@/features/reviews/ui';
 import { SERVER_URL } from '@/shared/config/env';
 import { Button, Text } from '@/shared/ui/components/atoms';
 import { Title } from '@/shared/ui/components/atoms/title';
+
+import { Link } from '@/i18n/navigation';
 
 export async function generateMetadata({
   params,

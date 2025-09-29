@@ -1,12 +1,13 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import type { BotBundle } from '@/features/bots/model';
 import { BotBundleCard } from '@/features/bots/ui';
 
 import { Button, Title } from '@/shared/ui/components/atoms';
+
+import { Link } from '@/i18n/navigation';
 
 export const BotBundles = ({ bundles }: { bundles: BotBundle[] }) => {
   const t = useTranslations('home.botBundles');
