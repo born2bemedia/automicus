@@ -1,10 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import { Text, Title } from '@/shared/ui/components/atoms';
 import { ArrowRightDownIcon } from '@/shared/ui/icons/fill';
+
+import { Link } from '@/i18n/navigation';
 
 const getSteps = (t: ReturnType<typeof useTranslations>) => [
   {

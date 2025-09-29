@@ -36,6 +36,7 @@ export const ContactForm = () => {
     },
     onSubmit: async ({ value }) => {
       const { status } = await sendContactForm(value);
+      console.log('status', status);
 
       if (status === 'OK') {
         registerContent({

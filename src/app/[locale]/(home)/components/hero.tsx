@@ -1,9 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import { Button, Text, Title } from '@/shared/ui/components/atoms';
+
+import { Link } from '@/i18n/navigation';
 
 export const Hero = () => {
   const t = useTranslations('home.hero');

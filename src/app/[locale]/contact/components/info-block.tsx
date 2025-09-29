@@ -215,6 +215,10 @@ const Address = () => {
           <Text color="light" weight="medium">
             {t('registeredAddress', { fallback: 'Registered Address:' })}
           </Text>
+          <Text color="light" weight="medium">
+            2nd Floor College House, 17 King Edwards Road, Ruislip, London,
+            United Kingdom, HA4 7AE
+          </Text>
           <iframe
             className="h-[192px] w-full"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.6616254242003!2d-0.4286821!3d51.574436399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766c5ef9eeaaab%3A0x58f9eeec566a9e8!2sHouse%2C%202nd%20Floor%2C%2017%20King%20Edwards%20Rd%2C%20London%2C%20Ruislip%20HA4%207AE%2C%20UK!5e0!3m2!1sen!2sua!4v1758873187886!5m2!1sen!2sua"
@@ -229,6 +233,10 @@ const Address = () => {
         <div className="flex flex-col gap-2">
           <Text color="light" weight="medium">
             {t('officeAddress', { fallback: 'Office Address:' })}
+          </Text>
+          <Text color="light" weight="medium">
+            5th Floor, Office 502, 70 Brompton Road, London SW3 1ER, United
+            Kingdom
           </Text>
           <iframe
             className="h-[192px] w-full"

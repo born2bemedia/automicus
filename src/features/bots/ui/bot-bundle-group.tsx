@@ -8,12 +8,6 @@ import { Divider, Title } from '@/shared/ui/components/atoms';
 import type { BotBundle, BotBundleType } from '../model';
 import { BotBundleCard } from './bot-bundle-card';
 
-// const bundleTitles: Record<string, string> = {
-//   'high-frequency': 'High-Frequency & Scalping Bot Bundles',
-//   'trend-following': 'Trend-Following & Momentum Bot Bundles',
-//   mixed: 'Mixed Strategy Bot Bundles',
-// };
-
 const getBundleTitles = (t: ReturnType<typeof useTranslations>) => ({
   'high-frequency': t('high-frequency', {
     fallback: 'High-Frequency & Scalping Bot Bundles',
