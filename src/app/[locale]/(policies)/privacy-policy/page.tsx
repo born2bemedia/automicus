@@ -59,6 +59,7 @@ export default async function PrivacyPolicyPage() {
             `${t('1.list.2.label')} 2nd Floor College House, 17 King Edwards Road, Ruislip, London, United Kingdom, HA4 7AE`,
             `${t('1.list.3.label')} 5th Floor, Office 502, 70 Brompton Road, London SW3 1ER, United Kingdom`,
             `${t('1.list.4.label')} info@automicus.com`,
+            `${t('1.list.5.label')} +447426952883`,
             `${t('1.list.6.label')} Automicus`,
           ]}
         />

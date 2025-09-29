@@ -37,7 +37,10 @@ export const Header = () => {
 
 const HeaderTop = () => (
   <section className="flex items-center gap-[63px] bg-[#E5E5E5] px-[80px] py-1.5 max-[1350px]:hidden">
-    <Link href="mailto:info@automicus.com" className="ml-auto">
+    <Link href="tel:+447426952883" className="ml-auto">
+      +447426952883
+    </Link>
+    <Link href="mailto:info@automicus.com">
       <Text>info@automicus.com</Text>
     </Link>
     <section className="flex items-center gap-3.5 bg-white/10">

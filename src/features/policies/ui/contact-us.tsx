@@ -8,6 +8,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { Text } from '@/shared/ui/components/atoms/text';
 import { Title } from '@/shared/ui/components/atoms/title';
 import { ConvertIcon } from '@/shared/ui/icons/fill/convert';
+import { PhoneIcon } from '@/shared/ui/icons/fill/phone';
 import { UrlIcon } from '@/shared/ui/icons/fill/url';
 
 export const ContactUs = () => {
@@ -36,14 +37,14 @@ export const ContactUs = () => {
             </Text>
           </Link>
         </ItemLayout>
-        {/* <ItemLayout>
+        <ItemLayout>
           <PhoneIcon />
-          <Link href="tel:+1000000000">
+          <Link href="tel:+447426952883">
             <Text color="light" weight="medium">
-              +1 000 000 000
+              +447426952883
             </Text>
           </Link>
-        </ItemLayout> */}
+        </ItemLayout>
         <ItemLayout>
           <UrlIcon />
           <Link href="https://automicus.com/en/contact">
