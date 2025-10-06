@@ -17,7 +17,7 @@ import {
 import { LangSwitcher, NavButton } from '@/shared/ui/components/molecules';
 import { BurgerMenu } from '@/shared/ui/components/organisms';
 import { ThreeLinesIcon } from '@/shared/ui/icons/fill';
-import { FacebookIcon, XIcon } from '@/shared/ui/icons/socials';
+import { FacebookIcon, LinkedInIcon, XIcon } from '@/shared/ui/icons/socials';
 
 import { UserBadgeIcon } from '../../icons/fill/user-badge';
 import { useUser } from '@/core/user/model/use-user';
@@ -47,6 +47,10 @@ const HeaderTop = () => (
       {[
         { Icon: XIcon, href: 'https://x.com/automicus' },
         { Icon: FacebookIcon, href: 'https://www.facebook.com/automicus/' },
+        {
+          Icon: LinkedInIcon,
+          href: 'https://www.linkedin.com/company/automicus/',
+        },
       ].map(({ Icon, href }, index) => (
         <Link
           key={`icon-${index}`}
