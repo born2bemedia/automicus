@@ -17,7 +17,7 @@ import {
 import { LangSwitcher, NavButton } from '@/shared/ui/components/molecules';
 import { BurgerMenu } from '@/shared/ui/components/organisms';
 import { ThreeLinesIcon } from '@/shared/ui/icons/fill';
-import { FacebookIcon, LinkedInIcon, XIcon } from '@/shared/ui/icons/socials';
+import { FacebookIcon, XIcon } from '@/shared/ui/icons/socials';
 
 import { UserBadgeIcon } from '../../icons/fill/user-badge';
 import { useUser } from '@/core/user/model/use-user';
@@ -44,13 +44,17 @@ const HeaderTop = () => (
       <Text>info@automicus.com</Text>
     </Link>
     <section className="flex items-center gap-3.5 bg-white/10">
-      {[XIcon, FacebookIcon, LinkedInIcon].map((Icon, index) => (
-        <div
+      {[
+        { Icon: XIcon, href: 'https://x.com/automicus' },
+        { Icon: FacebookIcon, href: 'https://www.facebook.com/automicus/' },
+      ].map(({ Icon, href }, index) => (
+        <Link
           key={`icon-${index}`}
           className="flex h-4 w-max items-center justify-center"
+          href={href}
         >
           <Icon />
-        </div>
+        </Link>
       ))}
     </section>
     <LangSwitcher />
