@@ -23,7 +23,7 @@ import {
   ThreeLinesIcon,
   TranslateIcon,
 } from '@/shared/ui/icons/fill';
-import { FacebookIcon, LinkedInIcon, XIcon } from '@/shared/ui/icons/socials';
+import { FacebookIcon, XIcon } from '@/shared/ui/icons/socials';
 
 import { useUser } from '@/core/user/model/use-user';
 
@@ -127,13 +127,17 @@ export const BurgerMenu = () => {
 
 const SocialNetworks = () => (
   <IconWrapper className="flex flex-col items-center gap-6">
-    {[XIcon, FacebookIcon, LinkedInIcon].map((Icon, index) => (
-      <div
+    {[
+      { Icon: XIcon, href: 'https://x.com/automicus' },
+      { Icon: FacebookIcon, href: 'https://www.facebook.com/automicus/' },
+    ].map(({ Icon, href }, index) => (
+      <Link
+        href={href}
         key={`icon-${index}`}
         className="flex h-4 w-max items-center justify-center"
       >
         <Icon />
-      </div>
+      </Link>
     ))}
   </IconWrapper>
 );
