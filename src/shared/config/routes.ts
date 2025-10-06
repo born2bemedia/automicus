@@ -33,8 +33,4 @@ export const getTranslatedRoutes = (t: ReturnType<typeof useTranslations>) => [
     label: t('contact', { fallback: 'Contact' }),
     url: '/contact',
   },
-  {
-    label: t('helpCenter', { fallback: 'Help Center' }),
-    url: '/help-center',
-  },
 ];

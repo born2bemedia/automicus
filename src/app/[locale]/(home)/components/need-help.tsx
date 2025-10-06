@@ -13,10 +13,6 @@ const getSteps = (t: ReturnType<typeof useTranslations>) => [
     link: '/bot-reviews',
   },
   {
-    label: t('steps.1', { fallback: 'Check our Help Center' }),
-    link: '/help-center',
-  },
-  {
     label: t('steps.2', { fallback: 'Find answers in FAQ' }),
     link: '/faq',
   },
