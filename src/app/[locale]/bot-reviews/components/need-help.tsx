@@ -13,10 +13,6 @@ const getItems = (t: ReturnType<typeof useTranslations>) => [
     url: '/contact',
   },
   {
-    label: t('steps.1', { fallback: 'Find Guides for Bots' }),
-    url: '/help-center',
-  },
-  {
     label: t('steps.2', { fallback: 'Check Answers' }),
     url: '/faq',
   },

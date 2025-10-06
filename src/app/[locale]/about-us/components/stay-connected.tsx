@@ -14,13 +14,6 @@ const getCards = (t: ReturnType<typeof useTranslations>) => [
     },
   },
   {
-    title: t('cards.1.title', { fallback: 'Find Guides for Bots' }),
-    metaButton: {
-      label: t('cards.1.button', { fallback: 'Help Center' }),
-      url: '/help-center',
-    },
-  },
-  {
     title: t('cards.2.title', { fallback: 'Check Answers' }),
     metaButton: {
       label: t('cards.2.button', { fallback: 'FAQ' }),
@@ -43,7 +36,7 @@ export const StayConnected = () => {
           })}
         </Text>
       </section>
-      <section className="flex h-[530px] gap-1 max-lg:h-max max-lg:flex-col">
+      <section className="flex h-[355px] gap-1 max-lg:h-max max-lg:flex-col">
         <video
           src="/videos/about-us/stay.mp4"
           className="w-[70%] rounded-lg object-cover grayscale filter max-lg:h-[302px] max-lg:w-full max-md:w-full"
