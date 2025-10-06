@@ -23,7 +23,7 @@ import {
   ThreeLinesIcon,
   TranslateIcon,
 } from '@/shared/ui/icons/fill';
-import { FacebookIcon, XIcon } from '@/shared/ui/icons/socials';
+import { FacebookIcon, LinkedInIcon, XIcon } from '@/shared/ui/icons/socials';
 
 import { useUser } from '@/core/user/model/use-user';
 
@@ -130,6 +130,10 @@ const SocialNetworks = () => (
     {[
       { Icon: XIcon, href: 'https://x.com/automicus' },
       { Icon: FacebookIcon, href: 'https://www.facebook.com/automicus/' },
+      {
+        Icon: LinkedInIcon,
+        href: 'https://www.linkedin.com/company/automicus/',
+      },
     ].map(({ Icon, href }, index) => (
       <Link
         href={href}
