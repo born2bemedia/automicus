@@ -102,9 +102,11 @@ export const BotCard = ({
           <Text size="4xl" weight="bold" color="light">
             €{price.toLocaleString()}
           </Text>
-          <Chip>
-            {t('save', { fallback: 'Save' })} €{discount}!
-          </Chip>
+          {discount ? (
+            <Chip>
+              {t('save', { fallback: 'Save' })} €{discount}!
+            </Chip>
+          ) : null}
         </div>
         <div className="flex items-center gap-2.5">
           <Button onClick={buyHandle} fullWidth>
