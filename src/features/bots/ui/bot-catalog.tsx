@@ -1,32 +1,54 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Divider, Text, Title } from '@/shared/ui/components/atoms';
 
 import type { Bot, BotType } from '../model';
 import { BotCard } from './bot-card';
 
 export const BotCatalog = ({ bots }: { bots: Bot[] }) => {
+  const t = useTranslations('botCatalog');
+
   return (
     <section className="flex flex-col gap-20 px-10 pt-10 pb-20 max-md:p-6">
       <DealBot
         bots={bots}
         type="forex"
-        title="Forex Bots"
-        desc="Automated trading bots designed for major currency pairs. Optimize your forex strategy with precision execution, low risk, and adaptive performance across various market conditions."
+        title={t('forex.title', { fallback: 'Forex Bots' })}
+        desc={t('forex.desc', {
+          fallback:
+            'Automated trading bots designed for major currency pairs. Optimize your forex strategy with precision execution, low risk, and adaptive performance across various market conditions.',
+        })}
       />
       <Divider />
       <DealBot
-        title="Scalping Bots"
+        title={t('scalping.title', { fallback: 'Scalping Bots' })}
         bots={bots}
-        desc="Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping."
+        desc={t('scalping.desc', {
+          fallback:
+            'Capture quick profits by leveraging fast market movements with bots optimized for high-frequency scalping.',
+        })}
         type="scalping"
       />
       <Divider />
       <DealBot
-        title="Gold Bots"
+        title={t('gold.title', { fallback: 'Gold Bots' })}
         bots={bots}
-        desc="Specialised EAs for trading XAU/USD, combining precision entry strategies with adjustable risk settings for steady gold market performance."
+        desc={t('gold.desc', {
+          fallback:
+            'Specialised EAs for trading XAU/USD, combining precision entry strategies with adjustable risk settings for steady gold market performance.',
+        })}
         type="gold"
+      />
+      <DealBot
+        title={t('multi-assets.title', { fallback: 'Multi-Assets Bots' })}
+        bots={bots}
+        desc={t('multi-assets.desc', {
+          fallback:
+            'Versatile EAs designed for trading multiple assets, from forex pairs to indices, gold, and crypto, delivering adaptive performance across diverse market conditions.',
+        })}
+        type="multi-assets"
       />
     </section>
   );
@@ -56,7 +78,7 @@ const DealBot = ({
       <div className="flex items-stretch gap-1">
         {bots
           .filter(bot => bot.type === type)
-          .slice(0, 2)
+          .slice(0, 3)
           .map(bot => (
             <BotCard
               key={bot.name}
