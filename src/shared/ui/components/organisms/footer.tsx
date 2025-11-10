@@ -89,7 +89,7 @@ export const Footer = () => {
                     url="mailto:info@automicus.com"
                     placeholder="info@automicus.com"
                   />
-                  <Link url="tel:+447426952883" placeholder="+447426952883" />
+                  <Link url="tel:+447378551382" placeholder="+447378551382" />
                 </nav>
               </div>
               <div className="flex flex-col gap-6">
