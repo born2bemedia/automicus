@@ -104,7 +104,9 @@ export const BurgerMenu = () => {
                         Cart <ArrowRightDownIcon />
                       </Button>
                     </Link>
-                    {/* <Text>number</Text> */}
+                    <Link href="tel:+447378551382">
+                      <Text>+447378551382</Text>
+                    </Link>
                     <Link href="mailto:info@automicus.com">
                       <Text>info@automicus.com</Text>
                     </Link>

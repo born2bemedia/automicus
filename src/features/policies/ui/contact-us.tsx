@@ -39,9 +39,9 @@ export const ContactUs = () => {
         </ItemLayout>
         <ItemLayout>
           <PhoneIcon />
-          <Link href="tel:+447426952883">
+          <Link href="tel:+447378551382">
             <Text color="light" weight="medium">
-              +447426952883
+              +447378551382
             </Text>
           </Link>
         </ItemLayout>

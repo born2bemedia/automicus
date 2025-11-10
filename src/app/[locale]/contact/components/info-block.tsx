@@ -34,7 +34,7 @@ const PhoneEmail = () => {
         </Text>
       </div>
       <div className="flex items-center justify-between">
-        <Link href="tel:+447426952883" className="flex items-center gap-2">
+        <Link href="tel:+447378551382" className="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -48,7 +48,7 @@ const PhoneEmail = () => {
             />
           </svg>
           <Text color="light" weight="medium">
-            +447426952883
+            +447378551382
           </Text>
         </Link>
         <Link
