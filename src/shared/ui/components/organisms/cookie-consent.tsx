@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+import { ssRead, ssWrite } from '@/shared/lib/browser';
 import { lsRead, lsWrite } from '@/shared/lib/utils/browser';
 import { cn } from '@/shared/lib/utils/styles';
 import { Button } from '@/shared/ui/components/atoms/button';
@@ -13,7 +14,8 @@ export const CookieConsent = () => {
 
   useEffect(() => {
     const hasAcceptedCookies = lsRead('isCookiesAccepted');
-    if (!hasAcceptedCookies) {
+    const hasAcceptedCookiesSession = ssRead('isCookiesAccepted');
+    if (!hasAcceptedCookies && !hasAcceptedCookiesSession) {
       setIsVisible(true);
     }
   }, []);
@@ -23,7 +25,10 @@ export const CookieConsent = () => {
     setIsVisible(false);
   };
 
-  const handleDecline = () => setIsVisible(false);
+  const handleDecline = () => {
+    setIsVisible(false);
+    ssWrite('isCookiesAccepted', 'false');
+  };
 
   return (
     <div
