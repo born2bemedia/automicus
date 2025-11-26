@@ -8,13 +8,14 @@ import { useForm } from '@tanstack/react-form';
 
 import { lsWrite } from '@/shared/lib/browser';
 import { allowedCountries } from '@/shared/lib/countries';
-import { notifySuccess, notifyWarning } from '@/shared/lib/toast';
+import { notifyWarning } from '@/shared/lib/toast';
 import { cn } from '@/shared/lib/utils';
 import { Button, Text, TextField, Title } from '@/shared/ui/components/atoms';
 import { Autocomplete } from '@/shared/ui/components/atoms/autocomplete';
 import { Checkbox } from '@/shared/ui/components/atoms/checkbox';
 import { PhoneField } from '@/shared/ui/components/atoms/phone-field';
 
+import { sendEmailOrder } from '../api/send-email-order';
 import { sendOrder } from '../api/send-order';
 import { getCartSchema } from '../model/schemas';
 import type { CartItem } from '../model/types';
@@ -63,9 +64,14 @@ export const CartOrder = ({
       });
 
       if (res.doc) {
-        notifySuccess(t('success', { fallback: 'Order sent successfully' }));
+        await sendEmailOrder({
+          userEmail: data.value.email,
+          username: data.value.firstName,
+        });
         lsWrite('cart', JSON.stringify([]));
-        router.push('/thank-you-wire');
+        router.push(
+          `/thank-you?orderId=${res.doc.orderNumber}&date=${res.doc.createdAt}&total=${res.doc.total}`,
+        );
       } else {
         notifyWarning(
           t('error', {

@@ -13,7 +13,6 @@ export const CartContainer = () => {
   useEffect(() => {
     const cart = getCart();
     setCart(cart);
-    console.log('cart', cart);
   }, []);
 
   const updateQuantity = (name: string, delta: number) => {
