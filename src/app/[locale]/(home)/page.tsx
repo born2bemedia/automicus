@@ -42,10 +42,10 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
 
-  const { data: bots } = await getBots({ params: { limit: 6, locale } });
-  const { data: bundles } = await getBotBundles({
-    params: { locale },
-  });
+  const [{ data: bots }, { data: bundles }] = await Promise.all([
+    getBots({ params: { limit: 6, locale } }),
+    getBotBundles({ params: { locale } }),
+  ]);
 
   return (
     <main>
