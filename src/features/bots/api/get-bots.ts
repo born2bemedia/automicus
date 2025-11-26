@@ -16,6 +16,9 @@ export const getBots = async ({
       headers: {
         'Content-Type': 'application/json',
       },
+      next: {
+        revalidate: 60 * 15,
+      },
     },
   );
   const data: BotResponse = await res.json();

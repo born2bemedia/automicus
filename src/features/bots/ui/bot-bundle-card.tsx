@@ -3,13 +3,13 @@
 import { useTranslations } from 'next-intl';
 
 import { getCart } from '@/features/cart/api/get-cart';
+import { useCartStore } from '@/features/cart/model/cart-store';
 
 import { lsWrite } from '@/shared/lib/browser';
-import { notifySuccess } from '@/shared/lib/toast';
 import { Button, Chip } from '@/shared/ui/components/atoms';
 import { Text } from '@/shared/ui/components/atoms';
 
-import type { BotBundle } from '../model';
+import type { BotBundle, BotBundleType } from '../model';
 import { BotPreview } from './bot-preview';
 
 export const BotBundleCard = ({
@@ -21,6 +21,8 @@ export const BotBundleCard = ({
 }: BotBundle) => {
   const t = useTranslations('home.botBundleCard');
 
+  const { setCart } = useCartStore();
+
   const onBuyHandle = () => {
     const cart = getCart();
     lsWrite(
@@ -30,7 +32,19 @@ export const BotBundleCard = ({
         { name, price, bots, discount, quantity: 1, total: price },
       ]),
     );
-    notifySuccess('Bot bundle added to cart');
+    setCart([
+      ...cart,
+      {
+        id: 0,
+        name,
+        price,
+        bots,
+        discount,
+        quantity: 1,
+        description: '',
+        type: 'bundle' as BotBundleType,
+      },
+    ]);
   };
 
   return (

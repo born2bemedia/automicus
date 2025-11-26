@@ -1,14 +1,14 @@
 import { useTranslations } from 'next-intl';
 
 import { getCart } from '@/features/cart/api/get-cart';
+import { useCartStore } from '@/features/cart/model/cart-store';
 
 import { lsWrite } from '@/shared/lib/browser';
-import { notifySuccess } from '@/shared/lib/toast';
 import { cn } from '@/shared/lib/utils';
 import { Button, Chip, Text } from '@/shared/ui/components/atoms';
 import { NavButton } from '@/shared/ui/components/molecules';
 
-import type { Bot } from '../model';
+import type { Bot, BotBundleType } from '../model';
 
 export const BotCard = ({
   id,
@@ -31,6 +31,8 @@ export const BotCard = ({
 }) => {
   const t = useTranslations('catalog.botCard');
 
+  const { setCart } = useCartStore();
+
   const buyHandle = () => {
     const cart = getCart();
     lsWrite(
@@ -40,7 +42,19 @@ export const BotCard = ({
         { id, name, price, discount, quantity: 1, total: price },
       ]),
     );
-    notifySuccess('Bot added to cart');
+    setCart([
+      ...cart,
+      {
+        id: 0,
+        name,
+        price,
+        bots: [],
+        discount,
+        quantity: 1,
+        description: '',
+        type: 'bundle' as BotBundleType,
+      },
+    ]);
   };
 
   return variant === 'simplify' ? (

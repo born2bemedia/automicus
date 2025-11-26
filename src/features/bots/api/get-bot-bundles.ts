@@ -18,6 +18,9 @@ export const getBotBundles = async ({
       headers: {
         'Content-Type': 'application/json',
       },
+      next: {
+        revalidate: 60 * 15,
+      },
     },
   );
   const data: BotBundleResponse = await res.json();

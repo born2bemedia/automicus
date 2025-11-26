@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 
+import { useCartStore } from '@/features/cart/model/cart-store';
+
 import { getTranslatedRoutes } from '@/shared/config/routes';
 import { useWindowSize } from '@/shared/lib/hooks';
 import {
@@ -71,6 +73,7 @@ const HeaderBottom = () => {
   const t = useTranslations('header');
 
   const user = useUser();
+  const { cart } = useCartStore();
 
   const routes = useMemo(() => getTranslatedRoutes(t), [t]);
 
@@ -105,7 +108,10 @@ const HeaderBottom = () => {
         </div>
       </section>
       <section className="flex items-center gap-[30px] max-[1350px]:hidden">
-        <NavLink href="/cart">
+        <NavLink href="/cart" className="relative">
+          {cart.length ? (
+            <span className="absolute top-1 right-1 h-3 w-3 rounded-full bg-[#FF5151]" />
+          ) : null}
           <Button variant="ghost" size="sm">
             {t('cart', { fallback: 'Cart' })}
           </Button>

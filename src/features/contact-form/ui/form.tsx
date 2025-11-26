@@ -5,6 +5,7 @@ import ReCaptcha from 'react-google-recaptcha';
 import { useTranslations } from 'next-intl';
 import { useForm } from '@tanstack/react-form';
 
+import { notifyWarning } from '@/shared/lib/toast';
 import {
   Button,
   TextField,
@@ -24,7 +25,7 @@ export const ContactForm = () => {
 
   const t = useTranslations('contact.contactUs.form');
 
-  const { Field, Subscribe, handleSubmit } = useForm({
+  const { Field, Subscribe, handleSubmit, reset } = useForm({
     defaultValues: {
       name: '',
       email: '',
@@ -36,7 +37,6 @@ export const ContactForm = () => {
     },
     onSubmit: async ({ value }) => {
       const { status } = await sendContactForm(value);
-      console.log('status', status);
 
       if (status === 'OK') {
         registerContent({
@@ -44,7 +44,10 @@ export const ContactForm = () => {
           content: <ThankYouDialog />,
         });
         setIsOpen(true);
+        reset();
       }
+
+      notifyWarning('Something went wrong. Please try again later.');
     },
   });
 
