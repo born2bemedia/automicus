@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 import { CubesFooter } from '@/shared/ui/components/organisms';
 
@@ -19,12 +19,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ThankYouWire() {
-  const t = useTranslations('thankYouWire.footer');
+import { notFound } from 'next/navigation';
+
+export default async function ThankYouWire({
+  searchParams,
+}: {
+  searchParams: Promise<{ orderId?: string; date?: string; total?: string }>;
+}) {
+  const { orderId, date, total } = await searchParams;
+
+  if (!orderId || !date || !total) {
+    notFound();
+  }
+
+  const t = await getTranslations('thankYouWire.footer');
 
   return (
     <main>
-      <BankTransferInfo />
+      <BankTransferInfo orderId={orderId} date={date} total={total} />
       <WhatNext />
       <CubesFooter
         title={t('title', { fallback: 'Need Assistance?' })}
