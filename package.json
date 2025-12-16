@@ -21,7 +21,7 @@
     "google-libphonenumber": "^3.2.42",
     "googleapis": "^150.0.1",
     "js-cookie": "^3.0.5",
-    "next": "15.3.3",
+    "next": "15.3.8",
     "next-intl": "^4.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
