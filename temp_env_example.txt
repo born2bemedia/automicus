@@ -1,0 +1,8 @@
+﻿SERVER_URL=https://cms.automicus.com
+EMAIL_CLIENT_ID=your_google_oauth_client_id_here
+EMAIL_CLIENT_SECRET=your_google_oauth_client_secret_here
+EMAIL_USER=your_email@example.com
+EMAIL_REFRESH_TOKEN=your_google_oauth_refresh_token_here
+
+I18NEXUS_API_KEY=your_i18nexus_api_key_here
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key_here
