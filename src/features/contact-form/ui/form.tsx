@@ -36,18 +36,22 @@ export const ContactForm = () => {
       onSubmit: contactSchema,
     },
     onSubmit: async ({ value }) => {
-      const { status } = await sendContactForm(value);
+      try {
+        const { status } = await sendContactForm(value);
 
-      if (status === 'OK') {
-        registerContent({
-          title: t('success', { fallback: 'Thank You for Reaching Out!' }),
-          content: <ThankYouDialog />,
-        });
-        setIsOpen(true);
-        reset();
+        if (status >= 200 && status < 300) {
+          registerContent({
+            title: t('success', { fallback: 'Thank You for Reaching Out!' }),
+            content: <ThankYouDialog />,
+          });
+          setIsOpen(true);
+          reset();
+        } else {
+          notifyWarning('Something went wrong. Please try again later.');
+        }
+      } catch {
+        notifyWarning('Something went wrong. Please try again later.');
       }
-
-      notifyWarning('Something went wrong. Please try again later.');
     },
   });
 

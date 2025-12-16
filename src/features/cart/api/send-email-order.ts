@@ -1,16 +1,13 @@
 'use server';
 
-import { google } from 'googleapis';
+import sgMail from '@sendgrid/mail';
 
 import { confirmOrderBody } from '@/features/email-letters/confirm-order-body';
 
 import {
-  EMAIL_CLIENT_ID,
-  EMAIL_CLIENT_SECRET,
-  EMAIL_REFRESH_TOKEN,
-  EMAIL_USER,
+  SENDGRID_API_KEY,
+  SENDGRID_FROM_EMAIL,
 } from '@/shared/config/env';
-import { makeEmailBody } from '@/shared/lib/utils/email';
 
 export async function sendEmailOrder({
   userEmail,
@@ -19,40 +16,30 @@ export async function sendEmailOrder({
   userEmail: string;
   username: string;
 }) {
-  const OAuth2 = google.auth.OAuth2;
-  const oauth2Client = new OAuth2(
-    EMAIL_CLIENT_ID,
-    EMAIL_CLIENT_SECRET,
-    'https://developers.google.com/oauthplayground',
-  );
-
-  oauth2Client.setCredentials({
-    refresh_token: EMAIL_REFRESH_TOKEN,
-  });
-
-  const accessToken = await oauth2Client.getAccessToken();
-
-  if (!accessToken.token) {
-    throw new Error('Failed to generate access token.');
+  if (!SENDGRID_API_KEY) {
+    throw new Error('SENDGRID_API_KEY is not configured.');
   }
 
-  const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
+  if (!SENDGRID_FROM_EMAIL) {
+    throw new Error('SENDGRID_FROM_EMAIL is not configured.');
+  }
 
-  const userBody = makeEmailBody({
+  sgMail.setApiKey(SENDGRID_API_KEY);
+
+  const msg = {
     to: userEmail,
-    from: EMAIL_USER,
+    from: SENDGRID_FROM_EMAIL,
     subject: 'Your Automicus Order Confirmation',
-    message: confirmOrderBody({ username }),
-  });
+    html: confirmOrderBody({ username }),
+  };
 
-  const res = await gmail.users.messages.send({
-    userId: 'me',
-    requestBody: { raw: userBody },
-  });
-
-  if (res.status !== 200) {
-    throw new Error(`Failed to send email. Status: ${res.status}`);
+  try {
+    const [response] = await sgMail.send(msg);
+    return { data: response.body, status: response.statusCode };
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to send email: ${error.message}`);
+    }
+    throw new Error('Failed to send email.');
   }
-
-  return { data: res.data, status: res.statusText };
 }

@@ -1,16 +1,14 @@
 'use server';
 
-import { google } from 'googleapis';
+import sgMail from '@sendgrid/mail';
 
 import { requestFormBody } from '@/features/email-letters/request-form-body';
 
 import {
-  EMAIL_CLIENT_ID,
-  EMAIL_CLIENT_SECRET,
-  EMAIL_REFRESH_TOKEN,
   EMAIL_USER,
+  SENDGRID_API_KEY,
+  SENDGRID_FROM_EMAIL,
 } from '@/shared/config/env';
-import { makeEmailBody } from '@/shared/lib/utils/email';
 
 import type { ContactSchema } from '../model/schema';
 
@@ -20,58 +18,43 @@ export async function sendContactForm({
   name,
   phone,
 }: ContactSchema) {
-  const OAuth2 = google.auth.OAuth2;
-  const oauth2Client = new OAuth2(
-    EMAIL_CLIENT_ID,
-    EMAIL_CLIENT_SECRET,
-    'https://developers.google.com/oauthplayground',
-  );
-
-  oauth2Client.setCredentials({
-    refresh_token: EMAIL_REFRESH_TOKEN,
-  });
-
-  const accessToken = await oauth2Client.getAccessToken();
-
-  if (!accessToken.token) {
-    throw new Error('Failed to generate access token.');
+  if (!SENDGRID_API_KEY) {
+    throw new Error('SENDGRID_API_KEY is not configured.');
   }
 
-  const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
+  if (!SENDGRID_FROM_EMAIL) {
+    throw new Error('SENDGRID_FROM_EMAIL is not configured.');
+  }
 
-  const adminBody = makeEmailBody({
+  sgMail.setApiKey(SENDGRID_API_KEY);
+
+  const adminMsg = {
     to: EMAIL_USER,
-    from: EMAIL_USER,
+    from: SENDGRID_FROM_EMAIL,
     subject: 'New Message from Contact Form',
-    message: `<p><b>Full Name:</b> ${name}</p>
+    html: `<p><b>Full Name:</b> ${name}</p>
      <p><b>Email:</b> ${email}</p>
      <p><b>Phone:</b> ${phone}</p>
      <p><b>Message:</b> ${message ?? 'No message provided.'}</p>`,
-  });
+  };
 
-  const userBody = makeEmailBody({
+  const userMsg = {
     to: email,
-    from: EMAIL_USER,
+    from: SENDGRID_FROM_EMAIL,
     subject:
       "We've Received Your Inquiry - Thank You for Contacting Automicus!",
-    message: requestFormBody({ username: name }),
-  });
+    html: requestFormBody({ username: name }),
+  };
 
-  const res = await gmail.users.messages.send({
-    userId: 'me',
-    requestBody: {
-      raw: adminBody,
-    },
-  });
+  try {
+    const [adminResponse] = await sgMail.send(adminMsg);
+    await sgMail.send(userMsg);
 
-  await gmail.users.messages.send({
-    userId: 'me',
-    requestBody: { raw: userBody },
-  });
-
-  if (res.status !== 200) {
-    throw new Error(`Failed to send email. Status: ${res.status}`);
+    return { data: adminResponse.body, status: adminResponse.statusCode };
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to send email: ${error.message}`);
+    }
+    throw new Error('Failed to send email.');
   }
-
-  return { data: res.data, status: res.statusText };
 }

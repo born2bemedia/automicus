@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -38,8 +39,8 @@ export const CartOrder = ({
   const user = useUser();
   const router = useRouter();
 
-  const { Field, Subscribe, handleSubmit } = useForm({
-    defaultValues: {
+  const defaultValues = useMemo(
+    () => ({
       firstName: user?.firstName ?? '',
       lastName: user?.lastName ?? '',
       email: user?.email ?? '',
@@ -51,7 +52,12 @@ export const CartOrder = ({
       phone: user?.phone ?? '',
       isAgreeTerms: false,
       isAgreeRefund: false,
-    },
+    }),
+    [user],
+  );
+
+  const { Field, Subscribe, handleSubmit, reset } = useForm({
+    defaultValues,
     validators: {
       onSubmit: getCartSchema(te),
     },
@@ -81,6 +87,13 @@ export const CartOrder = ({
       }
     },
   });
+
+  useEffect(() => {
+    if (user) {
+      reset(defaultValues);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id, user?.firstName, user?.lastName, user?.email, user?.addressLine1, user?.addressLine2, user?.city, user?.country, user?.zip, user?.phone, reset]);
 
   return (
     <form
@@ -162,6 +175,8 @@ export const CartOrder = ({
                   />
                 )}
               </Field>
+            </FormRow>
+            <FormRow>
               <Field name="email">
                 {field => (
                   <TextField

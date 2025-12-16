@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { allowedCountries } from '@/shared/lib/countries';
@@ -26,8 +26,8 @@ export const EditUserForm = () => {
 
   const user = useUser();
 
-  const { Field, Subscribe, handleSubmit } = useForm({
-    defaultValues: {
+  const defaultValues = useMemo(
+    () => ({
       firstName: user?.firstName ?? '',
       lastName: user?.lastName ?? '',
       email: user?.email ?? '',
@@ -37,7 +37,12 @@ export const EditUserForm = () => {
       zip: user?.zip ?? '',
       addressLine1: user?.addressLine1 ?? '',
       addressLine2: user?.addressLine2 ?? '',
-    },
+    }),
+    [user],
+  );
+
+  const { Field, Subscribe, handleSubmit, reset } = useForm({
+    defaultValues,
     validators: {
       onChange: isEdit ? editUserSchema : undefined,
     },
@@ -56,6 +61,13 @@ export const EditUserForm = () => {
       }
     },
   });
+
+  useEffect(() => {
+    if (user) {
+      reset(defaultValues);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id, user?.firstName, user?.lastName, user?.email, user?.phone, user?.country, user?.city, user?.zip, user?.addressLine1, user?.addressLine2, reset]);
 
   return (
     <form

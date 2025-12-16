@@ -1,5 +1,5 @@
 'use client';
-
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import type { Bot } from '@/features/bots/model';
@@ -43,6 +43,23 @@ export const PurchasedBots = ({ values }: { values: Bot[] }) => {
 
 const BotCard = ({ value }: { value: Bot }) => {
   const t = useTranslations('account.bots');
+  const [reviewLink, setReviewLink] = useState<string | null>(null);
+  const [fileLink, setFileLink] = useState<string | null>(null);
+  const [buttonName, setButtonName] = useState<string | null>(null);
+  useEffect(() => {
+    console.log('value', value);
+    if (value.slug) {
+      setReviewLink(`/bot-reviews/${value.slug}`);
+    }
+    if (value.file?.url) {
+      setFileLink(value.file.url);
+    }
+    if (value.file?.mimeType === 'application/pdf') {
+      setButtonName('Instruction');
+    } else {
+      setButtonName('Video');
+    }
+  }, [value]);
 
   return (
     <div className="flex flex-col gap-6 rounded-lg bg-[#181818] p-4">
@@ -67,6 +84,11 @@ const BotCard = ({ value }: { value: Bot }) => {
             size="lg"
             className="gap-2.5 px-6"
             fullWidth
+            onClick={() => {
+              if (reviewLink) {
+                window.open(reviewLink, '_blank');
+              }
+            }}
           >
             <EyeIcon />
             {t('review', { fallback: 'Review' })}
@@ -76,9 +98,14 @@ const BotCard = ({ value }: { value: Bot }) => {
             size="lg"
             className="gap-2.5 px-6"
             fullWidth
+            onClick={() => {
+              if (fileLink) {
+                window.open(`https://cms.automicus.com${fileLink}`, '_blank');
+              }
+            }}
           >
             <PlayIcon />
-            {t('video', { fallback: 'Video' })}
+            {buttonName}
           </Button>
         </div>
       </section>
