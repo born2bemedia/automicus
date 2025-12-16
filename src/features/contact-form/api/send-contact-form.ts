@@ -5,9 +5,9 @@ import sgMail from '@sendgrid/mail';
 import { requestFormBody } from '@/features/email-letters/request-form-body';
 
 import {
+  EMAIL_USER,
   SENDGRID_API_KEY,
   SENDGRID_FROM_EMAIL,
-  EMAIL_USER,
 } from '@/shared/config/env';
 
 import type { ContactSchema } from '../model/schema';
