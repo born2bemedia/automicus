@@ -59,7 +59,7 @@ export const BotHeader = ({
           <FeatureList values={features} />
         </section>
         <Button size="md" onClick={buyHandle}>
-          {t('header.btn', { fallback: 'Add to Card' })}
+          {t('header.btn', { fallback: 'Add to Cart' })}
         </Button>
       </section>
     </header>

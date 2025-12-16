@@ -15,6 +15,13 @@ export type Bot = {
   suitableFor: BotTextBlock[];
   features: BotTextBlock[];
   pin?: boolean;
+  file?: {
+    url: string;
+    name: string;
+    size: number;
+    type: string;
+    mimeType: string;
+  };
 };
 
 export type BotTextBlock = { id: string; title: string; description: string };
