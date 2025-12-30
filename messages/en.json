@@ -935,7 +935,11 @@
     },
     "refundPolicy": {
       "0": {
-        "text": "Thank you for choosing Automicus. We are committed to providing reliable and high-performing trading bots. However, if for any reason you are not fully satisfied with your purchase, we’re here to help."
+        "text": {
+          "0": "Thank you for choosing Automicus. We are committed to providing reliable and high-performing trading bots. However, if for any reason you are not fully satisfied with your purchase, we’re here to help. Refunds are processed in accordance with our",
+          "1": "Terms of Use",
+          "2": "and require compliance with all service conditions."
+        }
       },
       "1": {
         "text": {
@@ -961,7 +965,7 @@
           "4": "Refund Request",
           "5": "In the email, please include:",
           "6": "Evaluation and Processing",
-          "7": "Once we receive your request, our support team will review it to ensure it falls within our 30-day policy. We aim to process all refund requests within 10 business days.",
+          "7": "Once we receive your request, our support team will review it to ensure it falls within our 30-day policy. We aim to process all refund requests within 10 business days. Refund eligibility may be reviewed in cases of excessive usage, repeated refund requests, or indications of policy abuse.",
           "8": "Confirmation",
           "9": "You will receive an email confirming whether your refund has been approved. If approved, the funds will be returned via the same payment method used at checkout.",
           "10": "Please note: Processing times may vary depending on your bank or payment provider."
@@ -1044,7 +1048,8 @@
         "text": {
           "0": "The trading account linked to the software (“Account”) is distinct and separate from the software itself. Automicus and its team do not hold or control your funds; your deposits remain with your broker, a third-party service provider. Any instructions displayed in the software related to deposits are retrieved from your broker’s account and are provided without any warranty of accuracy or security. You may only use the software with the specific account authorized and may not transfer trading instructions to other accounts.",
           "1": "You do not obtain any rights, ownership, or access to the software’s source code, binary files, or proprietary algorithms by purchasing or using the software. Certain aspects of the trading strategy and risk management logic remain confidential as proprietary trade secrets.",
-          "2": "Payments for software use do not transfer ownership of the software or intellectual property rights."
+          "2": "Payments for software use do not transfer ownership of the software or intellectual property rights.",
+          "3": "By purchasing and accessing the software, the user acknowledges that digital services are considered delivered upon account activation and access being granted."
         },
         "title": "Additional Provisions"
       },
