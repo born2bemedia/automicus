@@ -35,7 +35,7 @@ export default async function RefundPolicyPage() {
   return (
     <PolicyRender title={t('title')}>
       <PolicySection>
-        <PolicyText>{t('0.text')}</PolicyText>
+        <PolicyText>{t('0.text.0')}{' '}<Link href="/terms-of-use" className="text-primary underline">{t('0.text.1')}</Link>{' '}{t('0.text.2')}</PolicyText>
       </PolicySection>
       <PolicySection heading={t('1.title')}>
         <PolicyText>

@@ -194,12 +194,18 @@ export default async function TermsOfUsePage() {
               'You do not obtain any rights, ownership, or access to the software’s source code, binary files, or proprietary algorithms by purchasing or using the software. Certain aspects of the trading strategy and risk management logic remain confidential as proprietary trade secrets.',
           })}
         </PolicyText>
-        <PolicyText>
-          {t('6.text.2', {
-            fallback:
-              'Payments for software use do not transfer ownership of the software or intellectual property rights.',
-          })}
-        </PolicyText>
+          <PolicyText>
+            {t('6.text.2', {
+              fallback:
+                'Payments for software use do not transfer ownership of the software or intellectual property rights.',
+            })}
+          </PolicyText>
+          <PolicyText>
+            {t('6.text.3', {
+              fallback:
+                'By purchasing and accessing the software, the user acknowledges that digital services are considered delivered upon account activation and access being granted.',
+            })}
+          </PolicyText>
       </PolicySection>
       <PolicySection heading={t('7.title', { fallback: 'Pricing' })}>
         <PolicyText>
