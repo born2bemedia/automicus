@@ -19,6 +19,7 @@ export const BotBundleCard = ({
   discount,
   bots,
 }: BotBundle) => {
+  console.log(bots)
   const t = useTranslations('home.botBundleCard');
 
   const { setCart } = useCartStore();
@@ -81,9 +82,11 @@ export const BotBundleCard = ({
             <Text size="5xl" weight="bold" color="light">
               €{price.toLocaleString()}
             </Text>
-            <Chip>
-              {t('save', { fallback: 'Save' })} €{discount}!
-            </Chip>
+            {discount && (
+              <Chip>
+                {t('save', { fallback: 'Save' })} €{discount}!
+              </Chip>
+            )}
           </div>
           <Button onClick={onBuyHandle} fullWidth>
             {t('buy', { fallback: 'Buy' })}
