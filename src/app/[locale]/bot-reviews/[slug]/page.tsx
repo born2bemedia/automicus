@@ -51,7 +51,9 @@ export default async function BotReviewPage({
 
   const botTitle = data.bot.name;
 
-  console.log('botTitle', botTitle);
+  const botSlug = data.bot.slug;
+
+  console.log('botSlug', botSlug);
 
   return (
     <section className="flex flex-col gap-20 px-[160px] py-20 max-md:gap-10 max-md:p-6">
@@ -81,7 +83,7 @@ export default async function BotReviewPage({
             fallback: `and take your Forex trading to the next level with AI-powered scalping and superior risk management.`,
           })}
         </Text>
-        <Link href={`/catalog/${data.slug}`}>
+        <Link href={`/catalog/${botSlug}`}>
           <Button>{t('btn', { fallback: 'Explore Bot' })}</Button>
         </Link>
       </main>
