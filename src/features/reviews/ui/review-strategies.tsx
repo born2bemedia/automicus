@@ -22,23 +22,16 @@ export const ReviewStrategies = memo(
 
     if (type === 'paragraph') {
       return (
-        <span className="mb-10">
+        <Text className="mb-10" color="light">
           {node.children.map((item, i) =>
             item.type === 'linebreak' ? (
               <br key={String(`linebreak-${i}`)} />
             ) : (
-              <span key={item.text} className={item.format === 1 ? 'mb-2' : ''}>
-                <Text
-                  key={item.text}
-                  weight={item.format === 1 ? 'bold' : 'medium'}
-                  color="light"
-                >
-                  {item.text}
-                </Text>
-              </span>
+              <span style={{ fontWeight: item.format === 1 ? 'bold' : 'medium' }}
+               key={item.text} data-type={item.type}>{item.text}</span>
             ),
           )}
-        </span>
+        </Text>
       );
     }
 
