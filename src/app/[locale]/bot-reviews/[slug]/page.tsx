@@ -49,6 +49,10 @@ export default async function BotReviewPage({
 
   const t = await getTranslations('botReviews.slug');
 
+  const botTitle = data.bot.name;
+
+  console.log('botTitle', botTitle);
+
   return (
     <section className="flex flex-col gap-20 px-[160px] py-20 max-md:gap-10 max-md:p-6">
       <Image
@@ -69,9 +73,12 @@ export default async function BotReviewPage({
           {t('subtitle', { fallback: 'Like This Bot?' })}
         </Title>
         <Text color="light" weight="medium">
-          {t('text', {
-            fallback:
-              'Get started with Automicus HedgeMaster Scalper and take your Forex trading to the next level with AI-powered scalping and superior risk management.',
+          {t('text1', {
+            fallback: `Get started with`,
+          })}{' '}
+          {botTitle}{' '}
+          {t('text2', {
+            fallback: `and take your Forex trading to the next level with AI-powered scalping and superior risk management.`,
           })}
         </Text>
         <Link href={`/catalog/${data.slug}`}>
