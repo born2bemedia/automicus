@@ -152,7 +152,7 @@ export const Footer = () => {
       <span className="h-px w-full bg-[rgba(0,39,68,0.10)]" />
       <section className="text-center opacity-50">
         <Text>
-          © 2025 AQM Global Ltd.{' '}
+          © {new Date().getFullYear()} AQM Global Ltd.{' '}
           {t('copyright', { fallback: 'All rights reserved.' })}
         </Text>
       </section>
